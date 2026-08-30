@@ -1,1 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="About CCC English OER Picks: an independent volunteer faculty project helping California Community College English faculty compare open educational resources."
+  />
+  <title>About This Project | CCC English OER Picks</title>
 
+  <style>
+    :root {
+      --navy: #18324a;
+      --blue: #245d78;
+      --cream: #fffaf2;
+      --gold: #d9a441;
+      --green: #3e6b57;
+      --rose: #9a5b66;
+      --purple: #6c5a86;
+      --text: #263746;
+      --muted: #5f6f7d;
+      --border: #d9e1e7;
+      --white: #ffffff;
+      --shadow: 0 8px 24px rgba(29, 49, 67, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f7f9fb;
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 10px;
+      z-index: 999;
+      background: #ffffff;
+      color: #000000;
+      padding: 10px 14px;
+      border: 2px solid #000000;
+    }
+
+    .skip-link:focus { left: 10px; }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #ffffff;
+      padding: 22px 20px 54px;
+    }
+
+    .topbar {
+      max-width: 1120px;
+      margin: 0 auto 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .home-link {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(255,255,255,.45);
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.06;
+      letter-spacing: -.03em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 20px auto 0;
+      color: #eef5f8;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 54px 20px 70px;
+    }
+
+    section {
+      margin-bottom: 54px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      line-height: 1.2;
+    }
+
+    h3 {
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+
+    p { margin: 0 0 16px; }
+
+    .lead-card {
+      margin-top: -80px;
+      position: relative;
+      background: var(--cream);
+      border: 1px solid #eadfc8;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .principle {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .callout {
+      background: #eef4f7;
+      border-left: 5px solid var(--blue);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-top: 20px;
+    }
+
+    .method-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .scale-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .dots {
+      display: block;
+      color: var(--gold);
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: .08em;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--navy);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: #244c6c;
+      outline: 3px solid rgba(24,50,74,.2);
+      outline-offset: 3px;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    footer {
+      background: #182734;
+      color: #dbe6ec;
+      padding: 34px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-inner p {
+      margin: 6px 0;
+      font-size: .92rem;
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+
+      .principles,
+      .scale {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-top: 40px;
+      }
+
+      .lead-card {
+        margin-top: -62px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="topbar">
+      <a class="brand" href="index.html">CCC English OER Picks</a>
+      <a class="home-link" href="index.html">Back to course guides</a>
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">About the project</div>
+      <h1>A practical faculty guide to a very large OER landscape.</h1>
+      <p>
+        CCC English OER Picks is an independent, volunteer-driven project designed
+        to help California Community College English faculty figure out which open
+        resources are worth investigating first.
+      </p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="lead-card" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why this exists</h2>
+
+      <p>
+        California Community College faculty already have access to a growing
+        collection of excellent open educational resources. The challenge is no
+        longer simply finding OER. It is deciding which resources are the strongest
+        fit for a particular course, what each resource does especially well, and
+        where additional materials may still be needed.
+      </p>
+
+      <p>
+        This site was founded by <strong>Karen Crozer</strong> as a way to make
+        that decision-making process more manageable for English faculty. The goal
+        was never to establish one person's rankings as definitive. Instead, the
+        project is designed to make initial comparisons visible, invite scrutiny,
+        and become more useful as additional faculty contribute their own experience.
+      </p>
+    </section>
+
+    <section aria-labelledby="principles-heading">
+      <h2 id="principles-heading">What the project is trying to do</h2>
+
+      <div class="principles">
+        <div class="principle">
+          <h3>Compare by course</h3>
+          <p>
+            Resources are evaluated differently for C1000, C1001, C1002, and
+            C1003 because the courses ask faculty and students to do different work.
+          </p>
+        </div>
+
+        <div class="principle">
+          <h3>Show strengths and gaps</h3>
+          <p>
+            A useful OER does not need to do everything. The site highlights likely
+            strengths, limitations, and the role a resource might best play.
+          </p>
+        </div>
+
+        <div class="principle">
+          <h3>Separate analysis from experience</h3>
+          <p>
+            Editorial alignment observations and faculty recommendations are shown
+            as different kinds of evidence rather than being blended into one score.
+          </p>
+        </div>
+
+        <div class="principle">
+          <h3>Stay open to correction</h3>
+          <p>
+            Ratings, notes, links, and interpretations can change as resources are
+            revised and as faculty contribute additional context.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="method-heading">
+      <h2 id="method-heading">How the initial alignment review works</h2>
+
+      <div class="method-box">
+        <p>
+          To make initial review manageable across a large number of OER, the project
+          uses an AI-assisted rubric to compare resources with course-specific CCN
+          criteria. A human editor reviews those results, while faculty recommendations
+          and teaching notes provide an independent source of evidence that can confirm,
+          complicate, or correct the initial assessment.
+        </p>
+
+        <p>
+          These observations are meant to help faculty decide what to investigate,
+          not to certify that a resource satisfies a course outline, local curriculum,
+          articulation requirement, or any other institutional standard.
+        </p>
+
+        <div class="callout">
+          <strong>Three dots does not mean “best book.”</strong>
+          It means the resource appears to provide strong coverage of that particular
+          criterion for that particular course. A resource can be excellent while
+          intentionally doing only one or two jobs.
+        </div>
+
+        <div class="scale" aria-label="Alignment scale">
+          <div class="scale-item">
+            <span class="dots">●●●</span>
+            <strong>Strong</strong><br />
+            Substantial coverage
+          </div>
+
+          <div class="scale-item">
+            <span class="dots">●●○</span>
+            <strong>Meaningful</strong><br />
+            Useful coverage
+          </div>
+
+          <div class="scale-item">
+            <span class="dots">●○○</span>
+            <strong>Limited</strong><br />
+            Supplemental coverage
+          </div>
+
+          <div class="scale-item">
+            <span class="dots">○○○</span>
+            <strong>Not a focus</strong><br />
+            Little or no meaningful coverage
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faculty-heading">
+      <h2 id="faculty-heading">Why faculty feedback matters</h2>
+
+      <p>
+        A table of contents can tell us a great deal, but it cannot tell us everything
+        about teaching with a resource. Faculty can identify strengths, omissions,
+        accessibility issues, assignment possibilities, sequencing challenges, student
+        responses, and other realities that may not be visible in an initial review.
+      </p>
+
+      <p>
+        That is why faculty recommendations and teaching notes are not treated as
+        decoration. They are an independent source of evidence that can reinforce,
+        complicate, or change the project's initial editorial observations.
+      </p>
+    </section>
+
+    <section aria-labelledby="community-heading">
+      <h2 id="community-heading">A volunteer faculty project</h2>
+
+      <p>
+        CCC English OER Picks is maintained as a volunteer project with contributions
+        from California Community College English faculty and OER practitioners.
+        Faculty who want to help review resources, suggest additions, share teaching
+        experience, or participate in the broader English OER conversation are invited
+        to join the English OER CCC Google Group.
+      </p>
+
+      <p>
+        <a
+          class="button"
+          href="https://groups.google.com/g/englishoer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the English OER CCC Google Group
+        </a>
+      </p>
+
+      <p class="small-note">
+        Participation in the Google Group does not imply endorsement of the ratings
+        or editorial judgments published on this independent site.
+      </p>
+    </section>
+
+    <section aria-labelledby="oeri-heading">
+      <h2 id="oeri-heading">Built beside OERI, not instead of it</h2>
+
+      <p>
+        ASCCC OERI maintains the comprehensive, discipline-curated collection of
+        English OER. This project is intended as a practical comparison and
+        recommendation layer beside that work, not as a replacement for the official
+        collection or for faculty curriculum review.
+      </p>
+
+      <p>
+        <a
+          href="https://asccc-oeri.org/open-educational-resources-and-english/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit the official ASCCC OERI English collection
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>CCC English OER Picks</strong></p>
+      <p>
+        An independent faculty project. Not affiliated with or endorsed by ASCCC,
+        ASCCC OERI, or the California Community Colleges Chancellor's Office.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
