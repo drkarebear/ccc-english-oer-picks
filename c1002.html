@@ -1,1 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>ENGL C1002 OER Picks | CCC English OER Picks</title>
+
+  <meta
+    name="description"
+    content="Faculty-friendly recommendations and reviews of open educational resources for ENGL C1002: Introduction to Literature."
+  >
+
+  <style>
+    :root {
+      --navy: #17324d;
+      --blue: #245f8f;
+      --blue-light: #eaf4fb;
+      --gold: #d69b2d;
+      --gold-light: #fff8e7;
+      --green: #36765a;
+      --green-light: #edf8f2;
+      --purple: #6b5a8e;
+      --purple-light: #f3f0f8;
+      --red: #9b4c48;
+      --red-light: #fbefee;
+      --text: #243447;
+      --muted: #5f6f7d;
+      --border: #d7e0e7;
+      --surface: #ffffff;
+      --page: #f5f8fa;
+      --shadow: 0 5px 18px rgba(23, 50, 77, 0.08);
+      --radius: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--navy);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    .button {
+      min-height: 44px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #ffffff;
+      color: #000000;
+      padding: 12px 16px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      top: 12px;
+    }
+
+    .site-header {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 18px 20px;
+    }
+
+    .header-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 8px;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus,
+    .site-nav a[aria-current="page"] {
+      background: rgba(255,255,255,0.15);
+    }
+
+    main {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 30px 0 50px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy), #285c76);
+      color: #ffffff;
+      padding: clamp(26px, 5vw, 52px);
+      border-radius: 18px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      font-weight: 700;
+      color: #f5d28b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      margin: 0 0 16px;
+    }
+
+    .hero p:last-child {
+      max-width: 760px;
+      margin-bottom: 0;
+    }
+
+    .notice {
+      background: var(--gold-light);
+      border-left: 5px solid var(--gold);
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin: 22px 0;
+    }
+
+    .notice strong {
+      color: var(--navy);
+    }
+
+    .toolbar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin: 24px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-button {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 15px;
+      cursor: pointer;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .filter-button:hover,
+    .filter-button:focus {
+      border-color: var(--blue);
+    }
+
+    .filter-button.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #ffffff;
+    }
+
+    .section-heading {
+      margin-top: 38px;
+      color: var(--navy);
+      font-size: 1.7rem;
+    }
+
+    .section-intro {
+      margin-top: -7px;
+      color: var(--muted);
+      max-width: 800px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin: 22px 0;
+    }
+
+    .oer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .oer-card.featured {
+      border-top: 6px solid var(--gold);
+    }
+
+    .card-main {
+      padding: 22px;
+      flex: 1;
+    }
+
+    .card-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 11px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .badge-featured {
+      background: var(--gold-light);
+      color: #765417;
+    }
+
+    .badge-primary {
+      background: var(--green-light);
+      color: #255d46;
+    }
+
+    .badge-reader {
+      background: var(--purple-light);
+      color: #58467b;
+    }
+
+    .badge-supplement {
+      background: var(--blue-light);
+      color: #1f5277;
+    }
+
+    .oer-title {
+      margin: 0 0 5px;
+      color: var(--navy);
+      font-size: 1.4rem;
+      line-height: 1.25;
+    }
+
+    .byline {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+    }
+
+    .alignment-label {
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .best-role {
+      margin: 10px 0;
+    }
+
+    .score-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: minmax(130px, 1fr) 95px;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .dots {
+      text-align: right;
+      letter-spacing: 3px;
+      font-size: 1.08rem;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .watch-for {
+      margin-top: 18px;
+      background: var(--gold-light);
+      padding: 12px 14px;
+      border-radius: 9px;
+      font-size: 0.94rem;
+    }
+
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 9px;
+      padding: 10px 15px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .button-primary:hover,
+    .button-primary:focus {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .button-secondary {
+      background: #ffffff;
+      color: var(--navy);
+      border: 2px solid var(--border);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus {
+      border-color: var(--blue);
+      color: var(--navy);
+    }
+
+    .faculty-area {
+      background: #f9fbfc;
+      border-top: 1px solid var(--border);
+      padding: 18px 22px;
+    }
+
+    .faculty-summary {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .notes-list {
+      margin-top: 14px;
+    }
+
+    .faculty-note {
+      background: #ffffff;
+      border-left: 4px solid var(--blue);
+      padding: 12px 14px;
+      margin-top: 10px;
+      border-radius: 7px;
+      font-size: 0.94rem;
+    }
+
+    .faculty-note p {
+      margin: 0 0 5px;
+    }
+
+    .faculty-note small {
+      color: var(--muted);
+    }
+
+    .empty-note {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .auth-panel,
+    .suggest-panel,
+    .method-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 30px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .auth-panel h2,
+    .suggest-panel h2,
+    .method-panel h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      outline: 3px solid rgba(36, 95, 143, 0.15);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .status-message {
+      min-height: 1.5em;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    .status-success {
+      color: var(--green);
+    }
+
+    .status-error {
+      color: var(--red);
+    }
+
+    dialog {
+      width: min(calc(100% - 30px), 620px);
+      border: 0;
+      border-radius: 14px;
+      padding: 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    dialog::backdrop {
+      background: rgba(12, 25, 36, 0.6);
+    }
+
+    .dialog-inner {
+      padding: 24px;
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .dialog-header h2 {
+      color: var(--navy);
+      margin-top: 0;
+    }
+
+    .close-button {
+      background: transparent;
+      border: 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: #ffffff;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    footer .small {
+      color: #d8e3ea;
+    }
+
+    @media (max-width: 800px) {
+      .cards,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+      }
+
+      .site-nav {
+        width: 100%;
+      }
+
+      main {
+        width: min(calc(100% - 22px), var(--max));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        border-radius: 12px;
+        padding: 24px 19px;
+      }
+
+      .score-row {
+        grid-template-columns: 1fr;
+        gap: 1px;
+      }
+
+      .dots {
+        text-align: left;
+      }
+
+      .card-links,
+      .filter-row {
+        flex-direction: column;
+      }
+
+      .button,
+      .filter-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">CCC English OER Picks</a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="c1000.html">C1000</a>
+        <a href="c1001.html">C1001</a>
+        <a href="c1002.html" aria-current="page">C1002</a>
+        <a href="index.html#courses">Other Courses</a>
+        <a href="#suggest">Suggest an OER</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <p class="eyebrow">ENGL C1002</p>
+      <h1>Introduction to Literature</h1>
+
+      <p class="hero-subtitle">
+        Looking for literature to actually teach—not just a writing handbook? Start here.
+      </p>
+
+      <p>
+        This page helps California Community College English faculty compare
+        open resources for a literature-centered ENGL C1002 course: poetry,
+        drama, fiction, diverse literary voices, close reading, literary
+        terminology and approaches, literary analysis, and research and writing
+        about literature. Editorial alignment and faculty experience are
+        intentionally kept separate.
+      </p>
+    </section>
+
+    <div class="notice">
+      <strong>How to read this page:</strong>
+      “C1002 alignment” is an independent analysis of publicly available OER
+      against the statewide course requirements. Faculty recommendations and
+      teaching notes come from site users and are shown separately.
+    </div>
+
+    <section class="toolbar" aria-labelledby="filter-heading">
+      <h2 id="filter-heading">What are you looking for?</h2>
+
+      <div class="filter-row" role="group" aria-label="Filter resources">
+        <button class="filter-button active" data-filter="all" type="button">
+          All resources
+        </button>
+
+        <button class="filter-button" data-filter="featured" type="button">
+          Start here
+        </button>
+
+        <button class="filter-button" data-filter="primary_text" type="button">
+          Complete / near-complete texts
+        </button>
+
+        <button class="filter-button" data-filter="reader" type="button">
+          Anthologies &amp; readings
+        </button>
+
+        <button class="filter-button" data-filter="poetry" type="button">
+          Poetry
+        </button>
+
+        <button class="filter-button" data-filter="drama" type="button">
+          Drama
+        </button>
+
+        <button class="filter-button" data-filter="fiction" type="button">
+          Fiction
+        </button>
+
+        <button class="filter-button" data-filter="analysis" type="button">
+          Literary analysis
+        </button>
+
+        <button class="filter-button" data-filter="supplement" type="button">
+          Analysis / research support
+        </button>
+      </div>
+    </section>
+
+    <section class="auth-panel" aria-labelledby="faculty-login-heading">
+      <h2 id="faculty-login-heading">Want to recommend or review something?</h2>
+
+      <div id="signed-out-area">
+        <p>
+          Browsing is public. To recommend an OER or leave a teaching note,
+          sign in using your email address.
+        </p>
+
+        <form id="login-form">
+          <div class="field">
+            <label for="login-email">Email address</label>
+            <input
+              id="login-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              placeholder="you@college.edu"
+            >
+          </div>
+
+          <button class="button button-primary" type="submit">
+            Email me a sign-in link
+          </button>
+
+          <div
+            id="login-status"
+            class="status-message"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </form>
+      </div>
+
+      <div id="signed-in-area" hidden>
+        <p>
+          Signed in as <strong id="signed-in-email"></strong>.
+        </p>
+
+        <button id="sign-out-button" class="button button-secondary" type="button">
+          Sign out
+        </button>
+      </div>
+    </section>
+
+    <h2 class="section-heading">C1002 OER</h2>
+
+    <p class="section-intro">
+      Start with the featured resources, or filter by genre, anthology, or analysis support.
+    </p>
+
+    <div id="loading" class="loading" role="status">
+      Loading C1002 resources…
+    </div>
+
+    <div id="oer-grid" class="cards" aria-live="polite"></div>
+
+    <section class="method-panel" id="how-we-rate">
+      <h2>How we look at C1002 alignment</h2>
+
+      <p>
+        The editorial review considers eight C1002-specific areas:
+        literary breadth, poetry, drama, fiction, diverse literary voices,
+        literary terms and critical approaches, close reading and literary
+        analysis, and research and writing about literature.
+      </p>
+
+      <p>
+        Because C1002 is an Introduction to Literature course, resources are
+        not rewarded simply for being strong composition or argument texts.
+        A strong overall match should help faculty teach literature across the
+        required genres and provide substantial support for interpreting and
+        writing about literary works.
+      </p>
+
+      <p>
+        A three-dot rating means the resource contains strong coverage of that
+        area; two dots means meaningful coverage; one dot means limited or
+        supplemental coverage. A zero does not mean the resource is poor—it
+        usually means that is not what the resource is designed to do.
+      </p>
+
+      <p class="small">
+        These are independent editorial assessments, not ASCCC/OERI ratings
+        or endorsements.
+      </p>
+    </section>
+
+    <section class="suggest-panel" id="suggest" aria-labelledby="suggest-heading">
+      <h2 id="suggest-heading">Know an OER we're missing?</h2>
+
+      <p>
+        Faculty can suggest another open resource. Suggestions are reviewed
+        before anything is added to the public catalog.
+      </p>
+
+      <form id="suggest-form">
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="suggest-title">OER title</label>
+            <input id="suggest-title" required>
+          </div>
+
+          <div class="field">
+            <label for="suggest-url">Link</label>
+            <input id="suggest-url" type="url" required>
+          </div>
+
+          <div class="field">
+            <label for="suggest-author">Author / creator</label>
+            <input id="suggest-author">
+          </div>
+
+          <div class="field">
+            <label for="suggest-license">License, if known</label>
+            <input id="suggest-license" placeholder="CC BY, CC BY-NC-SA, etc.">
+          </div>
+
+          <div class="field">
+            <label for="suggest-college">College, optional</label>
+            <input id="suggest-college">
+          </div>
+
+          <div class="field">
+            <label for="suggest-course">Best course</label>
+            <select id="suggest-course">
+              <option value="ENGL C1002">ENGL C1002</option>
+              <option value="ENGL C1002">ENGL C1002</option>
+              <option value="ENGL C1003">ENGL C1003</option>
+            </select>
+          </div>
+
+          <div class="field field-full">
+            <label for="suggest-reason">Why should faculty take a look?</label>
+            <textarea
+              id="suggest-reason"
+              maxlength="1000"
+            ></textarea>
+          </div>
+
+        </div>
+
+        <button class="button button-primary" type="submit">
+          Suggest this OER
+        </button>
+
+        <div
+          id="suggest-status"
+          class="status-message"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </form>
+    </section>
+
+  </main>
+
+  <dialog id="review-dialog">
+    <div class="dialog-inner">
+
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow" style="color:#765417;">Faculty experience</p>
+          <h2 id="review-dialog-title">Recommend this OER</h2>
+        </div>
+
+        <button
+          class="close-button"
+          id="close-review-dialog"
+          type="button"
+          aria-label="Close review form"
+        >
+          ×
+        </button>
+      </div>
+
+      <form id="review-form">
+
+        <input id="review-oer-id" type="hidden">
+
+        <div class="field">
+          <label for="review-recommend">Would you recommend this for ENGL C1002?</label>
+
+          <select id="review-recommend" required>
+            <option value="true">Yes — recommend</option>
+            <option value="false">No — would not recommend</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="review-use-type">How have you used it?</label>
+
+          <select id="review-use-type" required>
+            <option value="primary_text">Primary / whole text</option>
+            <option value="selected_chapters">Selected chapters</option>
+            <option value="supplement">Supplement</option>
+            <option value="reader">Reader / readings</option>
+            <option value="reviewed_only">Reviewed it, but haven't taught with it</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="review-use-again">Would you use it again?</label>
+
+          <select id="review-use-again">
+            <option value="">Prefer not to say</option>
+            <option value="yes">Yes</option>
+            <option value="maybe">Maybe</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="review-comment">Teaching note, optional</label>
+
+          <textarea
+            id="review-comment"
+            maxlength="1000"
+            placeholder="What worked? What would you supplement? What should another instructor know?"
+          ></textarea>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="review-name">Display name, optional</label>
+            <input id="review-name" placeholder="First name, initials, etc.">
+          </div>
+
+          <div class="field">
+            <label for="review-college">College, optional</label>
+            <input id="review-college">
+          </div>
+        </div>
+
+        <button class="button button-primary" type="submit">
+          Submit faculty review
+        </button>
+
+        <div
+          id="review-status"
+          class="status-message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </form>
+    </div>
+  </dialog>
+
+  <footer>
+    <div class="footer-inner">
+      <p>
+        <strong>CCC English OER Picks</strong>
+      </p>
+
+      <p class="small">
+        Independent faculty project. Not affiliated with or endorsed by ASCCC,
+        ASCCC OERI, the California Community Colleges Chancellor's Office,
+        or any individual California Community College.
+      </p>
+    </div>
+  </footer>
+
+  <script type="module">
+
+    import { createClient } from
+      "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+    const SUPABASE_URL =
+      "https://omrhrzxoxdmhzajwhlhy.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_Fy-kOF_5GRoLSUUnUxi8dw_gCRPxcJg";
+
+    const supabase = createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+    let currentUser = null;
+    let c1002CourseId = null;
+    let allResources = [];
+    let approvedReviews = [];
+
+    const grid = document.getElementById("oer-grid");
+    const loading = document.getElementById("loading");
+
+    function escapeHtml(value = "") {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function scoreDots(score) {
+      const number = Number(score || 0);
+
+      return `${"●".repeat(number)}${"○".repeat(3 - number)}`;
+    }
+
+    function resourceBadge(resource) {
+
+      if (resource.resource_type === "reader") {
+        return `<span class="badge badge-reader">Reader / anthology</span>`;
+      }
+
+      if (resource.resource_type === "supplement") {
+        return `<span class="badge badge-supplement">Supplement</span>`;
+      }
+
+      return `<span class="badge badge-primary">Primary text</span>`;
+    }
+
+    function reviewsFor(oerId) {
+      return approvedReviews.filter(
+        review => review.oer_id === oerId
+      );
+    }
+
+    function facultySummary(oerId) {
+
+      const reviews = reviewsFor(oerId);
+
+      if (!reviews.length) {
+        return "No approved faculty reviews yet.";
+      }
+
+      const recommendCount =
+        reviews.filter(review => review.recommend === true).length;
+
+      const percentage =
+        Math.round((recommendCount / reviews.length) * 100);
+
+      return `${percentage}% recommend · ${reviews.length} faculty response${reviews.length === 1 ? "" : "s"}`;
+    }
+
+    function facultyNotes(oerId) {
+
+      const reviews = reviewsFor(oerId)
+        .filter(review => review.comment);
+
+      if (!reviews.length) {
+        return `
+          <p class="empty-note">
+            No teaching notes yet. Be the first to add one.
+          </p>
+        `;
+      }
+
+      return reviews.slice(0, 4).map(review => {
+
+        const attribution = [
+          review.display_name,
+          review.college
+        ]
+          .filter(Boolean)
+          .map(escapeHtml)
+          .join(" · ");
+
+        return `
+          <div class="faculty-note">
+            <p>“${escapeHtml(review.comment)}”</p>
+            <small>${attribution || "CCC English faculty"}</small>
+          </div>
+        `;
+
+      }).join("");
+    }
+
+    function renderCard(item) {
+
+      const oer = item.oers;
+      const courseType = item.course_resource_type || oer.resource_type || "supplement";
+      const courseFeatured = Boolean(item.course_featured);
+      const courseBestRole = item.best_role || oer.best_role || "Varies by course design";
+      const courseAlignmentLabel = item.alignment_label || "C1002 literature resource";
+      const courseAlignmentNotes = item.alignment_notes || "";
+
+      const featuredBadge = courseFeatured
+        ? `<span class="badge badge-featured">★ Start here</span>`
+        : "";
+
+      return `
+        <article
+          class="oer-card ${courseFeatured ? "featured" : ""}"
+          data-type="${escapeHtml(courseType)}"
+          data-featured="${courseFeatured ? "true" : "false"}"
+        >
+
+          <div class="card-main">
+
+            <div class="card-kicker">
+              ${featuredBadge}
+              ${resourceBadge({resource_type: courseType})}
+            </div>
+
+            <h3 class="oer-title">
+              ${escapeHtml(oer.title)}
+            </h3>
+
+            <p class="byline">
+              ${escapeHtml(oer.author || "")}
+              ${oer.platform ? ` · ${escapeHtml(oer.platform)}` : ""}
+              ${oer.license ? ` · ${escapeHtml(oer.license)}` : ""}
+            </p>
+
+            <div class="alignment-label">
+              ${escapeHtml(courseAlignmentLabel)}
+            </div>
+
+            <p class="best-role">
+              <strong>Best role:</strong>
+              ${escapeHtml(courseBestRole)}
+            </p>
+
+            <p>
+              ${escapeHtml(courseAlignmentNotes)}
+            </p>
+
+            <div class="score-grid" aria-label="C1002 alignment">
+
+              <div class="score-row">
+                <span>Literary breadth</span>
+                <span class="dots" aria-label="${item.literary_breadth_alignment} out of 3">
+                  ${scoreDots(item.literary_breadth_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Poetry</span>
+                <span class="dots" aria-label="${item.poetry_alignment} out of 3">
+                  ${scoreDots(item.poetry_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Drama</span>
+                <span class="dots" aria-label="${item.drama_alignment} out of 3">
+                  ${scoreDots(item.drama_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Fiction</span>
+                <span class="dots" aria-label="${item.fiction_alignment} out of 3">
+                  ${scoreDots(item.fiction_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Diverse literary voices</span>
+                <span class="dots" aria-label="${item.diverse_voices_alignment} out of 3">
+                  ${scoreDots(item.diverse_voices_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Literary terms &amp; approaches</span>
+                <span class="dots" aria-label="${item.literary_terms_alignment} out of 3">
+                  ${scoreDots(item.literary_terms_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Close reading &amp; analysis</span>
+                <span class="dots" aria-label="${item.close_reading_alignment} out of 3">
+                  ${scoreDots(item.close_reading_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Research &amp; writing about literature</span>
+                <span class="dots" aria-label="${item.literature_research_writing_alignment} out of 3">
+                  ${scoreDots(item.literature_research_writing_alignment)}
+                </span>
+              </div>
+
+            </div>
+
+            ${item.watch_for ? `
+              <div class="watch-for">
+                <strong>Watch for:</strong>
+                ${escapeHtml(item.watch_for)}
+              </div>
+            ` : ""}
+
+            ${oer.ancillary_notes ? `
+              <p>
+                <strong>Ancillaries:</strong>
+                ${escapeHtml(oer.ancillary_notes)}
+              </p>
+            ` : ""}
+
+            <div class="card-links">
+
+              <a
+                class="button button-primary"
+                href="${escapeHtml(oer.url)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open the OER
+              </a>
+
+              <button
+                class="button button-secondary review-button"
+                type="button"
+                data-oer-id="${oer.id}"
+                data-oer-title="${escapeHtml(oer.title)}"
+              >
+                Recommend / review
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="faculty-area">
+
+            <div class="faculty-summary">
+              Faculty experience:
+              ${facultySummary(oer.id)}
+            </div>
+
+            <div class="notes-list">
+              ${facultyNotes(oer.id)}
+            </div>
+
+          </div>
+
+        </article>
+      `;
+    }
+
+    function renderResources(filter = "all") {
+
+      let resources = [...allResources];
+
+      if (filter === "featured") {
+        resources = resources.filter(
+          item => item.course_featured === true
+        );
+      }
+
+      else if (filter === "poetry") {
+        resources = resources.filter(
+          item => Number(item.poetry_alignment || 0) >= 3
+        );
+      }
+
+      else if (filter === "drama") {
+        resources = resources.filter(
+          item => Number(item.drama_alignment || 0) >= 3
+        );
+      }
+
+      else if (filter === "fiction") {
+        resources = resources.filter(
+          item => Number(item.fiction_alignment || 0) >= 3
+        );
+      }
+
+      else if (filter === "analysis") {
+        resources = resources.filter(
+          item =>
+            Number(item.close_reading_alignment || 0) >= 3 ||
+            Number(item.literary_terms_alignment || 0) >= 3
+        );
+      }
+
+      else if (filter !== "all") {
+        resources = resources.filter(
+          item => (item.course_resource_type || item.oers.resource_type) === filter
+        );
+      }
+
+      if (!resources.length) {
+        grid.innerHTML =
+          `<p>No resources match this filter yet.</p>`;
+        return;
+      }
+
+      grid.innerHTML = resources
+        .map(renderCard)
+        .join("");
+
+      document
+        .querySelectorAll(".review-button")
+        .forEach(button => {
+          button.addEventListener(
+            "click",
+            () => openReviewDialog(button)
+          );
+        });
+    }
+
+    async function loadPage() {
+
+      loading.hidden = false;
+
+      const { data: courseData, error: courseError } =
+        await supabase
+          .from("courses")
+          .select("id")
+          .eq("code", "ENGL C1002")
+          .single();
+
+      if (courseError) {
+        loading.textContent =
+          "We couldn't load the C1002 course record.";
+        console.error(courseError);
+        return;
+      }
+
+      c1002CourseId = courseData.id;
+
+      const { data: resourceData, error: resourceError } =
+        await supabase
+          .from("oer_courses")
+          .select(`
+            course_resource_type,
+            course_featured,
+            best_role,
+            alignment_label,
+            alignment_notes,
+            literary_breadth_alignment,
+            poetry_alignment,
+            drama_alignment,
+            fiction_alignment,
+            diverse_voices_alignment,
+            literary_terms_alignment,
+            close_reading_alignment,
+            literature_research_writing_alignment,
+            watch_for,
+            editorial_notes,
+            oers (
+              id,
+              title,
+              author,
+              url,
+              platform,
+              license,
+              resource_type,
+              ancillary_notes
+            )
+          `)
+          .eq("course_id", c1002CourseId);
+
+      if (resourceError) {
+        loading.textContent =
+          "We couldn't load the OER catalog.";
+        console.error(resourceError);
+        return;
+      }
+
+      const { data: reviewData, error: reviewError } =
+        await supabase
+          .from("reviews")
+          .select(`
+            oer_id,
+            recommend,
+            use_type,
+            would_use_again,
+            comment,
+            college,
+            display_name,
+            created_at
+          `)
+          .eq("course_id", c1002CourseId);
+
+      if (reviewError) {
+        console.error(reviewError);
+      }
+
+      allResources = resourceData || [];
+      approvedReviews = reviewData || [];
+
+      allResources.sort((a, b) => {
+
+        if (a.course_featured !== b.course_featured) {
+          return a.course_featured ? -1 : 1;
+        }
+
+        return a.oers.title.localeCompare(b.oers.title);
+      });
+
+      loading.hidden = true;
+
+      renderResources("all");
+    }
+
+    document
+      .querySelectorAll(".filter-button")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          document
+            .querySelectorAll(".filter-button")
+            .forEach(item => item.classList.remove("active"));
+
+          button.classList.add("active");
+
+          renderResources(button.dataset.filter);
+        });
+
+      });
+
+    async function updateAuthUI() {
+
+      const {
+        data: { session }
+      } = await supabase.auth.getSession();
+
+      currentUser = session?.user || null;
+
+      const signedOut =
+        document.getElementById("signed-out-area");
+
+      const signedIn =
+        document.getElementById("signed-in-area");
+
+      if (currentUser) {
+
+        signedOut.hidden = true;
+        signedIn.hidden = false;
+
+        document.getElementById(
+          "signed-in-email"
+        ).textContent = currentUser.email || "Signed-in user";
+
+      } else {
+
+        signedOut.hidden = false;
+        signedIn.hidden = true;
+
+      }
+    }
+
+    supabase.auth.onAuthStateChange(
+      async () => {
+        await updateAuthUI();
+      }
+    );
+
+    document
+      .getElementById("login-form")
+      .addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        const email =
+          document.getElementById("login-email").value.trim();
+
+        const status =
+          document.getElementById("login-status");
+
+        status.textContent = "Sending sign-in link…";
+        status.className = "status-message";
+
+        const { error } =
+          await supabase.auth.signInWithOtp({
+            email,
+            options: {
+              emailRedirectTo: window.location.href
+            }
+          });
+
+        if (error) {
+          status.textContent = error.message;
+          status.className =
+            "status-message status-error";
+          return;
+        }
+
+        status.textContent =
+          "Check your email for the sign-in link.";
+        status.className =
+          "status-message status-success";
+
+      });
+
+    document
+      .getElementById("sign-out-button")
+      .addEventListener("click", async () => {
+
+        await supabase.auth.signOut();
+        await updateAuthUI();
+
+      });
+
+    const reviewDialog =
+      document.getElementById("review-dialog");
+
+    function openReviewDialog(button) {
+
+      if (!currentUser) {
+
+        document
+          .getElementById("faculty-login-heading")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+        document.getElementById(
+          "login-status"
+        ).textContent =
+          "Sign in first, then you can recommend or review this OER.";
+
+        return;
+      }
+
+      document.getElementById(
+        "review-oer-id"
+      ).value = button.dataset.oerId;
+
+      document.getElementById(
+        "review-dialog-title"
+      ).textContent =
+        button.dataset.oerTitle;
+
+      document.getElementById(
+        "review-status"
+      ).textContent = "";
+
+      reviewDialog.showModal();
+    }
+
+    document
+      .getElementById("close-review-dialog")
+      .addEventListener(
+        "click",
+        () => reviewDialog.close()
+      );
+
+    document
+      .getElementById("review-form")
+      .addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        if (!currentUser) {
+          return;
+        }
+
+        const status =
+          document.getElementById("review-status");
+
+        status.textContent = "Submitting…";
+        status.className = "status-message";
+
+        const payload = {
+
+          user_id: currentUser.id,
+
+          oer_id:
+            document.getElementById(
+              "review-oer-id"
+            ).value,
+
+          course_id: c1002CourseId,
+
+          recommend:
+            document.getElementById(
+              "review-recommend"
+            ).value === "true",
+
+          use_type:
+            document.getElementById(
+              "review-use-type"
+            ).value,
+
+          would_use_again:
+            document.getElementById(
+              "review-use-again"
+            ).value || null,
+
+          comment:
+            document.getElementById(
+              "review-comment"
+            ).value.trim() || null,
+
+          display_name:
+            document.getElementById(
+              "review-name"
+            ).value.trim() || null,
+
+          college:
+            document.getElementById(
+              "review-college"
+            ).value.trim() || null,
+
+          status: "pending"
+        };
+
+        const { error } =
+          await supabase
+            .from("reviews")
+            .insert(payload);
+
+        if (error) {
+
+          if (error.code === "23505") {
+            status.textContent =
+              "You've already submitted a C1002 review for this OER.";
+          } else {
+            status.textContent = error.message;
+          }
+
+          status.className =
+            "status-message status-error";
+
+          return;
+        }
+
+        status.textContent =
+          "Thanks! Your review was submitted and is waiting for moderation.";
+
+        status.className =
+          "status-message status-success";
+
+        event.target.reset();
+
+      });
+
+    document
+      .getElementById("suggest-form")
+      .addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        const status =
+          document.getElementById("suggest-status");
+
+        if (!currentUser) {
+
+          status.textContent =
+            "Please sign in before suggesting an OER.";
+
+          status.className =
+            "status-message status-error";
+
+          document
+            .getElementById("faculty-login-heading")
+            .scrollIntoView({
+              behavior: "smooth"
+            });
+
+          return;
+        }
+
+        status.textContent = "Submitting…";
+        status.className = "status-message";
+
+        const payload = {
+
+          user_id: currentUser.id,
+
+          title:
+            document.getElementById(
+              "suggest-title"
+            ).value.trim(),
+
+          url:
+            document.getElementById(
+              "suggest-url"
+            ).value.trim(),
+
+          author:
+            document.getElementById(
+              "suggest-author"
+            ).value.trim() || null,
+
+          license:
+            document.getElementById(
+              "suggest-license"
+            ).value.trim() || null,
+
+          suggested_course:
+            document.getElementById(
+              "suggest-course"
+            ).value,
+
+          reason:
+            document.getElementById(
+              "suggest-reason"
+            ).value.trim() || null,
+
+          college:
+            document.getElementById(
+              "suggest-college"
+            ).value.trim() || null,
+
+          status: "pending"
+        };
+
+        const { error } =
+          await supabase
+            .from("suggestions")
+            .insert(payload);
+
+        if (error) {
+
+          status.textContent = error.message;
+
+          status.className =
+            "status-message status-error";
+
+          return;
+        }
+
+        status.textContent =
+          "Thanks! Your suggestion was submitted for review.";
+
+        status.className =
+          "status-message status-success";
+
+        event.target.reset();
+
+      });
+
+    await updateAuthUI();
+    await loadPage();
+
+  </script>
+
+</body>
+</html>
