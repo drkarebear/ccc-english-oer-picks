@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Faculty-to-faculty recommendations for English OERs used in California Community Colleges."
+  />
+
+  <title>CCC English OER Picks</title>
+
+  <style>
+    :root {
+      --navy: #18324a;
+      --blue: #245d78;
+      --cream: #fffaf2;
+      --gold: #d9a441;
+      --green: #3e6b57;
+      --rose: #9a5b66;
+      --purple: #6c5a86;
+      --text: #263746;
+      --muted: #5f6f7d;
+      --border: #d9e1e7;
+      --white: #ffffff;
+      --shadow: 0 8px 24px rgba(29, 49, 67, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f7f9fb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 10px;
+      z-index: 999;
+      background: #ffffff;
+      color: #000000;
+      padding: 10px 14px;
+      border: 2px solid #000000;
+    }
+
+    .skip-link:focus {
+      left: 10px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      padding: 24px 20px 56px;
+    }
+
+    .topbar {
+      max-width: 1180px;
+      margin: 0 auto 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .about-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.3rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 22px auto 0;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      color: #eef5f8;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    .intro-wrap {
+      max-width: 1050px;
+      margin: -28px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-card {
+      background: var(--cream);
+      border: 1px solid #eadfc8;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card strong {
+      color: var(--navy);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 2.45rem);
+      line-height: 1.2;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .course-card:hover,
+    .course-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(29, 49, 67, 0.14);
+      outline: 3px solid rgba(36, 93, 120, 0.2);
+      outline-offset: 3px;
+    }
+
+    .course-code {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .c1000 .course-code {
+      background: #e7f1f5;
+      color: #245d78;
+    }
+
+    .c1001 .course-code {
+      background: #eef3e9;
+      color: #486b3c;
+    }
+
+    .c1002 .course-code {
+      background: #f6e9ec;
+      color: #874955;
+    }
+
+    .c1003 .course-code {
+      background: #eeeaf5;
+      color: #625078;
+    }
+
+    .course-card h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+
+    .course-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .card-link {
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    .how-it-works {
+      background: #eef4f7;
+      border-top: 1px solid #dbe6ec;
+      border-bottom: 1px solid #dbe6ec;
+    }
+
+    .steps {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 54px 20px;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .step {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid #dbe4e9;
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .oeri-note {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    .oeri-note p {
+      max-width: 760px;
+      margin: 0 auto 20px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--navy);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: #244c6c;
+      outline: 3px solid rgba(24, 50, 74, 0.2);
+      outline-offset: 3px;
+    }
+
+    footer {
+      background: #182734;
+      color: #dbe6ec;
+      padding: 34px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-inner p {
+      margin: 6px 0;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding-bottom: 44px;
+      }
+
+      .topbar {
+        margin-bottom: 32px;
+      }
+
+      .course-grid,
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-card {
+        min-height: auto;
+      }
+
+      .section {
+        padding-top: 46px;
+        padding-bottom: 46px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <div class="topbar">
+      <div class="brand">CCC English OER Picks</div>
+      <a class="about-link" href="#about">About this project</a>
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">Faculty-to-faculty OER recommendations</div>
+
+      <h1>Too many OERs?<br />Start with the ones faculty recommend.</h1>
+
+      <p>
+        A casual, independent project for California Community College English
+        faculty to share which open educational resources are actually worth
+        exploring.
+      </p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="intro-wrap">
+      <section class="intro-card" aria-labelledby="why-heading">
+        <h2 id="why-heading">The idea is simple.</h2>
+
+        <p>
+          The ASCCC OERI already maintains an excellent collection of English
+          OER. This project adds one practical layer:
+          <strong>What are other CCC English faculty actually using and recommending?</strong>
+        </p>
+
+        <p>
+          Browse by course, see which texts rise to the top, and eventually add
+          your own recommendation or brief teaching note.
+        </p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="course-heading">
+      <h2 id="course-heading">Choose Your Course</h2>
+
+      <p class="section-lead">
+        Start with the course you teach. Each page will rank available OER
+        based on recommendations from California Community College English faculty.
+      </p>
+
+      <div class="course-grid">
+        <a class="course-card c1000" href="c1000.html">
+          <span class="course-code">ENGL C1000</span>
+
+          <h3>Academic Reading and Writing</h3>
+
+          <p>
+            Find faculty-recommended OER for first-year college composition,
+            academic reading, rhetoric, research, and writing.
+          </p>
+
+          <span class="card-link">See C1000 faculty picks →</span>
+        </a>
+
+        <a class="course-card c1001" href="c1001.html">
+          <span class="course-code">ENGL C1001</span>
+
+          <h3>Critical Thinking and Writing</h3>
+
+          <p>
+            Compare OER for argument, critical thinking, rhetorical analysis,
+            research, and evidence-based academic writing.
+          </p>
+
+          <span class="card-link">See C1001 faculty picks →</span>
+        </a>
+
+        <a class="course-card c1002" href="c1002.html">
+          <span class="course-code">ENGL C1002</span>
+
+          <h3>Introduction to Literature</h3>
+
+          <p>
+            Explore faculty-recommended texts, anthologies, and resources for
+            introducing students to literary study.
+          </p>
+
+          <span class="card-link">See C1002 faculty picks →</span>
+        </a>
+
+        <a class="course-card c1003" href="c1003.html">
+          <span class="course-code">ENGL C1003</span>
+
+          <h3>Critical Thinking and Writing through Literature</h3>
+
+          <p>
+            Find resources that combine literary study with argument,
+            analytical writing, critical thinking, and research.
+          </p>
+
+          <span class="card-link">See C1003 faculty picks →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="how-it-works" aria-labelledby="how-heading">
+      <div class="steps">
+        <h2 id="how-heading">How It Works</h2>
+
+        <div class="step-grid">
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+
+            <h3>Find your course.</h3>
+
+            <p>
+              Go directly to the OER options associated with the course you teach.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+
+            <h3>See what faculty recommend.</h3>
+
+            <p>
+              Quickly identify which resources other CCC English faculty think
+              are worth opening first.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+
+            <h3>Share what worked.</h3>
+
+            <p>
+              If you have used a resource, add a quick recommendation or teaching
+              note to help the next faculty member.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="oeri-note" id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">Built beside OERI, not instead of it.</h2>
+
+      <p>
+        ASCCC OERI maintains the comprehensive, discipline-curated collection of
+        English OER. This independent project is simply a faculty-to-faculty
+        recommendation layer designed to make that collection easier to navigate.
+      </p>
+
+      <a
+        class="button"
+        href="https://asccc-oeri.org/open-educational-resources-and-english/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit the Official ASCCC OERI English Collection
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>CCC English OER Picks</strong></p>
+
+      <p>
+        An independent faculty project. Not affiliated with or endorsed by
+        ASCCC, ASCCC OERI, or the California Community Colleges Chancellor's Office.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
