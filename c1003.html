@@ -293,6 +293,12 @@
       color: #1f5277;
     }
 
+    .badge-role {
+      background: #eef3f6;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
     .oer-title {
       margin: 0 0 5px;
       color: var(--navy);
@@ -683,28 +689,24 @@
           Start here
         </button>
 
-        <button class="filter-button" data-filter="primary_text" type="button">
-          Literature + writing cores
+        <button class="filter-button" data-filter="course_spine" type="button">
+          Course spines
         </button>
 
-        <button class="filter-button" data-filter="argument" type="button">
-          Argument &amp; thesis
+        <button class="filter-button" data-filter="literature_spine" type="button">
+          Literature spines
         </button>
 
-        <button class="filter-button" data-filter="logic" type="button">
-          Logic &amp; fallacies
+        <button class="filter-button" data-filter="critical_thinking_companion" type="button">
+          Critical-thinking companions
         </button>
 
-        <button class="filter-button" data-filter="analysis" type="button">
-          Literary analysis
+        <button class="filter-button" data-filter="writing_research_companion" type="button">
+          Writing &amp; research companions
         </button>
 
-        <button class="filter-button" data-filter="reader" type="button">
+        <button class="filter-button" data-filter="anthology" type="button">
           Anthologies &amp; readings
-        </button>
-
-        <button class="filter-button" data-filter="supplement" type="button">
-          Research / writing support
         </button>
       </div>
     </section>
@@ -758,7 +760,7 @@
     <h2 class="section-heading">C1003 OER</h2>
 
     <p class="section-intro">
-      Start with the featured resources, or filter by the part of C1003 you most need to strengthen.
+      Start with three carefully selected starting points, or browse by the role a resource can play in building a C1003 course. A strong course may intentionally combine a literature-centered spine with focused critical-thinking or writing support.
     </p>
 
     <div id="loading" class="loading" role="status">
@@ -787,10 +789,13 @@
       </p>
 
       <p>
-        A three-dot rating means the resource contains strong coverage of that
-        area; two dots means meaningful coverage; one dot means limited or
-        supplemental coverage. A zero does not mean the resource is poor—it
-        usually means that is not what the resource is designed to do.
+        Scores reflect <strong>explicit instructional coverage</strong>, not simply
+        opportunities for students to practice a skill. Three dots means substantial,
+        teachable instruction in that area; two dots means meaningful instruction is
+        present but supplementation may be appropriate; one dot means the resource
+        touches the area or supports practice without substantial direct instruction.
+        A zero does not mean the resource is poor—it usually means that is not what
+        the resource is designed to teach.
       </p>
 
       <p class="small">
@@ -1037,6 +1042,22 @@
       return `<span class="badge badge-primary">Primary text</span>`;
     }
 
+    function courseRoleBadge(role) {
+      const labels = {
+        course_spine: "Course spine",
+        literature_spine: "Literature spine",
+        critical_thinking_companion: "Critical-thinking companion",
+        literary_analysis_companion: "Literary-analysis companion",
+        anthology: "Anthology / readings",
+        writing_research_companion: "Writing & research companion",
+        focused_support: "Focused support"
+      };
+
+      return role && labels[role]
+        ? `<span class="badge badge-role">${labels[role]}</span>`
+        : "";
+    }
+
     function reviewsFor(oerId) {
       return approvedReviews.filter(
         review => review.oer_id === oerId
@@ -1101,6 +1122,7 @@
       const courseBestRole = item.best_role || oer.best_role || "Varies by course design";
       const courseAlignmentLabel = item.alignment_label || "C1003 resource";
       const courseAlignmentNotes = item.alignment_notes || "";
+      const courseRole = item.course_role || "";
 
       const featuredBadge = courseFeatured
         ? `<span class="badge badge-featured">★ Start here</span>`
@@ -1117,7 +1139,7 @@
 
             <div class="card-kicker">
               ${featuredBadge}
-              ${resourceBadge({resource_type: courseType})}
+              ${courseRoleBadge(courseRole) || resourceBadge({resource_type: courseType})}
             </div>
 
             <h3 class="oer-title">
@@ -1268,31 +1290,9 @@
         );
       }
 
-      else if (filter === "argument") {
-        resources = resources.filter(
-          item => Number(item.argument_thesis_alignment || 0) >= 3
-        );
-      }
-
-      else if (filter === "logic") {
-        resources = resources.filter(
-          item =>
-            Number(item.critical_reasoning_alignment || 0) >= 3 ||
-            Number(item.bias_fallacies_alignment || 0) >= 3
-        );
-      }
-
-      else if (filter === "analysis") {
-        resources = resources.filter(
-          item =>
-            Number(item.close_reading_alignment || 0) >= 3 ||
-            Number(item.critical_approaches_alignment || 0) >= 3
-        );
-      }
-
       else if (filter !== "all") {
         resources = resources.filter(
-          item => (item.course_resource_type || item.oers.resource_type) === filter
+          item => item.course_role === filter
         );
       }
 
@@ -1342,6 +1342,9 @@
           .select(`
             course_resource_type,
             course_featured,
+            public_display,
+            course_role,
+            review_confidence,
             best_role,
             alignment_label,
             alignment_notes,
@@ -1366,7 +1369,8 @@
               ancillary_notes
             )
           `)
-          .eq("course_id", c1003CourseId);
+          .eq("course_id", c1003CourseId)
+          .eq("public_display", true);
 
       if (resourceError) {
         loading.textContent =
@@ -1401,6 +1405,23 @@
 
         if (a.course_featured !== b.course_featured) {
           return a.course_featured ? -1 : 1;
+        }
+
+        const roleOrder = {
+          course_spine: 1,
+          literature_spine: 2,
+          critical_thinking_companion: 3,
+          writing_research_companion: 4,
+          anthology: 5,
+          literary_analysis_companion: 6,
+          focused_support: 7
+        };
+
+        const aRole = roleOrder[a.course_role] || 99;
+        const bRole = roleOrder[b.course_role] || 99;
+
+        if (aRole !== bRole) {
+          return aRole - bRole;
         }
 
         return a.oers.title.localeCompare(b.oers.title);
