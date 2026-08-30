@@ -671,15 +671,23 @@
         </button>
 
         <button class="filter-button" data-filter="primary_text" type="button">
-          Primary texts
+          Core / primary texts
+        </button>
+
+        <button class="filter-button" data-filter="logic" type="button">
+          Logic &amp; reasoning
+        </button>
+
+        <button class="filter-button" data-filter="argument" type="button">
+          Argument &amp; rhetoric
         </button>
 
         <button class="filter-button" data-filter="reader" type="button">
-          Readers &amp; anthologies
+          Readers &amp; nonfiction
         </button>
 
         <button class="filter-button" data-filter="supplement" type="button">
-          Supplements
+          Research &amp; handbook
         </button>
       </div>
     </section>
@@ -1052,23 +1060,28 @@
     function renderCard(item) {
 
       const oer = item.oers;
+      const courseType = item.course_resource_type || oer.resource_type || "supplement";
+      const courseFeatured = Boolean(item.course_featured);
+      const courseBestRole = item.best_role || oer.best_role || "Varies by course design";
+      const courseAlignmentLabel = item.alignment_label || "C1001 resource";
+      const courseAlignmentNotes = item.alignment_notes || "";
 
-      const featuredBadge = oer.is_featured
+      const featuredBadge = courseFeatured
         ? `<span class="badge badge-featured">★ Start here</span>`
         : "";
 
       return `
         <article
-          class="oer-card ${oer.is_featured ? "featured" : ""}"
-          data-type="${escapeHtml(oer.resource_type)}"
-          data-featured="${oer.is_featured ? "true" : "false"}"
+          class="oer-card ${courseFeatured ? "featured" : ""}"
+          data-type="${escapeHtml(courseType)}"
+          data-featured="${courseFeatured ? "true" : "false"}"
         >
 
           <div class="card-main">
 
             <div class="card-kicker">
               ${featuredBadge}
-              ${resourceBadge(oer)}
+              ${resourceBadge({resource_type: courseType})}
             </div>
 
             <h3 class="oer-title">
@@ -1082,87 +1095,73 @@
             </p>
 
             <div class="alignment-label">
-              ${escapeHtml(oer.alignment_label || "C1001 resource")}
+              ${escapeHtml(courseAlignmentLabel)}
             </div>
 
             <p class="best-role">
               <strong>Best role:</strong>
-              ${escapeHtml(oer.best_role || "Varies by course design")}
+              ${escapeHtml(courseBestRole)}
             </p>
 
             <p>
-              ${escapeHtml(oer.alignment_notes || "")}
+              ${escapeHtml(courseAlignmentNotes)}
             </p>
 
             <div class="score-grid" aria-label="C1001 alignment">
 
               <div class="score-row">
-                <span>Critical reading &amp; analysis</span>
-                <span
-                  class="dots"
-                  aria-label="${item.reading_alignment} out of 3"
-                >
+                <span>Critical reading</span>
+                <span class="dots" aria-label="${item.reading_alignment} out of 3">
                   ${scoreDots(item.reading_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Rhetoric &amp; argument</span>
-                <span
-                  class="dots"
-                  aria-label="${item.rhetoric_alignment} out of 3"
-                >
+                <span>Argument &amp; rhetoric</span>
+                <span class="dots" aria-label="${item.rhetoric_alignment} out of 3">
                   ${scoreDots(item.rhetoric_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Writing process</span>
-                <span
-                  class="dots"
-                  aria-label="${item.writing_process_alignment} out of 3"
-                >
-                  ${scoreDots(item.writing_process_alignment)}
+                <span>Logic &amp; reasoning</span>
+                <span class="dots" aria-label="${item.critical_reasoning_alignment} out of 3">
+                  ${scoreDots(item.critical_reasoning_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Genres &amp; modalities</span>
-                <span
-                  class="dots"
-                  aria-label="${item.genres_alignment} out of 3"
-                >
-                  ${scoreDots(item.genres_alignment)}
+                <span>Biases &amp; fallacies</span>
+                <span class="dots" aria-label="${item.bias_fallacies_alignment} out of 3">
+                  ${scoreDots(item.bias_fallacies_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Research</span>
-                <span
-                  class="dots"
-                  aria-label="${item.research_alignment} out of 3"
-                >
+                <span>Research &amp; source evaluation</span>
+                <span class="dots" aria-label="${item.research_alignment} out of 3">
                   ${scoreDots(item.research_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Documentation</span>
-                <span
-                  class="dots"
-                  aria-label="${item.documentation_alignment} out of 3"
-                >
+                <span>Evidence &amp; documentation</span>
+                <span class="dots" aria-label="${item.documentation_alignment} out of 3">
                   ${scoreDots(item.documentation_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Language &amp; style</span>
-                <span
-                  class="dots"
-                  aria-label="${item.language_style_alignment} out of 3"
-                >
-                  ${scoreDots(item.language_style_alignment)}
+                <span>Writing &amp; revision</span>
+                <span class="dots" aria-label="${item.writing_process_alignment} out of 3">
+                  ${scoreDots(item.writing_process_alignment)}
+                </span>
+              </div>
+
+              <div class="score-row">
+                <span>Diverse nonfiction</span>
+                <span class="dots" aria-label="${item.diverse_nonfiction_alignment} out of 3">
+                  ${scoreDots(item.diverse_nonfiction_alignment)}
                 </span>
               </div>
 
@@ -1229,13 +1228,27 @@
 
       if (filter === "featured") {
         resources = resources.filter(
-          item => item.oers.is_featured
+          item => item.course_featured === true
+        );
+      }
+
+      else if (filter === "logic") {
+        resources = resources.filter(
+          item =>
+            Number(item.critical_reasoning_alignment || 0) >= 3 ||
+            Number(item.bias_fallacies_alignment || 0) >= 3
+        );
+      }
+
+      else if (filter === "argument") {
+        resources = resources.filter(
+          item => Number(item.rhetoric_alignment || 0) >= 3
         );
       }
 
       else if (filter !== "all") {
         resources = resources.filter(
-          item => item.oers.resource_type === filter
+          item => (item.course_resource_type || item.oers.resource_type) === filter
         );
       }
 
@@ -1283,13 +1296,19 @@
         await supabase
           .from("oer_courses")
           .select(`
+            course_resource_type,
+            course_featured,
+            best_role,
+            alignment_label,
+            alignment_notes,
             reading_alignment,
             rhetoric_alignment,
-            writing_process_alignment,
-            genres_alignment,
+            critical_reasoning_alignment,
+            bias_fallacies_alignment,
             research_alignment,
             documentation_alignment,
-            language_style_alignment,
+            writing_process_alignment,
+            diverse_nonfiction_alignment,
             watch_for,
             editorial_notes,
             oers (
@@ -1300,11 +1319,7 @@
               platform,
               license,
               resource_type,
-              best_role,
-              alignment_label,
-              alignment_notes,
-              ancillary_notes,
-              is_featured
+              ancillary_notes
             )
           `)
           .eq("course_id", c1001CourseId);
@@ -1340,8 +1355,8 @@
 
       allResources.sort((a, b) => {
 
-        if (a.oers.is_featured !== b.oers.is_featured) {
-          return a.oers.is_featured ? -1 : 1;
+        if (a.course_featured !== b.course_featured) {
+          return a.course_featured ? -1 : 1;
         }
 
         return a.oers.title.localeCompare(b.oers.title);
