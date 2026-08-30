@@ -129,8 +129,8 @@
     }
 
     .intro-card {
-      background: var(--cream);
-      border: 1px solid #eadfc8;
+      background: #fff9e8;
+      border: 1px solid #ead9a6;
       border-radius: 16px;
       padding: 24px;
       box-shadow: var(--shadow);
@@ -316,6 +316,21 @@
       outline-offset: 3px;
     }
 
+
+
+    .principles-heading {
+      margin-top: 34px;
+      margin-bottom: 18px;
+    }
+
+    .oeri-button {
+      padding: 16px 24px;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      min-width: min(100%, 360px);
+      text-align: center;
+    }
+
     footer {
       background: #182734;
       color: #dbe6ec;
@@ -332,27 +347,7 @@
       margin: 6px 0;
       font-size: 0.92rem;
     }
-
-
-    .project-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #eef6f1;
-      color: #315b49;
-      font-weight: 800;
-      font-size: 0.92rem;
-    }
-
-    .project-status::before {
-      content: "●";
-      font-size: 0.8rem;
-    }
-
-    .course-note {
+.course-note {
       margin-top: 10px;
       font-size: 0.9rem;
       font-weight: 700;
@@ -451,7 +446,6 @@
           requirements; faculty reviews reflect real teaching experience.
         </p>
 
-        <div class="project-status">C1000–C1003 course guides are live</div>
       </section>
     </div>
 
@@ -525,7 +519,7 @@
 
     <section class="how-it-works" aria-labelledby="how-heading">
       <div class="steps">
-        <h2 id="how-heading">How It Works</h2>
+        <h2 id="how-heading">Try It Out</h2>
 
         <div class="step-grid">
           <div class="step">
@@ -564,7 +558,7 @@
 
         <div class="feature-grid" aria-label="What the ratings mean">
           <div class="feature">
-            <h3>Editorial alignment ≠ endorsement</h3>
+            <h3>Independent, not official</h3>
             <p>
               Scores are an independent course-alignment review, not an ASCCC,
               OERI, or Chancellor's Office rating.
@@ -572,18 +566,18 @@
           </div>
 
           <div class="feature">
-            <h3>One OER can play different roles</h3>
+            <h3>Different courses, different roles</h3>
             <p>
-              The same resource may be a primary text in one course and a
-              targeted supplement in another.
+              The same resource may be a strong primary text in one course
+              and a targeted supplement in another.
             </p>
           </div>
 
           <div class="feature">
-            <h3>Multiple texts may be better</h3>
+            <h3>Sometimes a combination works best</h3>
             <p>
-              The guides highlight gaps and complementary roles rather than
-              assuming every course needs one all-in-one textbook.
+              The guides highlight complementary strengths so faculty can
+              build a better-fit set of materials when one text does not do everything.
             </p>
           </div>
         </div>
@@ -603,8 +597,9 @@
         <a class="button" href="about.html">About This Project</a>
       </p>
 
-      <p style="margin-top: 18px;">
+      <p style="margin-top: 22px;">
         <a
+          class="button oeri-button"
           href="https://asccc-oeri.org/open-educational-resources-and-english/"
           target="_blank"
           rel="noopener noreferrer"
