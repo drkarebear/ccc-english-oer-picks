@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Faculty toolkit for building transparent OER evaluation rubrics from a COR, CCN, or C-ID record, evaluating OER with evidence, applying the ASCCC OERI IDEA Framework as a separate lens, and auditing AI-assisted reviews." />
+  <title>OER Evaluation Toolkit | CCC English OER Picks</title>
+  <style>
+    :root{
+      --navy:#18324a; --blue:#245d78; --gold:#d9a441; --green:#3e6b57;
+      --purple:#6c5a86; --text:#263746; --muted:#5f6f7d; --border:#d9e1e7;
+      --white:#fff; --bg:#f7f9fb; --cream:#fffaf2; --shadow:0 8px 24px rgba(29,49,67,.09);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:var(--blue)}
+    .skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}
+    .skip-link:focus{left:10px}
+    header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 58px}
+    .topbar{max-width:1120px;margin:0 auto 40px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .brand,.home{color:#fff;text-decoration:none;font-weight:800}
+    .hero{max-width:900px;margin:0 auto;text-align:center}
+    .eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800;font-size:.9rem;margin-bottom:14px}
+    h1{margin:0;font-size:clamp(2.2rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}
+    .hero p{max-width:780px;margin:20px auto 0;color:#eef5f8;font-size:clamp(1.05rem,2vw,1.24rem)}
+    main{max-width:1120px;margin:0 auto;padding:54px 20px 72px}
+    .lead{margin-top:-82px;position:relative;background:var(--cream);border:1px solid #eadfc8;border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+    h2{color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.2;margin:0 0 12px}
+    h3{color:var(--navy);margin:0 0 8px}
+    p{margin:0 0 16px}
+    .workflow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:28px 0 10px}
+    .step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}
+    .step b{display:block;color:var(--navy);margin-bottom:5px}
+    .step-tag{display:inline-block;margin-top:10px;padding:3px 9px;border-radius:999px;background:#eef4f7;color:var(--blue);font-size:.76rem;font-weight:800}
+    section{margin-top:58px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+    .prompt-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin-top:18px}
+    .prompt-title{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+    .tag{display:inline-block;background:#e7f1f5;color:var(--blue);padding:5px 9px;border-radius:999px;font-size:.8rem;font-weight:800}
+    pre{white-space:pre-wrap;word-wrap:break-word;background:#f5f7f9;border:1px solid #dfe6eb;border-radius:12px;padding:18px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.93rem;line-height:1.55}
+    .copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    button,.button{appearance:none;border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:9px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+    button.secondary,.button.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+    button:focus-visible,.button:focus-visible{outline:3px solid rgba(36,93,120,.25);outline-offset:3px}
+    .checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+    .check{background:#f9fbfc;border:1px solid var(--border);border-radius:12px;padding:16px}
+    .note{background:#eef4f7;border-left:5px solid var(--blue);padding:18px 20px;border-radius:10px}
+    .idea{background:#f4f0f8;border-left:5px solid var(--purple);padding:18px 20px;border-radius:10px}
+    .decision-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+    .decision{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px}
+    footer{background:#182734;color:#dbe6ec;padding:32px 20px}
+    .footer-inner{max-width:1000px;margin:auto;text-align:center}
+    .footer-inner a{color:#fff;font-weight:700}
+    @media(max-width:900px){.workflow{grid-template-columns:1fr 1fr}.checklist,.decision-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.topbar{flex-direction:column;align-items:flex-start}.workflow,.checklist,.decision-grid{grid-template-columns:1fr}main{padding-top:42px}.lead{margin-top:-62px}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html">CCC English OER Picks</a>
+    <a class="home" href="index.html">Back to OER guides</a>
+  </div>
+  <div class="hero">
+    <div class="eyebrow">FACULTY TOOLKIT · OER EVALUATION</div>
+    <h1>Start with the course.<br>End with the evidence.</h1>
+    <p>Use these tools to build or adapt a transparent OER evaluation process for your own course.</p>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="lead">
+    <h2>What this toolkit is for</h2>
+    <p>This toolkit helps faculty move from a course document to a defensible OER decision. AI can help organize the work, but faculty remain responsible for the criteria, the evidence, and the teaching decision.</p>
+    <div class="workflow" aria-label="Toolkit workflow">
+      <div class="step"><b>1. COURSE</b>Define what the course actually requires.<span class="step-tag">Start here — no prompt</span></div>
+      <div class="step"><b>2. RUBRIC</b>Build or adapt transparent criteria.<span class="step-tag">Prompt 1</span></div>
+      <div class="step"><b>3. OER</b>Investigate the resource itself.<span class="step-tag">Prompt 2</span></div>
+      <div class="step"><b>4. EVIDENCE</b>Verify every important judgment.<span class="step-tag">Prompt 3</span></div>
+      <div class="step"><b>5. DECISION</b>Choose the role the OER can play.<span class="step-tag">Prompt 2's output</span></div>
+    </div>
+    <p style="margin-top:16px;color:var(--muted);font-size:.95rem">Running the optional IDEA lens? <a href="#idea-heading">Prompt 4</a> applies alongside steps 3–4, on the same OER, using a separate framework.</p>
+  </section>
+
+  <section aria-labelledby="rubric-heading">
+    <h2 id="rubric-heading">Prompt 1: Create a rubric from a COR, CCN, or C-ID record</h2>
+    <p>This prompt is designed to turn a course document into a draft OER-evaluation rubric without pretending the AI is the curriculum expert.</p>
+
+    <div class="prompt-card">
+      <div class="prompt-title">
+        <div>
+          <span class="tag">BUILD THE RUBRIC</span>
+          <h3>Course-document → OER rubric prompt</h3>
+        </div>
+      </div>
+
+      <pre id="prompt1">You are helping a college faculty member create a transparent rubric for evaluating whether an open educational resource (OER) is a good fit for a specific course.
+
+I will provide a course document such as a Course Outline of Record (COR), Common Course Numbering (CCN) descriptor, or C-ID descriptor.
+
+Your job is to create a DRAFT OER-evaluation rubric grounded only in the course document I provide.
+
+Please follow these rules:
+
+1. Extract the major knowledge areas, practices, skills, and learning expectations that an OER would need to support.
+2. Group overlapping requirements into a manageable set of rubric categories rather than turning every sentence into a separate criterion.
+3. Distinguish between:
+   - essential course content or practices,
+   - important but secondary areas,
+   - and requirements that are not appropriate for evaluating a textbook or OER itself.
+4. Do not invent course requirements that are not supported by the document.
+5. For each rubric category, write a short description of what meaningful, teachable OER coverage would look like.
+6. Create four performance levels:
+   - Strong alignment
+   - Meaningful alignment
+   - Limited alignment
+   - Not a significant focus
+7. Make the levels describe the quality and teachability of coverage, not the prestige or overall quality of the OER.
+8. For each category, briefly illustrate the boundary between levels with one concrete, hypothetical example (for example, what a "Strong" resource does that a "Limited" one does not). Label these as illustrations, not descriptions of any real, named textbook.
+9. Do not assign weights or produce a total score unless I ask for one.
+10. Flag any criterion that is ambiguous and needs faculty judgment.
+11. End with a short section titled "Faculty Review Needed" that identifies decisions the AI should not make on its own.
+
+Output the rubric as a table with these columns:
+- Rubric category
+- What this category means for this course
+- Strong alignment
+- Meaningful alignment
+- Limited alignment
+- Not a significant focus
+
+After the table, include:
+- Course requirements that were intentionally NOT turned into OER criteria
+- Faculty Review Needed
+- A one-paragraph explanation of how you derived the categories from the course document
+- Illustrative examples (the boundary examples from rule 8, gathered in one place)
+
+COURSE DOCUMENT:
+[PASTE COR, CCN, OR C-ID TEXT HERE]</pre>
+
+      <div class="copy-row">
+        <button type="button" data-copy="prompt1">Copy rubric prompt</button>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>What faculty should check:</strong> Are the categories faithful to the course document? Did the AI combine things that should stay separate? Did it turn instructor responsibilities, assessment requirements, or local policies into textbook criteria when they do not belong there?
+    </div>
+  </section>
+
+  <section aria-labelledby="evaluate-heading">
+    <h2 id="evaluate-heading">Prompt 2: Evaluate an OER against the rubric</h2>
+    <p>Once the rubric is stable, use this prompt to examine a specific OER. The key rule is that every rating needs inspectable evidence.</p>
+
+    <div class="prompt-card">
+      <span class="tag">EVALUATE THE OER</span>
+      <h3>Evidence-based OER review prompt</h3>
+      <pre id="prompt2">You are conducting a transparent OER alignment review for a college course.
+
+I will provide:
+1. an OER-evaluation rubric, and
+2. an OER or available evidence from that OER.
+
+Evaluate the OER criterion by criterion.
+
+Rules:
+1. Use only evidence available in the OER materials I provide or that you can directly inspect.
+2. For every rating, identify the evidence that supports it: chapter, section, assignment, example, table of contents entry, ancillary, or other identifiable feature.
+3. Do not infer that a topic is absent simply because it was not easy to find.
+4. If the available material is incomplete, use "Insufficient evidence / uncertain" as the rating itself rather than guessing at Strong, Meaningful, Limited, or Not a significant focus.
+5. Distinguish between:
+   - substantial, teachable coverage,
+   - brief or partial mention,
+   - and material that would require significant instructor supplementation.
+6. Consider the intended role of the resource. A targeted supplement should not be penalized for failing to function like a complete textbook.
+7. Do not produce an overall quality ranking.
+8. Do not claim that the resource officially satisfies articulation, local curriculum, CCN, or C-ID requirements.
+9. Separate factual evidence from interpretive judgment.
+10. If the OER is longer than what I've pasted in full, say so, and review the table of contents plus at least two or three representative chapters or sections per rubric category rather than only the introduction. List which parts you actually reviewed.
+
+For each rubric category, output:
+- Rating: one of Strong alignment / Meaningful alignment / Limited alignment / Not a significant focus / Insufficient evidence – uncertain
+- Evidence found
+- Why the evidence supports the rating
+- What faculty may still need to supplement
+- Confidence level: High / Moderate / Low — this describes how sure you are about the rating you gave, not a substitute for it. If the evidence is too thin to support any rating with even Low confidence, use "Insufficient evidence – uncertain" as the rating instead of pairing a substantive rating with Low confidence.
+
+At the end, provide:
+- Strongest likely role for this OER:
+  Primary course text / Core text plus supplements / Reader or anthology / Targeted supplement / Ancillary / Not a strong fit
+- Major strengths
+- Major gaps or uncertainties
+- Evidence that should be checked by a faculty reviewer
+
+RUBRIC:
+[PASTE RUBRIC HERE]
+
+OER / OER EVIDENCE:
+[PASTE TEXT, LINK CONTENT, TOC, CHAPTERS, OR OTHER AVAILABLE MATERIAL HERE]</pre>
+      <div class="copy-row">
+        <button type="button" data-copy="prompt2">Copy evaluation prompt</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="audit-heading">
+    <h2 id="audit-heading">Prompt 3: Audit an AI-generated OER review</h2>
+    <p>This is the skeptical second-review prompt. It is meant to catch overclaiming, weak evidence, and false certainty. Use it the same way this project does on its own site: as the AI-assisted check that happens <em>before</em> a human makes the final call, not as a replacement for one. Run it yourself as a gut check on Prompt 2's output, or use it as an aid while you do your own review — either way, a person still decides what to keep, revise, or investigate further.</p>
+
+    <div class="prompt-card">
+      <span class="tag">AUDIT THE EVIDENCE</span>
+      <h3>Skeptical second-review prompt</h3>
+      <pre id="prompt3">Review this OER assessment as a skeptical second reviewer.
+
+Do not simply repeat or polish the existing analysis.
+
+Identify:
+1. ratings where the cited evidence may be too weak for the conclusion,
+2. places where absence of evidence may have been mistaken for evidence of absence,
+3. claims that appear to go beyond the material actually reviewed,
+4. criteria where the intended role of the OER may have affected the rating,
+5. ratings that should be changed to "Insufficient evidence / uncertain,"
+6. places where the same evidence could reasonably support a different interpretation,
+7. important OER sections or ancillaries that should be checked before finalizing the review.
+
+For each concern, provide:
+- Original claim or rating
+- Why it may be overstated or uncertain
+- What evidence would strengthen or correct it
+- Recommended action: Keep / Revise / Mark uncertain / Investigate further
+
+End with:
+- Most trustworthy findings
+- Least trustworthy findings
+- Highest-priority items for faculty verification
+
+ASSESSMENT TO AUDIT:
+[PASTE AI-GENERATED OER ASSESSMENT HERE]</pre>
+      <div class="copy-row">
+        <button type="button" data-copy="prompt3">Copy audit prompt</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="idea-heading">
+    <h2 id="idea-heading">Prompt 4: Optional second lens — IDEA Framework crosswalk</h2>
+    <div class="idea">
+      <p><strong>Keep IDEA separate from course alignment.</strong> Course alignment asks whether the OER supports the content and practices of the course. An IDEA crosswalk asks different questions about inclusion, diversity, equity, and anti-racism.</p>
+      <p>When using the ASCCC OERI IDEA Framework, reference the framework explicitly and make clear that an independent crosswalk is not an official OERI IDEA assessment or badge.</p>
+    </div>
+
+    <div class="prompt-card">
+      <span class="tag">IDEA CROSSWALK</span>
+      <h3>ASCCC OERI IDEA Framework (Rubric 1) crosswalk prompt</h3>
+      <p>This prompt applies Rubric 1 — "IDEA OER Assessment of Existing Materials," from the ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework and Implementation Guide — to one chapter or one full OER. It uses the Framework's own eight areas and its own four-level scale, which are different from the course-alignment scale used in Prompts 1–3, and it does not touch course content or teachability at all.</p>
+      <pre id="prompt4">You are assisting a California community college faculty member in applying the ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework, Appendix A – Rubric 1 ("IDEA OER Assessment of Existing Materials"), to an open educational resource (OER). This is an independent, faculty-run crosswalk, not an official ASCCC OERI assessment or badge, and it should be treated as a draft for the discipline expert to review, not an end result.
+
+I will provide one chapter, or one full OER, to review.
+
+Use only the eight areas and four rating levels defined below, taken directly from Rubric 1. Do not substitute a different scale, borrow a course-alignment scale, or invent new categories.
+
+RUBRIC 1 AREAS AND RATING LEVELS (Not Applicable / Exclusive / Emerging Inclusive / Inclusive):
+
+1. Illustrations and Photos of People — rate (a) the share of photos/illustrations depicting BIPOC individuals (Exclusive: under 30%; Emerging Inclusive: 30-70%; Inclusive: over 70%), (b) diversity beyond race/ethnicity such as age, gender expression, disability, or body type (Exclusive: very few or no examples; Emerging Inclusive: 1-2 examples; Inclusive: more than 2 examples), and (c) absence of culturally insensitive or stereotyping imagery (Exclusive: many such examples; Emerging Inclusive: some; Inclusive: very few to none).
+2. Example Names — share of names in examples, cases, or vignettes reflecting BIPOC culture (Exclusive: under 30%; Emerging Inclusive: 30-70%; Inclusive: over 70%).
+3. Gender-Inclusive Language and Use of Pronouns — presence of gendered, non-inclusive language or inappropriate pronoun use (Exclusive: many examples; Emerging Inclusive: some examples; Inclusive: very few to none).
+4. Diverse Authors, Researchers, and Studies — presence of diverse authors, researchers, and studies related to BIPOC populations among cited sources (Exclusive: very few to none; Emerging Inclusive: some; Inclusive: many).
+5. Applications, Examples, and Problem Scenarios — presence of applications, examples, or scenarios reflecting BIPOC culture (Exclusive: very few to none; Emerging Inclusive: some; Inclusive: many).
+6. Appropriate Terminology — presence of derogatory or outdated terminology related to race, indigeneity, gender, sexuality, disability, or mental health (Exclusive: many examples; Emerging Inclusive: some; Inclusive: very few to none).
+7. Keyword, Glossary, and Metadata Representation — presence of keywords or glossary terms reflecting diverse topics and people (Exclusive: very few to none; Emerging Inclusive: some; Inclusive: many).
+8. Incorporating Diverse Perspectives — use of perspectives relevant to underrepresented groups when discussing issues, events, or concepts (Exclusive: 0 perspectives used; Emerging Inclusive: 1 perspective used; Inclusive: 2 or more perspectives used).
+
+"Not Applicable" is available for any area that genuinely does not apply to this resource (for example, images in a discipline that rarely uses them). Use it only with an explanation, never as a default when evidence is simply hard to find.
+
+Rules:
+1. Rate each of the eight areas independently using only the four levels above. Do not average them into one score.
+2. For every rating, quote or cite the specific evidence: chapter or section, page, image caption, name, or term.
+3. Clearly separate what you observed directly in the text from what you are recommending. Label these "Evidence" and "Recommendation" separately — never blend them into one sentence.
+4. If you cannot access enough of the OER to rate an area with confidence, say so explicitly rather than guessing, and name what additional material (for example, full chapter text, alt text, or image files) would be needed.
+5. Distinguish "restorative requirements" (the baseline the Framework asks every resource to meet for this area) from "elements for consideration" (additional context in the Framework that informs judgment but is not itself pass/fail).
+6. For any rating below "Inclusive," suggest a specific, actionable revision (for example, a specific alternative example, term, or source representing an underrepresented perspective), not general encouragement to "add more diversity."
+7. Do not claim this crosswalk is an official ASCCC OERI IDEA assessment, certification, or badge.
+8. Do not comment on course alignment, teachability, or academic content — that is a separate rubric and a separate review.
+9. Note explicitly that nuance in identity, race, disability, and lived experience will not be fully captured by this process, and that a human with relevant expertise or lived experience should review these ratings before they are acted on.
+
+For each of the eight areas, output:
+- Area
+- Rating: Not Applicable / Exclusive / Emerging Inclusive / Inclusive
+- Evidence
+- Recommendation (if not rated Inclusive)
+
+At the end, provide:
+- Category count: how many areas fall at each rating level
+- Summary: two to three sentences on the overall pattern
+- Suggestions: any IDEA-related opportunities beyond the specific ratings above
+- A closing note restating that this is an independent crosswalk based on the ASCCC OERI IDEA Framework, not an official OERI assessment or badge
+
+FRAMEWORK REFERENCE: ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework and Implementation Guide, Appendix A – Rubric 1.
+
+OER / CHAPTER TO REVIEW:
+[PASTE TEXT, LINK CONTENT, OR CHAPTER FILE HERE]</pre>
+      <div class="copy-row">
+        <button type="button" data-copy="prompt4">Copy IDEA crosswalk prompt</button>
+      </div>
+    </div>
+
+    <div class="note idea">
+      <strong>What faculty should check:</strong> Do the percentages and examples the AI cites actually hold up when you look at the OER yourself? Is "Not Applicable" being used honestly, or as a way to avoid a low rating? Are the suggested revisions specific enough to act on? And most importantly — as the Framework's own guidance puts it, gen-AI output here is a draft, not an end result: the human experience of race, identity, disability, and their intersections needs a reviewer, ideally including people whose identities are centered in the changes, before anything here is acted on.
+    </div>
+  </section>
+
+  <section aria-labelledby="evidence-heading">
+    <h2 id="evidence-heading">Evidence rules worth keeping visible</h2>
+    <div class="checklist">
+      <div class="check"><h3>AI is not the evidence.</h3><p>A rating should point to something a faculty member can inspect.</p></div>
+      <div class="check"><h3>Partial access means partial confidence.</h3><p>A table of contents or preview cannot support the same certainty as a full-text review.</p></div>
+      <div class="check"><h3>Not found ≠ not present.</h3><p>Use “insufficient evidence” when the available material does not justify a conclusion.</p></div>
+      <div class="check"><h3>Role matters.</h3><p>A supplement should be judged as a supplement, not as a failed comprehensive textbook.</p></div>
+      <div class="check"><h3>Keep facts and judgments separate.</h3><p>Show what the OER contains before explaining what that means for the course.</p></div>
+      <div class="check"><h3>Faculty make the adoption decision.</h3><p>The method should support judgment, not replace it.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="decision-heading">
+    <h2 id="decision-heading">End with a teaching decision, not a leaderboard</h2>
+    <p>A useful evaluation should help faculty decide what role a resource can play.</p>
+    <div class="decision-grid">
+      <div class="decision"><h3>Primary course text</h3><p>Strong enough across the major course needs to anchor the course.</p></div>
+      <div class="decision"><h3>Core text + supplements</h3><p>Strong overall, with identifiable areas that need additional material.</p></div>
+      <div class="decision"><h3>Reader / anthology</h3><p>Especially useful for readings, examples, or source material.</p></div>
+      <div class="decision"><h3>Targeted supplement</h3><p>Excellent for one or more specific course needs.</p></div>
+      <div class="decision"><h3>Ancillary</h3><p>Best used for exercises, assignments, practice, or support materials.</p></div>
+      <div class="decision"><h3>Not a strong fit</h3><p>The available evidence suggests another resource would better serve this course or purpose.</p></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="transparency-heading">
+    <h2 id="transparency-heading">A note on transparency</h2>
+    <p>These prompts are starting points, not standards. Faculty should revise them for disciplinary context and publish the criteria they actually use. If the process changes, the method should change visibly too.</p>
+    <p><a class="button" href="scoring-method.html">See this project's scoring method</a></p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>CCC English OER Picks</strong></p>
+    <p>Independent faculty project. AI-assisted methods are used to organize review; faculty remain responsible for evidence and teaching decisions.</p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', async function(){
+      const id = btn.getAttribute('data-copy');
+      const text = document.getElementById(id).innerText;
+      try{
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = '✓ Copied';
+        setTimeout(()=>btn.textContent = old, 1600);
+      }catch(e){
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(id));
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>
