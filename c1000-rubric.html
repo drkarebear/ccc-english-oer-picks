@@ -1,639 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="ENGL C1000 alignment rubric used by CCC English OER Picks to review open educational resources for Academic Reading and Writing."
-  />
-  <title>C1000 Rubric | CCC English OER Picks</title>
-
-  <style>
-    :root {
-      --navy: #18324a;
-      --blue: #245d78;
-      --light-blue: #eef4f7;
-      --cream: #fff9e8;
-      --gold: #d9a441;
-      --green: #3e6b57;
-      --text: #263746;
-      --muted: #5f6f7d;
-      --border: #d9e1e7;
-      --white: #ffffff;
-      --shadow: 0 8px 24px rgba(29, 49, 67, 0.09);
-      --max: 1100px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #f7f9fb;
-      line-height: 1.65;
-    }
-
-    a {
-      color: var(--blue);
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 10px;
-      z-index: 999;
-      background: #ffffff;
-      color: #000000;
-      padding: 10px 14px;
-      border: 2px solid #000000;
-    }
-
-    .skip-link:focus {
-      left: 10px;
-    }
-
-    .site-header {
-      background: var(--navy);
-      color: #ffffff;
-    }
-
-    .header-inner {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.06rem;
-      white-space: nowrap;
-    }
-
-    .site-nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 22px;
-    }
-
-    .site-nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .site-nav a:hover,
-    .site-nav a:focus-visible {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    .hero-wrap {
-      background: linear-gradient(135deg, #173a55, #2c6d88);
-      padding: 48px 20px 72px;
-    }
-
-    .hero {
-      width: min(100%, 940px);
-      margin: 0 auto;
-      color: #ffffff;
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: #f4cc6d;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.3rem, 6vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p:last-child {
-      max-width: 800px;
-      margin: 20px 0 0;
-      font-size: 1.15rem;
-      color: #eef5f8;
-    }
-
-    main {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-      padding: 54px 0 76px;
-    }
-
-    section {
-      margin-bottom: 52px;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      color: var(--navy);
-      font-size: clamp(1.7rem, 4vw, 2.35rem);
-      line-height: 1.2;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      line-height: 1.3;
-    }
-
-    p {
-      margin: 0 0 16px;
-    }
-
-    .lead-card {
-      margin-top: -84px;
-      position: relative;
-      background: var(--cream);
-      border: 1px solid #ead9a6;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--navy);
-      color: #ffffff;
-      padding: 12px 18px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: 800;
-    }
-
-    .button.secondary {
-      background: #ffffff;
-      color: var(--navy);
-      border: 1px solid var(--border);
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      outline: 3px solid rgba(36, 93, 120, 0.22);
-      outline-offset: 3px;
-    }
-
-    .scale-strip {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .scale-item {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-    }
-
-    .dots {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--gold);
-      font-size: 1.2rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .rubric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 26px;
-    }
-
-    .criterion {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .criterion-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 32px;
-      height: 32px;
-      padding: 0 10px;
-      margin-bottom: 12px;
-      border-radius: 999px;
-      background: var(--light-blue);
-      color: var(--navy);
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    .criterion p:last-child {
-      margin-bottom: 0;
-    }
-
-    .look-for {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .look-for strong {
-      color: var(--navy);
-    }
-
-    .callout {
-      background: var(--light-blue);
-      border-left: 5px solid var(--blue);
-      border-radius: 10px;
-      padding: 22px 24px;
-      margin-top: 20px;
-    }
-
-    .callout strong {
-      color: var(--navy);
-    }
-
-    .example {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      margin-top: 22px;
-    }
-
-    .example-score {
-      display: inline-block;
-      margin: 4px 0 10px;
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .small {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    footer {
-      background: #182734;
-      color: #dbe6ec;
-      padding: 34px 20px;
-    }
-
-    .footer-inner {
-      width: min(100%, var(--max));
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .footer-inner p {
-      margin: 6px 0;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 820px) {
-      .rubric-grid,
-      .scale-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .header-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 18px 0;
-      }
-
-      .site-nav {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (max-width: 520px) {
-      main {
-        width: min(calc(100% - 24px), var(--max));
-      }
-
-      .hero-wrap {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .lead-card {
-        margin-top: -62px;
-        padding: 22px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ENGL C1000 Content Rubric used by CCC English OER Picks to evaluate OER content alignment for Academic Reading and Writing.">
+<title>C1000 Content Rubric | CCC English OER Picks</title>
+<style>
+:root {
+  --navy:#18324a; --blue:#245d78; --light-blue:#eef4f7; --cream:#fff9e8;
+  --gold:#d9a441; --purple:#6c5a86; --text:#263746; --muted:#5f6f7d;
+  --border:#d9e1e7; --white:#fff; --shadow:0 8px 24px rgba(29,49,67,.09);
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f9fb;color:var(--text);line-height:1.65}
+a{color:var(--blue)}
+.skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}
+.skip-link:focus{left:10px}
+.site-header{background:var(--navy);color:#fff}
+.header-inner{width:min(calc(100% - 40px),var(--max));margin:auto;min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand,.site-nav a{color:#fff;text-decoration:none;font-weight:800}
+.site-nav{display:flex;flex-wrap:wrap;gap:22px}
+.site-nav a:hover,.site-nav a:focus-visible{text-decoration:underline;text-underline-offset:4px}
+.hero-wrap{background:linear-gradient(135deg,#173a55,#2c6d88);padding:48px 20px 78px}
+.hero{width:min(100%,960px);margin:auto;color:#fff}
+.eyebrow{margin:0 0 12px;color:#f4cc6d;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem}
+h1{margin:0;font-size:clamp(2.3rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}
+.hero p:last-child{max-width:850px;margin:20px 0 0;font-size:1.15rem;color:#eef5f8}
+main{width:min(calc(100% - 40px),var(--max));margin:auto;padding:54px 0 76px}
+section{margin-bottom:52px}
+h2{margin:0 0 14px;color:var(--navy);font-size:clamp(1.65rem,4vw,2.25rem);line-height:1.2}
+p{margin:0 0 16px}
+.lead-card{margin-top:-86px;position:relative;background:var(--cream);border:1px solid #ead9a6;border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.lens-box{margin:20px 0 0;padding:18px 20px;background:#f4f0f8;border-left:5px solid var(--purple);border-radius:10px}
+.lens-box strong{color:#553d73}
+.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.button{display:inline-block;background:var(--navy);color:#fff;padding:11px 16px;border-radius:9px;text-decoration:none;font-weight:800}
+.button.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+.button:focus-visible{outline:3px solid rgba(36,93,120,.22);outline-offset:3px}
+.scale-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.scale-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px}
+.dots{color:var(--gold);font-weight:900;letter-spacing:.08em}
+.method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.method-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}
+.method-card strong{color:var(--navy)}
+.criterion{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);margin:16px 0;overflow:hidden}
+.criterion summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:20px 22px}
+.criterion summary::-webkit-details-marker{display:none}
+.criterion summary:focus-visible{outline:3px solid rgba(36,93,120,.24);outline-offset:-3px}
+.criterion-number{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 10px;border-radius:999px;background:var(--light-blue);font-weight:800;color:var(--navy)}
+.criterion-name{font-weight:800;color:var(--navy);font-size:1.08rem}
+.summary-hint{font-size:.88rem;color:var(--muted)}
+.levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 22px 18px}
+.level{border:1px solid var(--border);border-radius:12px;padding:16px}
+.level-heading{font-weight:800;color:var(--navy);margin-bottom:8px}
+.level p{margin:0;font-size:.96rem}
+.calibration{margin:0 22px 22px;padding:14px 16px;background:var(--light-blue);border-radius:10px}
+.callout{background:var(--light-blue);border-left:5px solid var(--blue);border-radius:10px;padding:20px 22px}
+.status{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:20px}
+footer{background:#182734;color:#dbe6ec;padding:34px 20px}
+.footer-inner{width:min(100%,var(--max));margin:auto;text-align:center}
+.footer-inner p{margin:6px 0;font-size:.92rem}
+@media(max-width:820px){
+  .scale-strip,.method-grid,.levels{grid-template-columns:1fr}
+  .header-inner{align-items:flex-start;flex-direction:column;padding:18px 0}
+  .criterion summary{grid-template-columns:auto 1fr}
+  .summary-hint{grid-column:2}
+}
+@media(max-width:520px){
+  main{width:min(calc(100% - 24px),var(--max))}
+  .hero-wrap{padding-left:16px;padding-right:16px}
+  .lead-card{margin-top:-62px;padding:22px}
+}
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">CCC English OER Picks</a>
-
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="c1000.html" aria-current="page">C1000</a>
-        <a href="c1001.html">C1001</a>
-        <a href="c1002.html">C1002</a>
-        <a href="c1003.html">C1003</a>
-      </nav>
-    </div>
-  </header>
-
-  <div class="hero-wrap">
-    <div class="hero">
-      <p class="eyebrow">ENGL C1000 Rubric</p>
-      <h1>Academic Reading and Writing</h1>
-      <p>
-        The course-specific rubric used for initial observations about how well an
-        OER appears to support the major reading, writing, rhetoric, research, and
-        language work of ENGL C1000.
-      </p>
-    </div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">CCC English OER Picks</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="c1000.html" aria-current="page">C1000</a>
+      <a href="c1001.html">C1001</a>
+      <a href="c1002.html">C1002</a>
+      <a href="c1003.html">C1003</a>
+    </nav>
   </div>
+</header>
 
-  <main id="main-content">
-    <section class="lead-card" aria-labelledby="purpose-heading">
-      <h2 id="purpose-heading">How to read this rubric</h2>
+<div class="hero-wrap">
+  <div class="hero">
+    <p class="eyebrow">ENGL C1000 Content Rubric · Content Lens</p>
+    <h1>Academic Reading and Writing</h1>
+    <p>The project-developed content rubric used to examine how well an OER supports the major reading, writing, rhetoric, research, documentation, and language work of ENGL C1000.</p>
+  </div>
+</div>
 
-      <p>
-        This rubric is used to make <strong>initial editorial alignment observations</strong>
-        about publicly available OER. It is meant to help faculty decide what to
-        investigate first—not to certify that a resource satisfies ENGL C1000 or a
-        local course outline.
-      </p>
+<main id="main-content">
+  <section class="lead-card" aria-labelledby="purpose-heading">
+    <h2 id="purpose-heading">What this content rubric does</h2>
+    <p>This rubric is built around the instructional work of first-year composition rather than around the features of any one textbook. The categories are scored independently because an OER may be especially strong in rhetoric and writing process while another may be stronger in research, documentation, or academic reading.</p>
+    <p><strong>No single overall score.</strong> The goal is to show what each resource can help faculty teach—not to reduce it to one number.</p>
 
-      <p>
-        Each criterion is scored independently on the same 0–3 scale used throughout
-        CCC English OER Picks. A resource does not need to earn three dots in every
-        category to be useful.
-      </p>
-
-      <div class="button-row">
-        <a class="button" href="c1000.html">Back to C1000 OER</a>
-        <a class="button secondary" href="scoring-method.html">View General Scoring Method</a>
-      </div>
-    </section>
-
-    <section aria-labelledby="scale-heading">
-      <h2 id="scale-heading">C1000 scoring scale</h2>
-
-      <div class="scale-strip">
-        <div class="scale-item">
-          <span class="dots" aria-label="3 out of 3 dots">●●●</span>
-          <strong>Strong alignment</strong><br />
-          Substantial, teachable coverage.
-        </div>
-
-        <div class="scale-item">
-          <span class="dots" aria-label="2 out of 3 dots">●●○</span>
-          <strong>Meaningful alignment</strong><br />
-          Useful coverage; some supplementation may help.
-        </div>
-
-        <div class="scale-item">
-          <span class="dots" aria-label="1 out of 3 dots">●○○</span>
-          <strong>Limited alignment</strong><br />
-          Present, but mainly supplemental.
-        </div>
-
-        <div class="scale-item">
-          <span class="dots" aria-label="0 out of 3 dots">○○○</span>
-          <strong>Not a significant focus</strong><br />
-          Minimal, absent, or outside the resource's purpose.
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="criteria-heading">
-      <h2 id="criteria-heading">The C1000 alignment criteria</h2>
-
-      <p>
-        The seven areas below are considered separately. The goal is to show
-        <em>what kind of work a resource can help faculty teach</em>, rather than
-        reduce an OER to one overall score.
-      </p>
-
-      <div class="rubric-grid">
-        <article class="criterion">
-          <span class="criterion-number">1</span>
-          <h3>Academic Reading</h3>
-          <p>
-            How well does the resource support active, critical, and purposeful
-            reading of college-level texts?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> reading strategies, annotation or inquiry,
-            analysis of ideas and evidence, attention to context and purpose, and
-            opportunities for students to engage with challenging academic or public texts.
-          </p>
-        </article>
-
-        <article class="criterion">
-          <span class="criterion-number">2</span>
-          <h3>Rhetoric &amp; Rhetorical Awareness</h3>
-          <p>
-            How well does the resource help students understand writing as a
-            rhetorical act shaped by audience, purpose, context, genre, and choices?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> rhetorical situation, audience awareness,
-            purpose, appeals and strategies, analysis of how texts work, and transfer
-            of rhetorical decision-making into students' own writing.
-          </p>
-        </article>
-
-        <article class="criterion">
-          <span class="criterion-number">3</span>
-          <h3>Writing Process</h3>
-          <p>
-            How well does the resource support writing as a recursive process rather
-            than only presenting rules for a finished product?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> invention, planning, drafting, feedback,
-            revision, editing, reflection, metacognition, and opportunities to make
-            substantial changes during the development of a piece of writing.
-          </p>
-        </article>
-
-        <article class="criterion">
-          <span class="criterion-number">4</span>
-          <h3>Academic Genres</h3>
-          <p>
-            How well does the resource help students read, analyze, and compose
-            sustained college-level writing in multiple rhetorical or academic situations?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> meaningful genre instruction, models,
-            rhetorical flexibility, thesis-driven and analytical writing, synthesis,
-            argument, response, and assignments that move beyond a single formula.
-          </p>
-        </article>
-
-        <article class="criterion">
-          <span class="criterion-number">5</span>
-          <h3>Research &amp; Source Use</h3>
-          <p>
-            How well does the resource support finding, evaluating, integrating,
-            and using sources as part of academic inquiry and writing?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> research questions, search strategies,
-            source evaluation, information literacy, synthesis, quotation and
-            paraphrase, integrating evidence, and responsible use of sources.
-          </p>
-        </article>
-
-        <article class="criterion">
-          <span class="criterion-number">6</span>
-          <h3>Documentation</h3>
-          <p>
-            How well does the resource teach students to acknowledge and document
-            sources using appropriate academic conventions?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> in-text citation, works cited or references,
-            attribution, avoiding plagiarism through ethical source use, and practical
-            guidance for applying documentation conventions in student writing.
-          </p>
-        </article>
-
-        <article class="criterion">
-          <span class="criterion-number">7</span>
-          <h3>Language, Style &amp; Rhetorical Choice</h3>
-          <p>
-            How well does the resource treat language and style as meaningful choices
-            connected to rhetorical situation, clarity, effectiveness, and voice?
-          </p>
-          <p class="look-for">
-            <strong>We look for:</strong> sentence-level choices, style, tone, voice,
-            clarity, editing, linguistic flexibility, audience expectations, and an
-            approach to language that goes beyond simply labeling usage as correct or incorrect.
-          </p>
-        </article>
-      </div>
-
-      <div class="callout">
-        <strong>Why there is no single “C1000 score”:</strong>
-        two resources can be equally useful for very different reasons. One might
-        provide excellent writing-process and rhetoric instruction while another
-        offers stronger research, documentation, or readings. The category-by-category
-        view makes those differences visible.
-      </div>
-    </section>
-
-    <section aria-labelledby="examples-heading">
-      <h2 id="examples-heading">What the dots mean in practice</h2>
-
-      <div class="example">
-        <h3>Example: Research &amp; Source Use</h3>
-        <span class="example-score">●●●</span>
-        <p>
-          A three-dot resource would typically provide substantial instruction in
-          developing research questions, locating and evaluating sources, integrating
-          evidence, and synthesizing source material into students' own writing.
-        </p>
-      </div>
-
-      <div class="example">
-        <h3>Example: Research &amp; Source Use</h3>
-        <span class="example-score">●○○</span>
-        <p>
-          A one-dot resource might briefly discuss using quotations or evaluating
-          websites but would not provide enough research instruction to carry that
-          part of the course on its own.
-        </p>
-      </div>
-
-      <p class="small">
-        The same principle is applied to each criterion: the dots describe the depth
-        and usefulness of coverage, not the overall quality of the OER.
-      </p>
-    </section>
-
-    <section aria-labelledby="method-heading">
-      <h2 id="method-heading">How these observations are produced</h2>
-
-      <p>
-        To make initial review manageable across a large number of OER, the project
-        uses an AI-assisted rubric to compare resources with course-specific CCN
-        criteria. A human editor reviews those results, while faculty recommendations
-        and teaching notes provide an independent source of evidence that can confirm,
-        complicate, or correct the initial assessment.
-      </p>
-
-      <div class="callout">
-        <strong>Faculty experience remains separate from editorial alignment.</strong>
-        A resource's rubric scores describe what it appears to cover. Faculty reviews
-        describe what instructors experienced when they actually used it. Both are
-        useful, but they answer different questions.
-      </div>
-    </section>
-
-    <section aria-labelledby="limits-heading">
-      <h2 id="limits-heading">What this rubric does not determine</h2>
-
-      <p>
-        This rubric is an independent faculty-project tool. It does not determine
-        official CCN compliance, local curriculum approval, articulation, accessibility
-        compliance, licensing compliance, or suitability for every instructor or student population.
-      </p>
-
-      <p>
-        Faculty should still review any OER they plan to adopt in relation to their
-        own course outline, institutional requirements, accessibility expectations,
-        students, assignments, and teaching goals.
-      </p>
-
-      <div class="button-row">
-        <a class="button" href="c1000.html">Explore C1000 OER</a>
-        <a class="button secondary" href="scoring-method.html">General Scoring Method</a>
-        <a class="button secondary" href="about.html">About This Project</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <p><strong>CCC English OER Picks</strong></p>
-      <p>
-        An independent faculty project. Not affiliated with or endorsed by ASCCC,
-        ASCCC OERI, or the California Community Colleges Chancellor's Office.
-      </p>
+    <div class="lens-box">
+      <strong>This is the content lens.</strong> It asks whether an OER provides meaningful, teachable coverage of C1000's instructional work. It is separate from the site's <strong>ASCCC OERI IDEA Framework crosswalk</strong>, which examines inclusion, diversity, equity, and anti-racism. The two lenses are never merged into one score.
     </div>
-  </footer>
+
+    <div class="button-row">
+      <a class="button" href="c1000.html">Back to C1000 OER</a>
+      <a class="button secondary" href="scoring-method.html">General Scoring Method</a>
+      <a class="button secondary" href="oer-evaluation-toolkit.html#idea-heading">IDEA Crosswalk Method</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="scale-heading">
+    <h2 id="scale-heading">The shared four-point content-alignment scale</h2>
+    <div class="scale-strip">
+      <div class="scale-item"><span class="dots" aria-label="3 out of 3 dots">●●●</span><br><strong>Strong alignment</strong><br>Substantial, teachable coverage that could support a major part of this criterion.</div>
+      <div class="scale-item"><span class="dots" aria-label="2 out of 3 dots">●●○</span><br><strong>Meaningful alignment</strong><br>Useful coverage; some supplementation may help.</div>
+      <div class="scale-item"><span class="dots" aria-label="1 out of 3 dots">●○○</span><br><strong>Limited alignment</strong><br>Present, but mainly supplemental.</div>
+      <div class="scale-item"><span class="dots" aria-label="0 out of 3 dots">○○○</span><br><strong>Not a significant focus</strong><br>Minimal, absent, or outside the resource's intended purpose.</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="built-heading">
+    <h2 id="built-heading">How this content rubric was built</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <strong>1. Start with the course.</strong>
+        <p>The rubric organizes C1000's instructional work into a manageable set of content areas rather than evaluating a resource by reputation, table of contents, or a generic composition checklist.</p>
+      </div>
+      <div class="method-card">
+        <strong>2. Evaluate instruction, not keywords.</strong>
+        <p>A reading, assignment, citation, or topic does not earn a strong score simply because it appears. Stronger alignment requires meaningful explanation, modeling, guided practice, or scaffolding.</p>
+      </div>
+      <div class="method-card">
+        <strong>3. Keep the evidence visible.</strong>
+        <p>Reviewers support each rating with a brief rationale and a specific location—chapter, section, page, heading, or stable URL anchor whenever possible.</p>
+      </div>
+    </div>
+    <div class="status"><strong>Working rubric:</strong> This is a faculty-developed analytical tool, not an official CCC, CCN, articulation, or curriculum determination. The rubric may be revised as evidence and faculty feedback improve the project.</div>
+  </section>
+
+  <section aria-labelledby="criteria-heading">
+    <h2 id="criteria-heading">The C1000 content criteria</h2>
+    <p>Open any criterion to see exactly what distinguishes Strong, Meaningful, Limited, and Not a Significant Focus.</p>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">1</span>
+        <span class="criterion-name">Academic Reading</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Provides substantial, explicit instruction in active and critical reading of college-level texts, including annotation, questioning, summarizing, identifying claims and evidence, and analyzing structure and context, with enough guided practice that students could develop academic reading skill primarily from this resource.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Provides useful, explicit instruction in several reading practices, such as annotation, identifying main ideas, analyzing evidence, or considering context. Coverage is strong enough to support instruction, though range or depth may need supplementation.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Provides some reading-related content or apparatus, such as discussion questions or a brief strategy sidebar, but treatment is brief, secondary to another purpose, or not sustained enough to teach reading strategies directly.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Provides little or no direct instruction in academic reading strategies; assumes students already know how to read critically, or reading is incidental to another purpose.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = guided annotation plus evaluation of claims/evidence across multiple texts; Limited = a single reading-tip sidebar with no guided practice.</div>
+    </details>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">2</span>
+        <span class="criterion-name">Rhetoric &amp; Rhetorical Awareness</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Explicitly and substantially teaches the rhetorical situation, including audience, purpose, context, genre, and rhetorical choices, with opportunities to analyze texts rhetorically and apply that awareness to students&#x27; own writing.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Meaningfully teaches several rhetorical concepts, such as audience, purpose, appeals, context, or genre, and gives useful practice, though some dimensions may need supplementation.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Introduces rhetorical vocabulary or concepts briefly or in passing but does not sustain instruction in rhetorical analysis or application.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Provides little or no meaningful instruction in rhetorical situation, audience, purpose, context, genre, or rhetorical decision-making.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = students analyze how audience and purpose shape a real text and then apply that analysis to their own draft; Limited = “audience” is defined with no application.</div>
+    </details>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">3</span>
+        <span class="criterion-name">Writing Process</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Substantially supports writing as a recursive process, including invention, planning, drafting, feedback, revision, editing, and reflection, with meaningful opportunities for substantial change during development rather than only correctness at the end.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Explicitly supports multiple stages of the writing process and gives useful opportunities to draft, revise, and reflect, though some stages receive less attention.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Provides limited process support, such as a single revision checklist, peer-review activity, or editing tips, but does not substantially teach invention, drafting, feedback, and revision as connected stages.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Focuses primarily on finished products or correctness, with little or no meaningful instruction in developing or revising writing.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = an assignment sequence includes invention, drafting, feedback, and substantive revision; Limited = only an end-stage editing checklist.</div>
+    </details>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">4</span>
+        <span class="criterion-name">Academic Genres</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Provides substantial, explicit instruction in reading, analyzing, and composing sustained college-level writing across multiple genres or rhetorical situations, with models, guided practice, and assignments that move beyond a single formula.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Provides useful instruction in one or more academic genres with models and guided practice, though the range of genres or depth of instruction may need supplementation.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Introduces a genre or writing task, such as a fixed essay template, with limited models or guided instruction in composing it.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Provides little or no meaningful genre instruction or models for sustained academic writing.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = several genre units include models and scaffolded assignments; Limited = one formulaic template with little discussion of genre or rhetorical situation.</div>
+    </details>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">5</span>
+        <span class="criterion-name">Research &amp; Source Use</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Provides substantial, explicit instruction in research as inquiry, including developing research questions, locating and evaluating sources, integrating evidence, synthesizing source material, and using sources responsibly in students&#x27; own writing.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Provides useful instruction in several parts of the research process, such as search strategies, evaluating credibility, integrating quotations, or synthesis, sufficient to support instruction though some dimensions may need supplementation.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Briefly addresses an isolated research practice, such as quotation, evaluating websites, or finding sources, but does not provide enough connected instruction to support academic research independently.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Provides little or no meaningful instruction in research questions, source-finding strategies, source evaluation, integration, or synthesis.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = students move from research question to source search, evaluation, integration, and synthesis; Limited = a brief reminder to use quotations or evaluate websites.</div>
+    </details>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">6</span>
+        <span class="criterion-name">Documentation</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Provides substantial, explicit instruction in a recognized documentation style, including in-text citation, works cited or references, attribution practices, and ethical source use, with practical models students can apply.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Provides useful instruction in citation and attribution practices sufficient for students to apply a documentation style with some guidance, though coverage of details or edge cases may be incomplete.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Mentions citation or plagiarism briefly, such as a single page or checklist, without walkthroughs or models sufficient to teach a documentation style.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Provides little or no meaningful instruction in citation, attribution, works cited or references, or documentation conventions.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = a full MLA or APA sequence includes in-text citation, works cited/references, examples, and practice; Limited = a short reminder to “cite your sources.”</div>
+    </details>
+    
+    <details class="criterion">
+      <summary>
+        <span class="criterion-number">7</span>
+        <span class="criterion-name">Language, Style &amp; Rhetorical Choice</span>
+        <span class="summary-hint">View rating descriptions</span>
+      </summary>
+      <div class="levels">
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●●</span> Strong alignment</div>
+          <p>Substantially treats language and style as rhetorical choices connected to clarity, voice, tone, audience, and purpose, with guided practice in sentence-level revision and an approach to usage that goes beyond correctness rules.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●●○</span> Meaningful alignment</div>
+          <p>Provides useful instruction in several style or language topics, such as conciseness, tone, sentence variety, or clarity, connected to rhetorical effect, though coverage may be uneven.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">●○○</span> Limited alignment</div>
+          <p>Addresses grammar or usage primarily as correctness rules, with limited attention to style as a rhetorical or audience-driven choice.</p>
+        </div>
+        <div class="level">
+          <div class="level-heading"><span class="dots">○○○</span> Not a significant focus</div>
+          <p>Provides little or no meaningful instruction in style, voice, sentence-level choice, or language as rhetorical action.</p>
+        </div>
+      </div>
+      <div class="calibration"><strong>Calibration example:</strong> Strong = sentence-level revision is explicitly connected to audience, clarity, tone, and effect; Limited = a grammar-rules chapter with no rhetorical connection.</div>
+    </details>
+    
+  </section>
+
+  <section aria-labelledby="ai-heading">
+    <h2 id="ai-heading">How an AI-assisted reviewer should apply this rubric</h2>
+    <div class="callout">
+      <p><strong>Score each criterion independently based on explicit instructional content.</strong> For resources longer than a single unit, sample across the whole resource, including opening material, multiple body chapters or units, and later chapters, appendices, or support sections when present.</p>
+      <p>Support each rating with a brief rationale and specific evidence. When coverage is inconsistent, describe the inconsistency instead of averaging it away. The same passage may support more than one criterion.</p>
+      <p><strong>Most important:</strong> distinguish content presence from instruction. A resource that includes argumentative essays, citations, discussion questions, or research assignments should not be scored as though it teaches those skills unless it provides meaningful explanation, modeling, guided practice, or scaffolding.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="limits-heading">
+    <h2 id="limits-heading">What this content rubric does not determine</h2>
+    <p>This rubric is used to make initial, AI-assisted editorial observations that are reviewed afterward by a human editor. It is meant to help faculty decide what to investigate first—not to certify that a resource satisfies ENGL C1000 or a local course outline.</p>
+    <p>It does not determine official CCN compliance, local curriculum approval, articulation, accessibility compliance, licensing compliance, or suitability for every instructor, assignment, or student population.</p>
+    <p>Faculty should review any OER they plan to adopt in relation to their own course outline, local requirements, accessibility expectations, students, assignments, and instructional goals.</p>
+    <div class="button-row">
+      <a class="button" href="c1000.html">Explore C1000 OER</a>
+      <a class="button secondary" href="scoring-method.html">General Scoring Method</a>
+      <a class="button secondary" href="about.html">About This Project</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>CCC English OER Picks</strong></p>
+    <p>An independent faculty project. Not affiliated with or endorsed by ASCCC, ASCCC OERI, or the California Community Colleges Chancellor's Office.</p>
+  </div>
+</footer>
 </body>
 </html>
