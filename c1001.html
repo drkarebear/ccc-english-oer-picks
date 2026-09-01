@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Faculty-friendly recommendations and reviews of open educational resources for ENGL C1001: Critical Thinking and Writing."
+    content="Independent content-alignment reviews and faculty experience with open educational resources for ENGL C1001: Critical Thinking and Writing."
   >
 
   <style>
@@ -389,6 +389,81 @@
       color: var(--navy);
     }
 
+    .content-alignment-heading {
+      margin-top: 18px;
+      margin-bottom: 2px;
+      color: var(--navy);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    #content-review-dialog {
+      width: min(calc(100% - 30px), 900px);
+      max-height: 90vh;
+    }
+
+    .content-review-body {
+      max-height: calc(90vh - 125px);
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .content-review-meta {
+      background: var(--blue-light);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 4px 0 20px;
+    }
+
+    .content-review-meta p {
+      margin: 5px 0;
+    }
+
+    .criterion-review {
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #ffffff;
+    }
+
+    .criterion-review h3 {
+      margin: 0 0 9px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .rating-chip {
+      display: inline-block;
+      margin-left: 6px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: var(--green-light);
+      color: #255d46;
+      font-size: 0.8rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    .criterion-review p {
+      margin: 7px 0;
+    }
+
+    .evidence-list {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+
+    .evidence-list li {
+      margin: 5px 0;
+    }
+
+    .content-review-loading {
+      color: var(--muted);
+      padding: 18px 0;
+    }
+
     .faculty-area {
       background: #f9fbfc;
       border-top: 1px solid var(--border);
@@ -645,28 +720,29 @@
       <p>
         This page helps California Community College English faculty compare
         open resources for critical thinking, argument, rhetorical analysis,
-        research, and academic writing. Editorial alignment and faculty
-        experience are intentionally kept separate.
+        research, and academic writing. Content Alignment is my independent
+        editorial review; Faculty Experience is separate community input.
       </p>
     </section>
 
     <div class="notice">
       <strong>How to read this page:</strong>
-      “C1001 alignment” is an independent analysis of publicly available OER
-      against the statewide course requirements. Faculty recommendations and
-      teaching notes come from site users and are shown separately.
+      The dots are <strong>Content Alignment</strong> ratings, not overall quality scores.
+      I review each resource against eight C1001 content areas and look for explicit
+      instruction, not simply a topic, reading, assignment, or opportunity to practice.
+      Faculty recommendations and teaching notes are separate and do not affect my ratings.
     </div>
 
     <section class="method-panel" aria-labelledby="rubric-link-heading">
-      <h2 id="rubric-link-heading">Want to see exactly how C1001 is evaluated?</h2>
+      <h2 id="rubric-link-heading">See the C1001 Content Alignment Rubric</h2>
       <p>
-        The C1001 rubric shows the course-specific criteria behind the alignment dots,
-        including critical reading, argument and rhetoric, logic and reasoning,
-        biases and fallacies, research and source evaluation, evidence and documentation,
-        writing and revision, and diverse nonfiction.
+        This is a <strong>content rubric</strong>: it asks how explicitly each OER teaches
+        eight course-specific areas. I apply the rubric as the site’s sole editorial
+        evaluator. It is separate from faculty recommendations, teaching notes, and the
+        IDEA Framework review.
       </p>
       <a class="button button-secondary" href="c1001-rubric.html">
-        View the C1001 Rubric &amp; Scoring Criteria
+        View the C1001 Content Alignment Rubric
       </a>
     </section>
 
@@ -762,31 +838,39 @@
 
     <div id="oer-grid" class="cards" aria-live="polite"></div>
 
-    <section class="method-panel" id="how-we-rate">
-      <h2>How we look at C1001 alignment</h2>
+    <section class="method-panel" id="how-content-alignment-works">
+      <h2>How I review C1001 Content Alignment</h2>
 
       <p>
-        The editorial review considers eight course-specific areas:
-        critical reading, argument and rhetoric, logic and reasoning,
-        biases and fallacies, research and source evaluation,
-        evidence and documentation, writing and revision, and diverse nonfiction.
+        I apply the C1001 Content Alignment Rubric to the instructional content of each
+        resource. The eight areas are critical reading, argument and rhetoric, logic and
+        reasoning, biases and fallacies, research and source evaluation, evidence and
+        documentation, writing and revision, and diverse complex nonfiction.
       </p>
 
       <p>
-        A three-dot rating means the resource contains strong coverage of that
-        area; two dots means meaningful coverage; one dot means limited or
-        supplemental coverage. A zero does not mean the resource is poor—it
-        usually means that is not what the resource is designed to do.
+        <strong>Strong Alignment</strong> means substantial, explicit instruction;
+        <strong>Meaningful Alignment</strong> means useful direct instruction that may need
+        supplementation; <strong>Limited Alignment</strong> means the resource touches the
+        area or provides some instruction but not sustained coverage; and
+        <strong>Not a Significant Focus</strong> means little or no meaningful instructional
+        treatment. A low rating in one area does not mean the OER is poor. It may simply
+        be designed for a different role.
+      </p>
+
+      <p>
+        I am currently the sole evaluator for these editorial Content Alignment reviews.
+        Faculty Experience is collected separately and never changes the Content Alignment
+        ratings. The IDEA Framework review is also a separate lens.
       </p>
 
       <p class="small">
-        These are independent editorial assessments, not ASCCC/OERI ratings
-        or endorsements.
+        These are independent editorial assessments, not ASCCC/OERI ratings or endorsements.
       </p>
 
       <div class="card-links">
         <a class="button button-primary" href="c1001-rubric.html">
-          View the C1001 Rubric
+          View the C1001 Content Alignment Rubric
         </a>
         <a class="button button-secondary" href="scoring-method.html">
           General Scoring Method
@@ -795,7 +879,7 @@
     </section>
 
     <section class="suggest-panel" id="suggest" aria-labelledby="suggest-heading">
-      <h2 id="suggest-heading">Know an OER we're missing?</h2>
+      <h2 id="suggest-heading">Know an OER that's missing?</h2>
 
       <p>
         Faculty can suggest another open resource. Suggestions are reviewed
@@ -864,6 +948,34 @@
     </section>
 
   </main>
+
+  <dialog id="content-review-dialog" aria-labelledby="content-review-dialog-title">
+    <div class="dialog-inner">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow" style="color:#765417;">Editorial Content Alignment</p>
+          <h2 id="content-review-dialog-title">C1001 Content Review</h2>
+        </div>
+
+        <button
+          class="close-button"
+          id="close-content-review-dialog"
+          type="button"
+          aria-label="Close content review"
+        >
+          ×
+        </button>
+      </div>
+
+      <div
+        id="content-review-dialog-body"
+        class="content-review-body"
+        tabindex="-1"
+      >
+        <p class="content-review-loading">Loading content review…</p>
+      </div>
+    </div>
+  </dialog>
 
   <dialog id="review-dialog">
     <div class="dialog-inner">
@@ -1010,6 +1122,15 @@
       return `${"●".repeat(number)}${"○".repeat(3 - number)}`;
     }
 
+    function scoreLabel(score) {
+      const number = Number(score || 0);
+
+      if (number >= 3) return "Strong Alignment";
+      if (number === 2) return "Meaningful Alignment";
+      if (number === 1) return "Limited Alignment";
+      return "Not a Significant Focus";
+    }
+
     function resourceBadge(resource) {
 
       if (resource.resource_type === "reader") {
@@ -1129,60 +1250,61 @@
               ${escapeHtml(courseAlignmentNotes)}
             </p>
 
-            <div class="score-grid" aria-label="C1001 alignment">
+            <div class="content-alignment-heading">C1001 Content Alignment</div>
+            <div class="score-grid" aria-label="C1001 Content Alignment ratings">
 
               <div class="score-row">
                 <span>Critical reading</span>
-                <span class="dots" aria-label="${item.reading_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.reading_alignment)} (${Number(item.reading_alignment || 0)} of 3)">
                   ${scoreDots(item.reading_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Argument &amp; rhetoric</span>
-                <span class="dots" aria-label="${item.rhetoric_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.rhetoric_alignment)} (${Number(item.rhetoric_alignment || 0)} of 3)">
                   ${scoreDots(item.rhetoric_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Logic &amp; reasoning</span>
-                <span class="dots" aria-label="${item.critical_reasoning_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.critical_reasoning_alignment)} (${Number(item.critical_reasoning_alignment || 0)} of 3)">
                   ${scoreDots(item.critical_reasoning_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Biases &amp; fallacies</span>
-                <span class="dots" aria-label="${item.bias_fallacies_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.bias_fallacies_alignment)} (${Number(item.bias_fallacies_alignment || 0)} of 3)">
                   ${scoreDots(item.bias_fallacies_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Research &amp; source evaluation</span>
-                <span class="dots" aria-label="${item.research_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.research_alignment)} (${Number(item.research_alignment || 0)} of 3)">
                   ${scoreDots(item.research_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Evidence &amp; documentation</span>
-                <span class="dots" aria-label="${item.documentation_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.documentation_alignment)} (${Number(item.documentation_alignment || 0)} of 3)">
                   ${scoreDots(item.documentation_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Writing &amp; revision</span>
-                <span class="dots" aria-label="${item.writing_process_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.writing_process_alignment)} (${Number(item.writing_process_alignment || 0)} of 3)">
                   ${scoreDots(item.writing_process_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
                 <span>Diverse nonfiction</span>
-                <span class="dots" aria-label="${item.diverse_nonfiction_alignment} out of 3">
+                <span class="dots" aria-label="${scoreLabel(item.diverse_nonfiction_alignment)} (${Number(item.diverse_nonfiction_alignment || 0)} of 3)">
                   ${scoreDots(item.diverse_nonfiction_alignment)}
                 </span>
               </div>
@@ -1213,6 +1335,15 @@
               >
                 Open the OER
               </a>
+
+              <button
+                class="button button-secondary content-review-button"
+                type="button"
+                data-oer-id="${oer.id}"
+                data-oer-title="${escapeHtml(oer.title)}"
+              >
+                View content review
+              </button>
 
               <button
                 class="button button-secondary review-button"
@@ -1285,6 +1416,15 @@
         .join("");
 
       document
+        .querySelectorAll(".content-review-button")
+        .forEach(button => {
+          button.addEventListener(
+            "click",
+            () => openContentReviewDialog(button)
+          );
+        });
+
+      document
         .querySelectorAll(".review-button")
         .forEach(button => {
           button.addEventListener(
@@ -1307,7 +1447,7 @@
 
       if (courseError) {
         loading.textContent =
-          "We couldn't load the C1001 course record.";
+          "The C1001 course record couldn't be loaded.";
         console.error(courseError);
         return;
       }
@@ -1333,6 +1473,8 @@
             diverse_nonfiction_alignment,
             watch_for,
             editorial_notes,
+            review_confidence,
+            alignment_details,
             oers (
               id,
               title,
@@ -1348,7 +1490,7 @@
 
       if (resourceError) {
         loading.textContent =
-          "We couldn't load the OER catalog.";
+          "The OER catalog couldn't be loaded.";
         console.error(resourceError);
         return;
       }
@@ -1488,6 +1630,147 @@
         await updateAuthUI();
 
       });
+
+    const contentReviewDialog =
+      document.getElementById("content-review-dialog");
+
+    const contentReviewDialogBody =
+      document.getElementById("content-review-dialog-body");
+
+    let lastContentReviewTrigger = null;
+
+    const contentReviewCriteria = [
+      ["critical_reading", "Critical Reading", "reading_alignment"],
+      ["argument_rhetoric", "Argument & Rhetoric", "rhetoric_alignment"],
+      ["logic_reasoning", "Logic & Reasoning", "critical_reasoning_alignment"],
+      ["biases_fallacies", "Biases & Fallacies", "bias_fallacies_alignment"],
+      ["research_source_evaluation", "Research & Source Evaluation", "research_alignment"],
+      ["evidence_documentation", "Evidence & Documentation", "documentation_alignment"],
+      ["writing_revision", "Writing & Revision", "writing_process_alignment"],
+      ["diverse_complex_nonfiction", "Diverse & Complex Nonfiction", "diverse_nonfiction_alignment"]
+    ];
+
+    function evidenceList(items = []) {
+      if (!Array.isArray(items) || !items.length) {
+        return "";
+      }
+
+      return `
+        <p><strong>Evidence reviewed</strong></p>
+        <ul class="evidence-list">
+          ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    function openContentReviewDialog(button) {
+
+      lastContentReviewTrigger = button;
+
+      const item = allResources.find(
+        resource => String(resource.oers.id) === String(button.dataset.oerId)
+      );
+
+      document.getElementById(
+        "content-review-dialog-title"
+      ).textContent =
+        `${button.dataset.oerTitle} — C1001 Content Review`;
+
+      if (!item) {
+        contentReviewDialogBody.innerHTML = `
+          <div class="content-review-meta">
+            <p><strong>Detailed content review is not available yet.</strong></p>
+            <p>The compact Content Alignment ratings remain visible on the OER card.</p>
+          </div>
+        `;
+        contentReviewDialog.showModal();
+        return;
+      }
+
+      const details = item.alignment_details || {};
+      const criteria = details.criteria || {};
+
+      const sections = contentReviewCriteria.map(
+        ([key, label, scoreField]) => {
+
+          const entry = criteria[key] || {};
+          const score = Number(item[scoreField] || 0);
+
+          const rationale = entry.rationale
+            ? `<p>${escapeHtml(entry.rationale)}</p>`
+            : `<p class="small">A criterion-specific rationale has not been added yet.</p>`;
+
+          return `
+            <section class="criterion-review">
+              <h3>
+                ${escapeHtml(label)}
+                <span class="rating-chip">${escapeHtml(scoreLabel(score))}</span>
+              </h3>
+              ${rationale}
+              ${evidenceList(entry.evidence)}
+            </section>
+          `;
+        }
+      ).join("");
+
+      contentReviewDialogBody.innerHTML = `
+        <p>
+          This is my independent editorial review of how explicitly the OER teaches
+          the eight areas in the C1001 Content Alignment Rubric. It is a content review,
+          not an overall quality score or a faculty vote.
+        </p>
+
+        <div class="content-review-meta">
+          <p><strong>Evaluator:</strong> Site maintainer (one evaluator)</p>
+          <p><strong>Review confidence:</strong> ${escapeHtml(details.confidence || item.review_confidence || "Not recorded")}</p>
+          ${details.review_scope
+            ? `<p><strong>Scope reviewed:</strong> ${escapeHtml(details.review_scope)}</p>`
+            : ""}
+          <p>${escapeHtml(
+            details.method_note ||
+            "Ratings reflect explicit instructional coverage rather than topic presence alone."
+          )}</p>
+          <p class="small">
+            Faculty Experience is separate community input and does not change these
+            ratings. The IDEA Framework review is also separate.
+          </p>
+        </div>
+
+        ${sections}
+
+        <div class="content-review-meta">
+          <p>
+            <strong>How to interpret the ratings:</strong>
+            Strong Alignment means substantial explicit instruction; Meaningful Alignment
+            means useful direct instruction that may need supplementation; Limited Alignment
+            means some instruction but not sustained coverage; Not a Significant Focus means
+            little or no meaningful instructional treatment.
+          </p>
+          <p class="small">
+            These are independent editorial observations, not ASCCC/OERI ratings or endorsements.
+          </p>
+          <p>
+            <a href="c1001-rubric.html">View the full C1001 Content Alignment Rubric</a>
+          </p>
+        </div>
+      `;
+
+      contentReviewDialog.showModal();
+      contentReviewDialogBody.focus();
+    }
+
+    document
+      .getElementById("close-content-review-dialog")
+      .addEventListener(
+        "click",
+        () => contentReviewDialog.close()
+      );
+
+    contentReviewDialog.addEventListener("close", () => {
+      if (lastContentReviewTrigger) {
+        lastContentReviewTrigger.focus();
+      }
+    });
 
     const reviewDialog =
       document.getElementById("review-dialog");
