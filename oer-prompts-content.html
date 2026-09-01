@@ -1,1 +1,543 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Faculty prompt bank for narrowing and evaluating OER by course content using a transparent Content Rubric.">
+<title>Narrow by Content | CCC English OER Picks</title>
+<style>
+:root{--navy:#18324a;--blue:#245d78;--gold:#d9a441;--green:#3e6b57;--purple:#6c5a86;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--bg:#f7f9fb;--cream:#fffaf2;--light-blue:#eef4f7;--light-green:#edf5f0;--shadow:0 8px 24px rgba(29,49,67,.09);--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}a{color:var(--blue)}
+.skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}.skip-link:focus{left:10px}
+header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 64px}.topbar{max-width:var(--max);margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand,.back{color:#fff;text-decoration:none;font-weight:800}
+.hero{max-width:900px;margin:0 auto;text-align:center}.eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800;font-size:.9rem;margin-bottom:14px}h1{margin:0;font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}.hero p{max-width:800px;margin:20px auto 0;color:#eef5f8;font-size:clamp(1.05rem,2vw,1.24rem)}
+main{max-width:var(--max);margin:0 auto;padding:54px 20px 76px}section{margin-top:58px}h2{color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.2;margin:0 0 12px}h3{color:var(--navy);margin:0 0 8px}p{margin:0 0 16px}
+.lead{margin-top:-88px;position:relative;background:var(--cream);border:1px solid #eadfc8;border-radius:18px;padding:30px;box-shadow:var(--shadow)}.lead h2{font-size:clamp(1.8rem,3vw,2.5rem)}.rule{background:#fff;border-left:5px solid var(--gold);border-radius:10px;padding:17px 20px;margin-top:18px}
+.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.choice{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}.choice strong{display:block;color:var(--navy);margin-bottom:5px}.choice a{font-weight:800}
+.funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}.funnel-step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}.funnel-step .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:999px;background:var(--light-blue);color:var(--navy);font-weight:900;margin-bottom:8px}.funnel-step b{display:block;color:var(--navy);margin-bottom:5px}.funnel-arrow{color:var(--muted);font-weight:800}
+.prompt-card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);margin-top:20px;overflow:hidden}.prompt-head{padding:24px}.tag-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}.tag{display:inline-block;background:#e7f1f5;color:var(--blue);padding:5px 9px;border-radius:999px;font-size:.8rem;font-weight:800}.prompt-number{font-size:.86rem;color:var(--muted);font-weight:700}.prompt-head p{margin-bottom:0;color:var(--muted)}
+.prompt-details{border-top:1px solid var(--border)}.prompt-details summary{cursor:pointer;list-style:none;padding:16px 24px;background:#f9fbfc;color:var(--navy);font-weight:800}.prompt-details summary::-webkit-details-marker{display:none}.prompt-details summary::after{content:"+";float:right;font-size:1.25rem}.prompt-details[open] summary::after{content:"–"}.prompt-details summary:focus-visible{outline:3px solid rgba(36,93,120,.2);outline-offset:-3px}.prompt-body{padding:0 24px 24px}
+pre{white-space:pre-wrap;word-wrap:break-word;background:#f5f7f9;border:1px solid #dfe6eb;border-radius:12px;padding:18px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;line-height:1.55}.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button,.button{appearance:none;border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:9px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}button:focus-visible,.button:focus-visible{outline:3px solid rgba(36,93,120,.25);outline-offset:3px}
+.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.check{background:#fff;border:1px solid var(--border);border-radius:12px;padding:17px}.method{background:var(--light-blue);border-left:5px solid var(--blue);border-radius:10px;padding:18px 20px;margin-top:20px}.next{background:var(--light-green);border-left:5px solid var(--green);border-radius:10px;padding:19px 21px;margin-top:22px}.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}.button.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+.rubric-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.rubric-link{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px}.rubric-link a{font-weight:800}
+footer{background:#182734;color:#dbe6ec;padding:32px 20px}.footer-inner{max-width:1000px;margin:auto;text-align:center}.footer-inner a{color:#fff;font-weight:700}
+@media(max-width:900px){.funnel{grid-template-columns:1fr 1fr}}@media(max-width:720px){.chooser,.checklist,.rubric-links{grid-template-columns:1fr}}@media(max-width:640px){.topbar{flex-direction:column;align-items:flex-start}.funnel{grid-template-columns:1fr}main{padding-top:42px}.lead{margin-top:-64px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html">CCC English OER Picks</a>
+    <a class="back" href="oer-evaluation-toolkit.html">← Back to Prompt Library</a>
+  </div>
+  <div class="hero">
+    <div class="eyebrow">PROMPT BANK · CONTENT LENS</div>
+    <h1>Narrow by Content</h1>
+    <p>Use the right level of review for the size of your field—from 100 possible OER to a small set of finalists ready for evidence-based evaluation.</p>
+  </div>
+</header>
+
+<main id="main-content">
+
+<section class="lead" aria-labelledby="purpose-heading">
+  <h2 id="purpose-heading">Do not give 100 books the same depth of review</h2>
+  <p>The Content Lens should get more rigorous as the field gets smaller. A table of contents may be enough to decide that a resource deserves a closer look. It is not enough to support a final Content Rubric rating.</p>
+  <div class="rule"><strong>Use a funnel:</strong> screen broadly, inspect a smaller set, then reserve full evidence-based Content Rubric review for the 2–4 resources you are seriously considering.</div>
+</section>
+
+<section aria-labelledby="choose-heading">
+  <h2 id="choose-heading">Where are you in the funnel?</h2>
+  <div class="chooser">
+    <div class="choice"><strong>I do not have a Content Rubric yet.</strong>Start with <a href="#rubric-heading">Build My Content Rubric</a>.</div>
+    <div class="choice"><strong>I have 20–100+ possibilities.</strong>Use <a href="#screen-heading">Quick-Screen a Large List</a>.</div>
+    <div class="choice"><strong>I have about 5–10 plausible choices.</strong>Use <a href="#shortlist-heading">Narrow to 2–4 Finalists</a>.</div>
+    <div class="choice"><strong>I have 2–4 serious finalists.</strong>Use <a href="#review-heading">Full Content Rubric Review</a>.</div>
+    <div class="choice"><strong>I already have an AI-generated review.</strong>Use <a href="#audit-heading">Check the Evaluation</a>.</div>
+  </div>
+</section>
+
+<section aria-labelledby="funnel-heading">
+  <h2 id="funnel-heading">A scalable content-review funnel</h2>
+  <div class="funnel">
+    <div class="funnel-step"><span class="num">1</span><b>20–100+</b>Quick screen using visible structure.</div>
+    <div class="funnel-step"><span class="num">2</span><b>5–10</b>Sample and compare plausible candidates.</div>
+    <div class="funnel-step"><span class="num">3</span><b>2–4</b>Full Content Rubric review with evidence.</div>
+    <div class="funnel-step"><span class="num">4</span><b>FINALISTS</b>Move to the separate IDEA lens.</div>
+  </div>
+  <div class="method"><strong>The evidence threshold should rise at each stage.</strong> Early screening can use titles, descriptions, and tables of contents cautiously. Final ratings should rely on actual chapters, assignments, examples, and other inspectable teaching material.</div>
+</section>
+
+<section id="rubric-heading" aria-labelledby="rubric-title">
+  <h2 id="rubric-title">Prompt 1: Build My Content Rubric</h2>
+  <p>Use this only if you do not already have a course-specific rubric.</p>
+  
+<article class="prompt-card">
+  <div class="prompt-head">
+    <div class="tag-row"><span class="tag">BUILD THE RUBRIC</span><span class="prompt-number">Prompt 1</span></div>
+    <h3>Create a Content Rubric from a Course Document</h3>
+    <p>Turn a COR, CCN, or C-ID record into a transparent draft rubric without inventing course requirements.</p>
+  </div>
+  <details class="prompt-details" open>
+    <summary>Open full prompt</summary>
+    <div class="prompt-body">
+      <pre id="prompt-rubric">You are helping a college faculty member create a transparent Content Rubric for evaluating whether an open educational resource (OER) is a good fit for a specific course.
+
+I will provide a course document such as a Course Outline of Record (COR), Common Course Numbering (CCN) descriptor, or C-ID descriptor.
+
+Your job is to create a DRAFT OER Content Rubric grounded only in the course document I provide.
+
+Please follow these rules:
+
+1. Extract the major knowledge areas, practices, skills, and learning expectations that an OER would need to support.
+2. Group overlapping requirements into a manageable set of rubric categories rather than turning every sentence into a separate criterion.
+3. Distinguish between:
+   - essential course content or practices,
+   - important but secondary areas,
+   - requirements that are not appropriate for evaluating a textbook or OER itself.
+4. Do not invent course requirements that are not supported by the document.
+5. For each rubric category, write a short description of what meaningful, teachable OER coverage would look like.
+6. Create four performance levels:
+   - Strong alignment
+   - Meaningful alignment
+   - Limited alignment
+   - Not a significant focus
+7. Make the levels describe the quality and teachability of coverage, not the prestige or overall quality of the OER.
+8. For each category, briefly illustrate the boundary between levels with one concrete, hypothetical example. Label these as illustrations, not descriptions of any real textbook.
+9. Do not assign weights or produce a total score unless I explicitly ask for one.
+10. Flag any criterion that is ambiguous and needs faculty judgment.
+11. End with a section titled &quot;Faculty Review Needed&quot; identifying decisions the AI should not make on its own.
+
+Output the rubric as a table with these columns:
+- Rubric category
+- What this category means for this course
+- Strong alignment
+- Meaningful alignment
+- Limited alignment
+- Not a significant focus
+
+After the table, include:
+- Course requirements intentionally NOT turned into OER criteria
+- Faculty Review Needed
+- A brief explanation of how the categories were derived
+- Illustrative boundary examples
+
+COURSE DOCUMENT:
+[PASTE COR, CCN, OR C-ID TEXT HERE]</pre>
+      <div class="copy-row"><button type="button" data-copy="prompt-rubric">Copy prompt</button></div>
+    </div>
+  </details>
+</article>
+</section>
+
+<section aria-labelledby="existing-heading">
+  <h2 id="existing-heading">Already using one of these English courses?</h2>
+  <p>You can skip Prompt 1 and use the published Content Rubric.</p>
+  <div class="rubric-links">
+    <div class="rubric-link"><a href="c1000-rubric.html">ENGL C1000 Content Rubric →</a></div>
+    <div class="rubric-link"><a href="c1001-rubric.html">ENGL C1001 Content Rubric →</a></div>
+    <div class="rubric-link"><a href="c1002-rubric.html">ENGL C1002 Content Rubric →</a></div>
+    <div class="rubric-link"><a href="c1003-rubric.html">ENGL C1003 Content Rubric →</a></div>
+  </div>
+</section>
+
+<section id="screen-heading" aria-labelledby="screen-title">
+  <h2 id="screen-title">Prompt 2: Quick-Screen a Large OER List</h2>
+  <p>This is triage, not scoring. Use it to turn a very large pool into a manageable set worth inspecting.</p>
+  
+<article class="prompt-card">
+  <div class="prompt-head">
+    <div class="tag-row"><span class="tag">LARGE-LIST TRIAGE</span><span class="prompt-number">Prompt 2</span></div>
+    <h3>Quick-Screen 20–100+ Candidates</h3>
+    <p>Use only high-level evidence to remove obvious mismatches and identify the resources worth a closer look.</p>
+  </div>
+  <details class="prompt-details">
+    <summary>Open full prompt</summary>
+    <div class="prompt-body">
+      <pre id="prompt-screen">You are helping a college faculty member QUICK-SCREEN a large list of possible OER before doing any deep evaluation.
+
+I will provide:
+1. a course Content Rubric,
+2. a list of OER candidates,
+3. whatever high-level evidence is readily available for each resource, such as title, description, table of contents, chapter list, platform page, or public preview.
+
+Your job is to REDUCE THE FIELD, not to conduct a full Content Rubric evaluation.
+
+This prompt is designed for situations such as:
+- 20–100+ possible resources,
+- a large repository result set,
+- a broad discovery list that needs triage.
+
+IMPORTANT:
+Use only high-level, quickly inspectable evidence.
+Do not pretend to know what is inside chapters you have not reviewed.
+
+STEP 1 — IDENTIFY OBVIOUS MISMATCHES
+
+Flag resources that appear unlikely to deserve deeper review because of one or more of these:
+- subject mismatch,
+- scope far too narrow or too broad,
+- resource type does not match the likely course need,
+- obvious absence of several major course areas in the visible structure,
+- inaccessible or unverifiable resource,
+- unclear or non-open licensing,
+- duplicate / mirror / superseded version.
+
+Do not eliminate a resource merely because one criterion is not visible in the table of contents.
+
+STEP 2 — QUICKLY MAP VISIBLE CONTENT
+
+For each remaining candidate, identify only what can be reasonably inferred from:
+- title,
+- description,
+- table of contents,
+- named chapters / modules,
+- visible ancillary structure.
+
+Use cautious language such as:
+- &quot;appears to address,&quot;
+- &quot;visible evidence suggests,&quot;
+- &quot;not enough information to tell.&quot;
+
+STEP 3 — SORT INTO TRIAGE GROUPS
+
+Place each candidate into one of:
+
+A. MOVE FORWARD
+Looks plausible enough to deserve closer review.
+
+B. MAYBE / VERIFY FIRST
+Potentially useful, but important questions remain.
+
+C. LOW PRIORITY FOR DEEP REVIEW
+The visible evidence suggests another resource is more likely to fit.
+
+D. REMOVE AS SEARCH NOISE
+Duplicate, broken, misidentified, clearly not OER, or clearly unrelated.
+
+STEP 4 — DO NOT SCORE THE RUBRIC YET
+
+Do not assign Strong / Meaningful / Limited / Not a significant focus ratings.
+Do not calculate totals.
+Do not apply the IDEA Framework.
+Do not declare a winner.
+
+OUTPUT
+
+1. QUICK TRIAGE SUMMARY
+How many resources fall into each group?
+
+2. MOVE FORWARD
+Table:
+Resource | Why it looks promising | Visible course areas | Likely role | What to inspect next
+
+3. MAYBE / VERIFY FIRST
+Table:
+Resource | Why it may be useful | What is unclear | What to verify
+
+4. LOW PRIORITY
+Table:
+Resource | Why it is lower priority | What evidence this judgment is based on
+
+5. REMOVE AS SEARCH NOISE
+Only include resources that are duplicates, dead, misidentified, clearly not open, or clearly unrelated.
+
+6. NEXT STEP
+Recommend a manageable group—usually about 5–10 resources—for a closer content screen.
+
+CONTENT RUBRIC:
+[PASTE]
+
+OER CANDIDATES / HIGH-LEVEL EVIDENCE:
+[PASTE LIST, LINKS, TOCS, OR DESCRIPTIONS]</pre>
+      <div class="copy-row"><button type="button" data-copy="prompt-screen">Copy prompt</button></div>
+    </div>
+  </details>
+</article>
+</section>
+
+<section id="shortlist-heading" aria-labelledby="shortlist-title">
+  <h2 id="shortlist-title">Prompt 3: Narrow 5–10 Plausible Candidates to 2–4</h2>
+  <p>Now the AI should sample actual sections consistently across candidates and identify which ones have earned full review.</p>
+  
+<article class="prompt-card">
+  <div class="prompt-head">
+    <div class="tag-row"><span class="tag">SHORTLIST</span><span class="prompt-number">Prompt 3</span></div>
+    <h3>Build a Serious Content Shortlist</h3>
+    <p>Compare likely strengths, gaps, roles, and uncertainties at moderate depth before committing to a full rubric review.</p>
+  </div>
+  <details class="prompt-details">
+    <summary>Open full prompt</summary>
+    <div class="prompt-body">
+      <pre id="prompt-shortlist">You are helping a college faculty member narrow a PLAUSIBLE OER LIST to a serious shortlist.
+
+I will provide:
+1. a course Content Rubric,
+2. approximately 5–10 plausible OER candidates,
+3. accessible evidence such as tables of contents, selected chapters, descriptions, assignments, ancillaries, or links.
+
+Your job is to compare the candidates at a MODERATE DEPTH and identify which 2–4 deserve full Content Rubric evaluation.
+
+This is deeper than a quick screen but lighter than a full criterion-by-criterion final review.
+
+STEP 1 — IDENTIFY THE MOST IMPORTANT COURSE NEEDS
+
+Using the Content Rubric, identify the major content areas that most help distinguish one candidate from another.
+
+Do not invent new criteria.
+
+STEP 2 — SAMPLE EACH RESOURCE CONSISTENTLY
+
+For each candidate, inspect:
+- the table of contents or full structure,
+- the introduction / overview when useful,
+- at least 2–3 representative chapters or sections,
+- obvious ancillaries or assignments when available.
+
+If access differs across candidates, say so.
+
+STEP 3 — COMPARE COVERAGE QUALITY
+
+For each candidate, describe:
+- areas with visible, teachable coverage,
+- areas that appear partial or thin,
+- likely supplementation needs,
+- likely role: primary text / core + supplements / reader / supplement / ancillary,
+- important uncertainties.
+
+Do NOT run the full rubric unless the evidence is already sufficient and I explicitly ask.
+
+STEP 4 — CREATE THE SHORTLIST
+
+Recommend 2–4 resources for full evaluation based on:
+- breadth of plausible course coverage,
+- depth of visible instruction,
+- usefulness for the likely role,
+- amount of unresolved supplementation,
+- evidence quality.
+
+Do not create a composite numerical score.
+Do not call one resource &quot;best&quot; unless the evidence is unusually clear and you explain the basis.
+If several candidates are close, say so.
+
+OUTPUT
+
+1. SHORTLIST SNAPSHOT
+A brief summary of the strongest contenders and why.
+
+2. SIDE-BY-SIDE SCREEN
+Table:
+Resource | Visible strengths | Visible gaps | Likely role | Evidence confidence | What still needs checking
+
+3. MOVE TO FULL REVIEW
+Identify 2–4 candidates and explain why each earned a deeper look.
+
+4. HOLD / SUPPLEMENTAL OPTIONS
+Identify useful resources that may not need full adoption review.
+
+5. DROP FROM SERIOUS CONSIDERATION
+Explain only when the visible evidence supports that conclusion.
+
+6. FULL-REVIEW PLAN
+For each shortlisted resource, name the chapters / sections / ancillaries that should be examined during the full Content Rubric review.
+
+CONTENT RUBRIC:
+[PASTE]
+
+OER CANDIDATES:
+[PASTE LINKS / TEXT / TOCS / EVIDENCE]</pre>
+      <div class="copy-row"><button type="button" data-copy="prompt-shortlist">Copy prompt</button></div>
+    </div>
+  </details>
+</article>
+</section>
+
+<section id="review-heading" aria-labelledby="review-title">
+  <h2 id="review-title">Prompt 4: Full Content Rubric Review</h2>
+  <p>This is the evidence-heavy step. Run it only on resources you are seriously considering.</p>
+  
+<article class="prompt-card">
+  <div class="prompt-head">
+    <div class="tag-row"><span class="tag">DEEP CONTENT REVIEW</span><span class="prompt-number">Prompt 4</span></div>
+    <h3>Evaluate a Finalist with the Content Rubric</h3>
+    <p>Rate criterion by criterion using inspectable evidence, supplementation needs, and uncertainty.</p>
+  </div>
+  <details class="prompt-details">
+    <summary>Open full prompt</summary>
+    <div class="prompt-body">
+      <pre id="prompt-review">You are conducting a transparent Content Rubric review of one OER for a college course.
+
+I will provide:
+1. a course Content Rubric, and
+2. an OER or available evidence from that OER.
+
+Evaluate the OER criterion by criterion.
+
+RULES
+
+1. Use only evidence available in the OER materials I provide or that you can directly inspect.
+2. For every rating, identify the evidence that supports it: chapter, section, assignment, example, table of contents entry, ancillary, or other identifiable feature.
+3. Do not infer that a topic is absent simply because it was not easy to find.
+4. If the available material is incomplete, use &quot;Insufficient evidence / uncertain&quot; as the rating rather than guessing.
+5. Distinguish between:
+   - substantial, teachable coverage,
+   - brief or partial mention,
+   - material that would require significant instructor supplementation.
+6. Consider the intended role of the resource. A targeted supplement should not be penalized for failing to function like a complete textbook.
+7. Do not produce an overall quality ranking.
+8. Do not claim that the resource officially satisfies articulation, local curriculum, CCN, or C-ID requirements.
+9. Separate factual evidence from interpretive judgment.
+10. If the OER is long, review the full table of contents plus at least two or three representative chapters or sections per rubric category rather than relying only on the introduction. List what you actually reviewed.
+11. Distinguish content PRESENCE from content INSTRUCTION. A resource should not receive a high rating merely because a topic appears; evaluate whether the OER meaningfully teaches, models, explains, or gives students opportunities to practice the relevant work.
+12. If coverage is inconsistent across the resource, describe the inconsistency rather than averaging it away.
+
+FOR EACH RUBRIC CATEGORY, OUTPUT:
+
+- Rating:
+  Strong alignment / Meaningful alignment / Limited alignment / Not a significant focus / Insufficient evidence – uncertain
+- Evidence found
+- Why the evidence supports the rating
+- What faculty may still need to supplement
+- Confidence level: High / Moderate / Low
+
+Confidence describes how sure you are about the rating, not a substitute for the rating. If the evidence is too thin to support any substantive rating, use &quot;Insufficient evidence – uncertain.&quot;
+
+AT THE END, PROVIDE:
+
+- Strongest likely role for this OER:
+  Primary course text / Core text plus supplements / Reader or anthology / Targeted supplement / Ancillary / Not a strong fit
+- Major strengths
+- Major gaps or uncertainties
+- Most likely supplementation needs
+- Evidence that should be checked by a faculty reviewer
+- Sections of the resource actually reviewed
+
+Do not calculate an overall score unless I explicitly request one.
+
+CONTENT RUBRIC:
+[PASTE RUBRIC HERE]
+
+OER / OER EVIDENCE:
+[PASTE TEXT, LINKS, TOC, CHAPTERS, OR OTHER AVAILABLE MATERIAL HERE]</pre>
+      <div class="copy-row"><button type="button" data-copy="prompt-review">Copy prompt</button></div>
+    </div>
+  </details>
+</article>
+</section>
+
+<section id="audit-heading" aria-labelledby="audit-title">
+  <h2 id="audit-title">Prompt 5: Check the Evaluation</h2>
+  <p>This optional skeptical second pass looks for overclaiming, inconsistent standards, weak evidence, and false certainty before a faculty member finalizes the review.</p>
+  
+<article class="prompt-card">
+  <div class="prompt-head">
+    <div class="tag-row"><span class="tag">OPTIONAL QUALITY CHECK</span><span class="prompt-number">Prompt 5</span></div>
+    <h3>Audit an AI-Generated Content Review</h3>
+    <p>Pressure-test the evidence rather than polishing the first answer.</p>
+  </div>
+  <details class="prompt-details">
+    <summary>Open full prompt</summary>
+    <div class="prompt-body">
+      <pre id="prompt-audit">Review this AI-generated OER Content Rubric assessment as a skeptical second reviewer.
+
+Do not simply repeat or polish the existing analysis.
+
+Your job is to identify where the review may be overconfident, under-supported, inconsistent, or based on incomplete evidence.
+
+CHECK FOR:
+
+1. Ratings where the cited evidence may be too weak for the conclusion.
+2. Places where absence of evidence may have been mistaken for evidence of absence.
+3. Claims that go beyond the material actually reviewed.
+4. Ratings that confuse topic presence with actual instruction.
+5. Ratings where the intended role of the OER may have been ignored.
+6. Ratings that should be changed to &quot;Insufficient evidence / uncertain.&quot;
+7. Places where the same evidence could reasonably support a different interpretation.
+8. Inconsistent rating standards across rubric categories.
+9. Important OER sections, ancillaries, or representative chapters that should be checked before finalizing the review.
+10. Any place where the review appears to have rewarded prestige, polish, comprehensiveness, or familiarity rather than the rubric criteria.
+
+FOR EACH CONCERN, PROVIDE:
+
+- Original claim or rating
+- Why it may be overstated, inconsistent, or uncertain
+- What evidence would strengthen or correct it
+- Recommended action:
+  Keep / Revise / Mark uncertain / Investigate further
+
+END WITH:
+
+- Most trustworthy findings
+- Least trustworthy findings
+- Highest-priority items for faculty verification
+- Any rubric categories that appear to need recalibration
+- A short note on whether the review seems ready for human finalization
+
+ASSESSMENT TO AUDIT:
+[PASTE AI-GENERATED CONTENT REVIEW HERE]
+
+OPTIONAL CONTENT RUBRIC:
+[PASTE RUBRIC HERE]</pre>
+      <div class="copy-row"><button type="button" data-copy="prompt-audit">Copy prompt</button></div>
+    </div>
+  </details>
+</article>
+</section>
+
+<section aria-labelledby="guardrails-heading">
+  <h2 id="guardrails-heading">Content-review guardrails</h2>
+  <div class="checklist">
+    <div class="check"><h3>Presence is not instruction.</h3><p>A topic appearing in a chapter title is weaker evidence than explanation, modeling, examples, guided practice, or assignments that actually teach it.</p></div>
+    <div class="check"><h3>Not found ≠ not present.</h3><p>If the available material is incomplete, use uncertainty rather than converting a search failure into a low rating.</p></div>
+    <div class="check"><h3>Role matters.</h3><p>A reader, anthology, supplement, or ancillary should be judged for the job it is meant to do—not as a failed comprehensive textbook.</p></div>
+    <div class="check"><h3>Sampling should be visible.</h3><p>List the chapters and sections actually reviewed so another faculty member can understand the basis of the judgment.</p></div>
+    <div class="check"><h3>No hidden total score.</h3><p>Do not collapse distinct criteria into one number unless a faculty-designed method explicitly calls for that.</p></div>
+    <div class="check"><h3>Content is only one lens.</h3><p>A strong course-content fit does not answer the separate questions examined through the IDEA Framework.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="next-heading">
+  <h2 id="next-heading">What comes after content review?</h2>
+  <p>Once you have 2–4 serious content finalists, keep those results intact and move the same resources through the separate IDEA Framework lens.</p>
+  <div class="next"><strong>Typical handoff:</strong> content shortlist → full Content Rubric review → IDEA Framework → compare the two sets of findings → faculty decision.</div>
+  <div class="button-row">
+    <a class="button" href="oer-prompts-idea.html">Next: Examine with IDEA</a>
+    <a class="button secondary" href="oer-prompts-course-fit.html">Back: Match My Course</a>
+    <a class="button secondary" href="oer-evaluation-toolkit.html">Back to Prompt Library</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>CCC English OER Picks</strong></p>
+    <p>Independent faculty project. AI-assisted methods can help organize content review; faculty remain responsible for evidence, interpretation, and adoption decisions.</p>
+    <p><a href="index.html">Home</a> · <a href="oer-evaluation-toolkit.html">Prompt Library</a> · <a href="scoring-method.html">Method</a> · <a href="about.html">About</a></p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', async function(){
+    const id=btn.getAttribute('data-copy');
+    const content=document.getElementById(id).innerText;
+    try{
+      await navigator.clipboard.writeText(content);
+      const old=btn.textContent;
+      btn.textContent='✓ Copied';
+      setTimeout(function(){btn.textContent=old;},1600);
+    }catch(e){
+      const range=document.createRange();
+      range.selectNodeContents(document.getElementById(id));
+      const sel=window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  });
+});
+</script>
+</body>
+</html>
