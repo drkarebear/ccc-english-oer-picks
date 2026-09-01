@@ -725,15 +725,15 @@
     </div>
 
     <section class="method-panel" aria-labelledby="rubric-link-heading">
-      <h2 id="rubric-link-heading">Want to see exactly how C1000 is evaluated?</h2>
+      <h2 id="rubric-link-heading">Want to see exactly how C1000 content alignment is evaluated?</h2>
       <p>
-        The C1000 rubric shows the course-specific criteria behind the alignment ratings,
-        including Academic Reading, Rhetoric &amp; Rhetorical Awareness, Writing Process,
-        Academic Genres, Research &amp; Source Use, Documentation, and Language, Style &amp;
-        Rhetorical Choice.
+        The <strong>C1000 Content Alignment Rubric</strong> shows the course-specific criteria
+        used to review explicit instructional coverage, including Academic Reading,
+        Rhetoric &amp; Rhetorical Awareness, Writing Process, Academic Genres,
+        Research &amp; Source Use, Documentation, and Language, Style &amp; Rhetorical Choice.
       </p>
       <a class="button button-secondary" href="c1000-rubric.html">
-        View the C1000 Rubric &amp; Scoring Criteria
+        View the C1000 Content Alignment Rubric
       </a>
     </section>
 
@@ -812,7 +812,9 @@
     <h2 class="section-heading">C1000 OER</h2>
 
     <p class="section-intro">
-      Start with the featured resources, or use the filters above to narrow the list.
+      Start Here resources appear first. Within each resource type, books with broader
+      Strong Content Alignment coverage appear earlier. This browse order is meant to help
+      faculty investigate likely starting points; it is not an overall ranking.
     </p>
 
     <div id="loading" class="loading" role="status">
@@ -822,7 +824,7 @@
     <div id="oer-grid" class="cards" aria-live="polite"></div>
 
     <section class="method-panel" id="how-we-rate">
-      <h2>How C1000 alignment is reviewed</h2>
+      <h2>How C1000 content alignment is reviewed</h2>
 
       <p>
         The editorial review considers seven course-specific areas: Academic Reading,
@@ -850,7 +852,7 @@
 
       <div class="card-links">
         <a class="button button-primary" href="c1000-rubric.html">
-          View the C1000 Rubric
+          View the C1000 Content Alignment Rubric
         </a>
         <a class="button button-secondary" href="scoring-method.html">
           General Scoring Method
@@ -933,8 +935,8 @@
     <div class="dialog-inner">
       <div class="dialog-header">
         <div>
-          <p class="eyebrow" style="color:#765417;">Editorial alignment review</p>
-          <h2 id="alignment-dialog-title">C1000 alignment details</h2>
+          <p class="eyebrow" style="color:#765417;">Editorial content alignment</p>
+          <h2 id="alignment-dialog-title">C1000 Content Review</h2>
         </div>
         <button
           class="close-button"
@@ -1219,7 +1221,7 @@
               ${escapeHtml(alignmentNotes)}
             </p>
 
-            <div class="score-grid" aria-label="C1000 alignment">
+            <div class="score-grid" aria-label="C1000 content alignment">
 
               <div class="score-row">
                 <span>Academic Reading</span>
@@ -1314,8 +1316,9 @@
                 type="button"
                 data-oer-id="${oer.id}"
                 data-oer-title="${escapeHtml(oer.title)}"
+                aria-label="View editorial content review for ${escapeHtml(oer.title)}"
               >
-                View alignment details
+                View content review
               </button>
 
               <a
@@ -1485,10 +1488,62 @@
       allResources = resourceData || [];
       approvedReviews = reviewData || [];
 
+      function strongCount(item) {
+        return [
+          item.reading_alignment,
+          item.rhetoric_alignment,
+          item.writing_process_alignment,
+          item.genres_alignment,
+          item.research_alignment,
+          item.documentation_alignment,
+          item.language_style_alignment
+        ].filter(score => Number(score) === 3).length;
+      }
+
+      function meaningfulCount(item) {
+        return [
+          item.reading_alignment,
+          item.rhetoric_alignment,
+          item.writing_process_alignment,
+          item.genres_alignment,
+          item.research_alignment,
+          item.documentation_alignment,
+          item.language_style_alignment
+        ].filter(score => Number(score) === 2).length;
+      }
+
+      function resourceTypeRank(item) {
+        const type = item.course_resource_type || item.oers.resource_type || "primary_text";
+        if (type === "primary_text") return 0;
+        if (type === "reader") return 1;
+        if (type === "supplement") return 2;
+        return 3;
+      }
+
       allResources.sort((a, b) => {
 
+        // Start Here remains the strongest browse signal.
         if (a.oers.is_featured !== b.oers.is_featured) {
           return a.oers.is_featured ? -1 : 1;
+        }
+
+        // Within featured/non-featured groups, show likely course spines before
+        // readers and supplements. This is a browse order, not an overall score.
+        const typeDifference = resourceTypeRank(a) - resourceTypeRank(b);
+        if (typeDifference !== 0) {
+          return typeDifference;
+        }
+
+        // Within the same role, broader Strong Content Alignment appears earlier.
+        const strongDifference = strongCount(b) - strongCount(a);
+        if (strongDifference !== 0) {
+          return strongDifference;
+        }
+
+        // Meaningful coverage is only a tie-breaker; no composite score is displayed.
+        const meaningfulDifference = meaningfulCount(b) - meaningfulCount(a);
+        if (meaningfulDifference !== 0) {
+          return meaningfulDifference;
         }
 
         return a.oers.title.localeCompare(b.oers.title);
@@ -1633,7 +1688,7 @@
 
       document.getElementById(
         "alignment-dialog-title"
-      ).textContent = button.dataset.oerTitle;
+      ).textContent = `${button.dataset.oerTitle} — C1000 Content Review`;
 
       alignmentDialogBody.innerHTML =
         '<p class="alignment-loading">Loading alignment details…</p>';
@@ -1691,13 +1746,23 @@
       }).join("");
 
       alignmentDialogBody.innerHTML = `
+        <p>
+          This editorial review looks at how explicitly the resource teaches the major
+          content areas of ENGL C1000. It is separate from faculty experience and the
+          IDEA Framework review.
+        </p>
         <div class="alignment-review-meta">
           <p><strong>Review confidence:</strong> ${escapeHtml(details.confidence || "Not recorded")}</p>
           ${details.review_scope ? `<p><strong>Scope reviewed:</strong> ${escapeHtml(details.review_scope)}</p>` : ""}
           <p>${escapeHtml(details.method_note || "Ratings reflect explicit instructional coverage rather than topic presence alone.")}</p>
-          <p class="small">This editorial alignment review is separate from faculty recommendations and from the IDEA Framework lens.</p>
+          <p class="small">This editorial content review is separate from faculty experience and from the IDEA Framework lens.</p>
         </div>
         ${sections}
+        <div class="alignment-review-meta">
+          <p><strong>About this review:</strong> Ratings reflect explicit instructional coverage,
+          not simply the presence of readings, assignments, topics, or opportunities for practice.
+          These are independent editorial observations, not ASCCC/OERI ratings or endorsements.</p>
+        </div>
       `;
 
       alignmentDialogBody.focus();
