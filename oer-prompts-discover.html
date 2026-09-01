@@ -1,1 +1,394 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Faculty prompts for discovering OER when starting from scratch, working in a niche field, or trying to build a course from several open resources.">
+<title>Discover OER Prompts | CCC English OER Picks</title>
+<style>
+:root{--navy:#18324a;--blue:#245d78;--gold:#d9a441;--green:#3e6b57;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--bg:#f7f9fb;--cream:#fffaf2;--light-blue:#eef4f7;--light-green:#edf5f0;--shadow:0 8px 24px rgba(29,49,67,.09);--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}a{color:var(--blue)}
+.skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}.skip-link:focus{left:10px}
+header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 64px}.topbar{max-width:var(--max);margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand,.back{color:#fff;text-decoration:none;font-weight:800}
+.hero{max-width:900px;margin:0 auto;text-align:center}.eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800;font-size:.9rem;margin-bottom:14px}h1{margin:0;font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}.hero p{max-width:790px;margin:20px auto 0;color:#eef5f8;font-size:clamp(1.05rem,2vw,1.24rem)}
+main{max-width:var(--max);margin:0 auto;padding:54px 20px 76px}section{margin-top:58px}h2{color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.2;margin:0 0 12px}h3{color:var(--navy);margin:0 0 8px}p{margin:0 0 16px}
+.lead{margin-top:-88px;position:relative;background:var(--cream);border:1px solid #eadfc8;border-radius:18px;padding:30px;box-shadow:var(--shadow)}.lead h2{font-size:clamp(1.8rem,3vw,2.5rem)}.rule{background:#fff;border-left:5px solid var(--gold);border-radius:10px;padding:17px 20px;margin-top:18px}
+.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.choice{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}.choice strong{display:block;color:var(--navy);margin-bottom:5px}.choice a{font-weight:800}
+.search-ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}.search-step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}.search-step span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:999px;background:var(--light-blue);color:var(--navy);font-weight:900;margin-bottom:8px}.search-step strong{display:block;color:var(--navy);margin-bottom:5px}
+.prompt-card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);margin-top:20px;overflow:hidden}.prompt-head{padding:24px}.tag-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}.tag{display:inline-block;background:#e7f1f5;color:var(--blue);padding:5px 9px;border-radius:999px;font-size:.8rem;font-weight:800}.prompt-number{font-size:.86rem;color:var(--muted);font-weight:700}.prompt-head p{margin-bottom:0;color:var(--muted)}
+.prompt-details{border-top:1px solid var(--border)}.prompt-details summary{cursor:pointer;list-style:none;padding:16px 24px;background:#f9fbfc;color:var(--navy);font-weight:800}.prompt-details summary::-webkit-details-marker{display:none}.prompt-details summary::after{content:"+";float:right;font-size:1.25rem}.prompt-details[open] summary::after{content:"–"}.prompt-details summary:focus-visible{outline:3px solid rgba(36,93,120,.2);outline-offset:-3px}.prompt-body{padding:0 24px 24px}
+pre{white-space:pre-wrap;word-wrap:break-word;background:#f5f7f9;border:1px solid #dfe6eb;border-radius:12px;padding:18px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;line-height:1.55}.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button,.button{appearance:none;border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:9px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}button:focus-visible,.button:focus-visible{outline:3px solid rgba(36,93,120,.25);outline-offset:3px}
+.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.check{background:#fff;border:1px solid var(--border);border-radius:12px;padding:17px}.check h3{font-size:1.05rem}.next{background:var(--light-green);border-left:5px solid var(--green);border-radius:10px;padding:19px 21px;margin-top:22px}.method{background:var(--light-blue);border-left:5px solid var(--blue);border-radius:10px;padding:18px 20px;margin-top:20px}.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}.button.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+footer{background:#182734;color:#dbe6ec;padding:32px 20px}.footer-inner{max-width:1000px;margin:auto;text-align:center}.footer-inner a{color:#fff;font-weight:700}
+@media(max-width:900px){.search-ladder{grid-template-columns:1fr 1fr}}@media(max-width:720px){.chooser,.checklist{grid-template-columns:1fr}}@media(max-width:640px){.topbar{flex-direction:column;align-items:flex-start}.search-ladder{grid-template-columns:1fr}main{padding-top:42px}.lead{margin-top:-64px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+  <div class="topbar"><a class="brand" href="index.html">CCC English OER Picks</a><a class="back" href="oer-evaluation-toolkit.html">← Back to Prompt Library</a></div>
+  <div class="hero"><div class="eyebrow">PROMPT BANK · DISCOVERY</div><h1>Discover OER</h1><p>For the moment before you have a shortlist—whether your field seems to have thirty possible books or almost none at all.</p></div>
+</header>
+<main id="main-content">
+<section class="lead" aria-labelledby="purpose-heading">
+  <h2 id="purpose-heading">Use this bank when you are still asking, “What exists?”</h2>
+  <p>Discovery should be broad enough to uncover possibilities without pretending every result is a good course fit. These prompts help AI search adaptively: organize the field when choices are plentiful, broaden intelligently when choices are scarce, and consider combinations when no single OER can do the whole job.</p>
+  <div class="rule"><strong>Discovery is not evaluation.</strong> The goal here is to uncover credible possibilities. Save Content Rubric scoring and the IDEA Framework for the resources that survive your initial screen.</div>
+</section>
+<section aria-labelledby="choose-heading">
+  <h2 id="choose-heading">Which discovery prompt should I use?</h2>
+  <div class="chooser">
+    <div class="choice"><strong>I have a course and no real shortlist.</strong>Start with <a href="#landscape-heading">Explore the OER Landscape</a>. This is the default prompt for almost everyone.</div>
+    <div class="choice"><strong>I searched and found almost nothing.</strong>Use <a href="#sparse-heading">Search Again: Sparse Field</a> to widen the terminology, sources, and kinds of resources being considered.</div>
+    <div class="choice"><strong>No single textbook seems to work.</strong>Use <a href="#assemble-heading">Build a Course from Several OER</a> to explore complementary packages.</div>
+    <div class="choice"><strong>AI gave me a messy list of titles.</strong>Use <a href="#verify-heading">Verify My Candidate List</a> before spending time evaluating anything.</div>
+  </div>
+</section>
+<section aria-labelledby="strategy-heading">
+  <h2 id="strategy-heading">How a good discovery search expands</h2>
+  <p>The search should not stop because the exact course title produced only one result.</p>
+  <div class="search-ladder">
+    <div class="search-step"><span>1</span><strong>Direct</strong>Exact or near-exact course and discipline matches.</div>
+    <div class="search-step"><span>2</span><strong>Adjacent</strong>Related titles, subfields, older terms, and neighboring disciplines.</div>
+    <div class="search-step"><span>3</span><strong>Components</strong>Readers, monographs, modules, collections, handbooks, and ancillaries.</div>
+    <div class="search-step"><span>4</span><strong>Combinations</strong>Two or three resources that may work better together than one book alone.</div>
+  </div>
+  <div class="method"><strong>Search named OER collections—but do not stop there.</strong> A strong discovery pass can begin with ASCCC OERI, LibreTexts/LibreCommons, Pressbooks, Open Textbook Library, OER Commons, MERLOT, OASIS/Cool4Ed, and relevant institutional or disciplinary collections, then broaden through ordinary web search when the field is sparse.</div>
+</section>
+
+<section id="landscape-heading" aria-labelledby="landscape-title">
+<h2 id="landscape-title">Prompt 1: Explore the OER Landscape for My Course</h2>
+<p>This is the recommended starting point. It is deliberately adaptive: if the field is crowded, it organizes; if the field is sparse, it keeps broadening.</p>
+<article class="prompt-card"><div class="prompt-head"><div class="tag-row"><span class="tag">START HERE</span><span class="prompt-number">Prompt 1</span></div><h3>Explore the OER Landscape</h3><p>Use a course document plus a subject area to uncover direct matches, adjacent resources, and plausible combinations.</p></div><details class="prompt-details" open><summary>Open full prompt</summary><div class="prompt-body"><pre id="prompt-landscape">You are helping a college faculty member discover open educational resources (OER) for a course before they have narrowed the field.
+
+I will provide:
+1. a Course Outline of Record (COR), Common Course Numbering (CCN) descriptor, C-ID descriptor, syllabus, or other official course description, and
+2. the course subject / discipline.
+
+Your job is to conduct a BROAD OER LANDSCAPE SEARCH.
+
+This is discovery, not final evaluation. Do not assign course-alignment scores and do not choose a winner.
+
+The field may be abundant, moderate, sparse, or extremely sparse. Adapt your search strategy to what you actually find.
+
+STEP 1 — UNDERSTAND THE COURSE BEFORE SEARCHING
+
+From the course document, identify:
+- major subject areas and concepts,
+- important skills or practices,
+- major genres or types of material students need,
+- distinctive or niche requirements,
+- likely textbook labels for this course,
+- useful synonyms, older/newer course names, adjacent disciplinary terms, and related search language.
+
+Do not turn this into a full scoring rubric yet.
+
+STEP 2 — SEARCH IN CONCENTRIC CIRCLES
+
+Search broadly, using web search when available. Do not rely on a single repository or only the exact course title.
+
+A. DIRECT MATCHES
+Look for openly licensed books/resources explicitly designed for this course, discipline, or a very close equivalent.
+
+B. ESTABLISHED OER COLLECTIONS
+Search established OER sources when relevant and accessible, including:
+- ASCCC OERI
+- LibreTexts / LibreCommons
+- Pressbooks Directory and institution-hosted Pressbooks networks
+- Open Textbook Library
+- OER Commons
+- MERLOT
+- OASIS / Cool4Ed or similar OER aggregators
+- relevant state, system, college, university, library, or disciplinary OER collections
+
+C. ADJACENT MATCHES
+Search related course titles, subfields, older terminology, interdisciplinary labels, and resources that may cover a substantial part of the course even if the title differs.
+
+D. COMPONENT RESOURCES
+If full textbooks are scarce, look for readers and anthologies, open monographs, chapter collections, modules, primary-source collections, open course materials, openly licensed handbooks, ancillaries, and public-domain collections that could be paired with openly licensed instructional material.
+
+E. BUILDABLE COMBINATIONS
+If no single resource appears adequate, identify combinations such as core text + reader, disciplinary text + writing/research guide, anthology + instructional handbook, two complementary focused OER, or modules assembled around a smaller core resource.
+
+STEP 3 — ADAPT TO THE SIZE OF THE FIELD
+
+If you find MANY plausible resources:
+- do not dump a huge list,
+- organize the landscape,
+- identify approximately 8–12 candidates most worth an initial faculty look,
+- explain what distinguishes the main clusters of options.
+
+If you find ONLY A FEW plausible resources:
+- broaden terminology and adjacent fields,
+- search institution-hosted and discipline-specific collections,
+- look for components and combinations,
+- continue until the search has reasonably exhausted credible avenues.
+
+Do not manufacture candidates just to reach a number. If only 1–2 credible choices remain after a broad search, say so clearly.
+
+STEP 4 — VERIFY BASIC FACTS
+
+For every candidate:
+- verify that the resource appears to exist,
+- provide the most direct stable link you can find,
+- identify author/editor when available,
+- identify host/platform,
+- identify the open license when you can verify it,
+- label the resource type,
+- name where you found it.
+
+Do NOT call a resource OER merely because it is free to read. If the license cannot be verified, write: “License needs verification.”
+
+If you do not have live web access, say so explicitly and do not pretend that you searched repositories or verified links.
+
+STEP 5 — KEEP DISCOVERY SEPARATE FROM EVALUATION
+
+Do not:
+- assign Content Rubric scores,
+- apply the IDEA Framework,
+- claim the resource satisfies the COR, CCN, C-ID, articulation, or curriculum requirements,
+- rank by prestige or popularity,
+- declare a resource “best.”
+
+At this stage, explain only why a resource appears worth investigating further.
+
+OUTPUT
+
+1. OER LANDSCAPE SNAPSHOT
+Classify the landscape as Abundant / Moderate / Sparse / Very sparse and explain why in 2–4 sentences.
+
+2. SEARCH MAP
+List direct course terms, related/adjacent terms, niche terms from the course document, repositories/collections searched, and any important search avenues that could not be checked.
+
+3. DIRECT COURSE-TEXT CANDIDATES
+Table: Resource | Author/editor | Platform | License | Type | Why it surfaced | Where found | What still needs verification
+
+4. ADJACENT OR COMPLEMENTARY RESOURCES
+Use the same table structure, but clearly explain why each resource is not a direct full-course match.
+
+5. POSSIBLE OER COMBINATIONS
+If useful, suggest combinations that could plausibly cover the course more effectively than one resource alone. Do not claim the combination is fully aligned until it has been evaluated.
+
+6. GAPS IN THE LANDSCAPE
+Identify important course needs for which you found little or no promising OER.
+
+7. MOST PROMISING NEXT LOOKS
+Recommend 2–6 resources worth moving into a quick faculty screen, depending on how many credible options exist. Call them “most promising next looks,” not “best OER.”
+
+8. SEARCH LIMITATIONS
+State what could not be verified, where coverage may be incomplete, and what the faculty member should check manually.
+
+COURSE DOCUMENT:
+[PASTE OR ATTACH COURSE DOCUMENT]
+
+SUBJECT / DISCIPLINE:
+[ENTER SUBJECT]</pre><div class="copy-row"><button type="button" data-copy="prompt-landscape">Copy prompt</button></div></div></details></article>
+</section>
+
+<section id="sparse-heading" aria-labelledby="sparse-title">
+<h2 id="sparse-title">Prompt 2: Search Again — My Field Looks Sparse</h2>
+<p>Use this after an initial search produces almost nothing. It forces a second pass through alternate terminology, institution-hosted resources, components, and adjacent disciplines instead of simply repeating the same search.</p>
+<article class="prompt-card"><div class="prompt-head"><div class="tag-row"><span class="tag">SPARSE-FIELD RESCUE</span><span class="prompt-number">Prompt 2</span></div><h3>Second-Pass Search for a Sparse Field</h3><p>Best for niche disciplines, uncommon course titles, and fields where the useful OER may be hiding outside major textbook indexes.</p></div><details class="prompt-details"><summary>Open full prompt</summary><div class="prompt-body"><pre id="prompt-sparse">You are helping a college faculty member who has already searched for OER and found very little.
+
+I will provide:
+1. a course description or COR / CCN / C-ID record,
+2. the subject / discipline,
+3. any OER or search results I already found,
+4. optional notes about places I already searched.
+
+Your job is to conduct a SECOND-PASS DISCOVERY SEARCH designed for a sparse or niche OER field.
+
+Do not simply repeat the obvious course-title search.
+
+STEP 1 — DIAGNOSE WHY THE SEARCH MAY BE SPARSE
+
+Consider whether the course has several common titles, uses different disciplinary terminology, sits between disciplines, may be supported by chapter-level rather than textbook-length resources, may use older field terminology, or may work best as an assembled set.
+
+STEP 2 — EXPAND THE SEARCH LANGUAGE
+
+Generate and search synonyms, broader terms, narrower subtopics, adjacent disciplinary terms, historical/older terminology, likely textbook-title language, required concepts from the course document, and names of major genres, methods, periods, or practices in the field.
+
+STEP 3 — SEARCH BEYOND THE OBVIOUS REPOSITORIES
+
+When web access is available, search established OER repositories and aggregators, institution-hosted Pressbooks networks, university and community-college OER collections, library guides that point to actual openly licensed works, disciplinary associations or open-pedagogy projects, institutional repositories, open monographs, and relevant government, museum, archive, or nonprofit collections.
+
+Use ordinary web search to locate OER that may not be well indexed in large repositories.
+
+STEP 4 — LOOK FOR COMPONENTS
+
+Search for resources that could cover one meaningful portion of the course: open textbooks in neighboring fields, anthologies/readers, primary-source collections, research/writing handbooks, topic-specific monographs, modules, and openly licensed media only when they fill a real instructional gap.
+
+STEP 5 — CONSIDER AN ASSEMBLED OER COURSE
+
+If no strong single textbook emerges, propose 1–3 plausible resource combinations. For each combination, explain what each component contributes, which course needs still appear uncovered, and what needs faculty verification.
+
+GUARDRAILS
+- Do not invent resources.
+- Verify a direct link when possible.
+- Do not call free-to-read material OER unless an open license is verified.
+- If licensing is unclear, write “License needs verification.”
+- Do not assign course-alignment scores yet.
+- Do not apply the IDEA Framework yet.
+- Do not force the search to produce a target number.
+- If the landscape is genuinely sparse after a broad search, say so.
+- If you do not have live web access, say so rather than pretending to search.
+
+OUTPUT
+1. Why the first search may have come up thin
+2. Expanded search vocabulary
+3. New direct candidates
+4. New adjacent / component candidates
+5. Possible assembled OER packages
+6. Course needs still not covered
+7. Best next places for a human to search
+8. Search limitations and verification needs
+
+COURSE DOCUMENT:
+[PASTE OR ATTACH]
+
+SUBJECT / DISCIPLINE:
+[ENTER]
+
+WHAT I ALREADY FOUND:
+[PASTE LINKS / TITLES / NOTES]
+
+PLACES I ALREADY SEARCHED:
+[OPTIONAL]</pre><div class="copy-row"><button type="button" data-copy="prompt-sparse">Copy prompt</button></div></div></details></article>
+</section>
+
+<section id="assemble-heading" aria-labelledby="assemble-title">
+<h2 id="assemble-title">Prompt 3: Build a Course from Several OER</h2>
+<p>Sometimes the important discovery is not another textbook—it is realizing that a strong course could be assembled from a small number of complementary open resources.</p>
+<article class="prompt-card"><div class="prompt-head"><div class="tag-row"><span class="tag">COMBINE RESOURCES</span><span class="prompt-number">Prompt 3</span></div><h3>Explore an OER Package</h3><p>Map likely roles, reduce redundancy, and identify 2–3 resource combinations worth evaluating more closely.</p></div><details class="prompt-details"><summary>Open full prompt</summary><div class="prompt-body"><pre id="prompt-assemble">You are helping a college faculty member determine whether a course could be built from MULTIPLE openly licensed resources because no single OER appears to cover the course well.
+
+I will provide:
+1. a course document or description,
+2. the subject / discipline,
+3. a list of OER candidates or discovery results.
+
+Your job is to explore plausible OER combinations.
+
+This is still a discovery / planning task, not a final course-alignment review.
+
+STEP 1 — MAP THE COURSE NEEDS
+Create a concise map of the major instructional needs visible in the course document. Group related needs together.
+
+STEP 2 — MAP EACH CANDIDATE'S LIKELY ROLE
+For each resource, identify the role it appears most likely to play based only on currently available evidence: course spine, reader/anthology, disciplinary content source, writing/research companion, focused supplement, ancillary/practice resource, or uncertain.
+
+Do not assign dot scores.
+
+STEP 3 — BUILD POSSIBLE PACKAGES
+Propose up to 3 combinations that minimize unnecessary complexity.
+
+For each package:
+- identify the likely core resource,
+- identify each companion resource,
+- explain what each adds,
+- identify overlap or redundancy,
+- identify remaining gaps,
+- flag licensing or access questions,
+- estimate whether the package looks simple enough for students to navigate.
+
+Prefer 2–3 well-chosen resources over a long pile of links when possible.
+
+STEP 4 — DISTINGUISH “NEEDS EVALUATION” FROM “LOOKS PROMISING”
+Do not claim that any package satisfies the course. Label all conclusions as preliminary until the resources are evaluated against a Content Rubric.
+
+OUTPUT
+1. Course-needs map
+2. Candidate role map
+3. Package A
+4. Package B
+5. Package C (only if meaningfully different)
+6. Simplest viable option
+7. Biggest unresolved gaps
+8. What to evaluate next with the Content Rubric
+
+COURSE DOCUMENT:
+[PASTE OR ATTACH]
+
+SUBJECT / DISCIPLINE:
+[ENTER]
+
+OER CANDIDATES / DISCOVERY RESULTS:
+[PASTE]</pre><div class="copy-row"><button type="button" data-copy="prompt-assemble">Copy prompt</button></div></div></details></article>
+</section>
+
+<section id="verify-heading" aria-labelledby="verify-title">
+<h2 id="verify-title">Prompt 4: Verify My Candidate List</h2>
+<p>AI discovery can produce duplicates, stale links, unclear licenses, mirrors, or titles that are not actually OER. Clean the list before you begin serious comparison.</p>
+<article class="prompt-card"><div class="prompt-head"><div class="tag-row"><span class="tag">VERIFY BEFORE EVALUATING</span><span class="prompt-number">Prompt 4</span></div><h3>Verify and Clean a Candidate List</h3><p>Check existence, direct links, license status, versions, duplicates, and resource type without judging course fit yet.</p></div><details class="prompt-details"><summary>Open full prompt</summary><div class="prompt-body"><pre id="prompt-verify">You are helping a college faculty member clean up an AI-generated or manually assembled list of possible OER before spending time evaluating the resources.
+
+I will provide a candidate list.
+
+Your job is BASIC VERIFICATION AND DEDUPLICATION — not course-alignment scoring.
+
+When live web access is available, check each candidate.
+
+For each resource:
+1. Does the title appear to exist?
+2. Is the author/editor information consistent?
+3. What is the most direct stable resource link?
+4. What platform currently hosts it?
+5. Can an open license be verified?
+6. Is it a complete textbook, anthology/reader, module, monograph, ancillary, or something else?
+7. Is this the current edition/version, or is there evidence of a newer one?
+8. Is this a duplicate or mirror of another item on the list?
+9. Is the resource meaningfully accessible for review, or is only a description / partial preview available?
+10. Are there obvious red flags such as dead links, unclear licensing, misleading title similarity, or a resource that is free but not openly licensed?
+
+RULES
+- Do not infer licensing.
+- “Free online” does not equal “OER.”
+- If the license is not verified, write “License needs verification.”
+- If you cannot access the source, say “Could not verify.”
+- Do not assign Content Rubric ratings.
+- Do not apply IDEA ratings.
+- Do not remove a candidate merely because it looks weak for the course; this step is about factual cleanup, not fit.
+
+OUTPUT TABLE
+Candidate | Exists? | Direct link | Author/editor | Host | License status | Resource type | Current version? | Duplicate/mirror? | Verification notes
+
+Then provide:
+
+KEEP FOR SCREENING
+Candidates that appear real, accessible, and sufficiently verifiable to inspect further.
+
+VERIFY BEFORE USING
+Candidates with unresolved link, license, version, or access questions.
+
+REMOVE AS DISCOVERY NOISE
+Only candidates that appear nonexistent, duplicated without benefit, clearly misidentified, or not actually OER.
+
+If you do not have live web access, say so and limit the response to identifying what needs verification.
+
+CANDIDATE LIST:
+[PASTE]</pre><div class="copy-row"><button type="button" data-copy="prompt-verify">Copy prompt</button></div></div></details></article>
+</section>
+
+<section aria-labelledby="guardrails-heading">
+<h2 id="guardrails-heading">Discovery guardrails worth keeping visible</h2>
+<div class="checklist">
+<div class="check"><h3>Free is not necessarily open.</h3><p>A resource should not be labeled OER unless its open license can be verified.</p></div>
+<div class="check"><h3>Do not force a long list.</h3><p>If a niche field genuinely has only one or two credible choices, that is a useful finding—not a failure.</p></div>
+<div class="check"><h3>Search terms matter.</h3><p>Course catalog titles often differ from the language used by authors, disciplines, and OER repositories.</p></div>
+<div class="check"><h3>Titles are not evidence of fit.</h3><p>A promising title earns a closer look, not a Content Rubric score.</p></div>
+<div class="check"><h3>Components count.</h3><p>A reader, monograph, or focused guide may be valuable even when it cannot function as the whole course text.</p></div>
+<div class="check"><h3>Say what could not be searched.</h3><p>If web access, full text, licensing, or a repository could not be verified, the AI should say so explicitly.</p></div>
+</div>
+</section>
+<section aria-labelledby="next-heading">
+<h2 id="next-heading">What comes after discovery?</h2>
+<p>Once you have a credible pool, do not deeply score all of it. Use a quick screen to keep the resources that seem genuinely plausible, then move only the serious candidates into deeper review.</p>
+<div class="next"><strong>A typical handoff:</strong> broad discovery → manageable shortlist → Content Rubric → IDEA Framework → compare finalists → faculty decision.</div>
+<div class="button-row"><a class="button" href="oer-prompts-content.html">Next: Narrow by Content</a><a class="button secondary" href="oer-prompts-specific.html">Need one specific topic instead?</a><a class="button secondary" href="oer-evaluation-toolkit.html">Back to Prompt Library</a></div>
+</section>
+</main>
+<footer><div class="footer-inner"><p><strong>CCC English OER Picks</strong></p><p>Independent faculty project. AI-assisted discovery can help surface possibilities; faculty remain responsible for verification, evaluation, and adoption decisions.</p><p><a href="index.html">Home</a> · <a href="oer-evaluation-toolkit.html">Prompt Library</a> · <a href="scoring-method.html">Method</a> · <a href="about.html">About</a></p></div></footer>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){btn.addEventListener('click',async function(){const id=btn.getAttribute('data-copy');const content=document.getElementById(id).innerText;try{await navigator.clipboard.writeText(content);const old=btn.textContent;btn.textContent='✓ Copied';setTimeout(function(){btn.textContent=old;},1600);}catch(e){const range=document.createRange();range.selectNodeContents(document.getElementById(id));const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);}});});
+</script>
+</body>
+</html>
