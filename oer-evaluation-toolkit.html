@@ -31,6 +31,7 @@
     .workflow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:28px 0 10px}
     .step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}
     .step b{display:block;color:var(--navy);margin-bottom:5px}
+    .step-tag{display:inline-block;margin-top:10px;padding:3px 9px;border-radius:999px;background:#eef4f7;color:var(--blue);font-size:.76rem;font-weight:800}
     section{margin-top:58px}
     .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
     .prompt-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px;margin-top:18px}
@@ -74,12 +75,13 @@
     <h2>What this toolkit is for</h2>
     <p>This toolkit helps faculty move from a course document to a defensible OER decision. AI can help organize the work, but faculty remain responsible for the criteria, the evidence, and the teaching decision.</p>
     <div class="workflow" aria-label="Toolkit workflow">
-      <div class="step"><b>1. COURSE</b>Define what the course actually requires.</div>
-      <div class="step"><b>2. RUBRIC</b>Build or adapt transparent criteria.</div>
-      <div class="step"><b>3. OER</b>Investigate the resource itself.</div>
-      <div class="step"><b>4. EVIDENCE</b>Verify every important judgment.</div>
-      <div class="step"><b>5. DECISION</b>Choose the role the OER can play.</div>
+      <div class="step"><b>1. COURSE</b>Define what the course actually requires.<span class="step-tag">Start here — no prompt</span></div>
+      <div class="step"><b>2. RUBRIC</b>Build or adapt transparent criteria.<span class="step-tag">Prompt 1</span></div>
+      <div class="step"><b>3. OER</b>Investigate the resource itself.<span class="step-tag">Prompt 2</span></div>
+      <div class="step"><b>4. EVIDENCE</b>Verify every important judgment.<span class="step-tag">Prompt 3</span></div>
+      <div class="step"><b>5. DECISION</b>Choose the role the OER can play.<span class="step-tag">Prompt 2's output</span></div>
     </div>
+    <p style="margin-top:16px;color:var(--muted);font-size:.95rem">Running the optional IDEA lens? <a href="#idea-heading">Prompt 4</a> applies alongside steps 3–4, on the same OER, using a separate framework.</p>
   </section>
 
   <section aria-labelledby="rubric-heading">
@@ -116,9 +118,10 @@ Please follow these rules:
    - Limited alignment
    - Not a significant focus
 7. Make the levels describe the quality and teachability of coverage, not the prestige or overall quality of the OER.
-8. Do not assign weights or produce a total score unless I ask for one.
-9. Flag any criterion that is ambiguous and needs faculty judgment.
-10. End with a short section titled "Faculty Review Needed" that identifies decisions the AI should not make on its own.
+8. For each category, briefly illustrate the boundary between levels with one concrete, hypothetical example (for example, what a "Strong" resource does that a "Limited" one does not). Label these as illustrations, not descriptions of any real, named textbook.
+9. Do not assign weights or produce a total score unless I ask for one.
+10. Flag any criterion that is ambiguous and needs faculty judgment.
+11. End with a short section titled "Faculty Review Needed" that identifies decisions the AI should not make on its own.
 
 Output the rubric as a table with these columns:
 - Rubric category
@@ -132,6 +135,7 @@ After the table, include:
 - Course requirements that were intentionally NOT turned into OER criteria
 - Faculty Review Needed
 - A one-paragraph explanation of how you derived the categories from the course document
+- Illustrative examples (the boundary examples from rule 8, gathered in one place)
 
 COURSE DOCUMENT:
 [PASTE COR, CCN, OR C-ID TEXT HERE]</pre>
@@ -165,7 +169,7 @@ Rules:
 1. Use only evidence available in the OER materials I provide or that you can directly inspect.
 2. For every rating, identify the evidence that supports it: chapter, section, assignment, example, table of contents entry, ancillary, or other identifiable feature.
 3. Do not infer that a topic is absent simply because it was not easy to find.
-4. If the available material is incomplete, use "Insufficient evidence / uncertain" rather than guessing.
+4. If the available material is incomplete, use "Insufficient evidence / uncertain" as the rating itself rather than guessing at Strong, Meaningful, Limited, or Not a significant focus.
 5. Distinguish between:
    - substantial, teachable coverage,
    - brief or partial mention,
@@ -174,13 +178,14 @@ Rules:
 7. Do not produce an overall quality ranking.
 8. Do not claim that the resource officially satisfies articulation, local curriculum, CCN, or C-ID requirements.
 9. Separate factual evidence from interpretive judgment.
+10. If the OER is longer than what I've pasted in full, say so, and review the table of contents plus at least two or three representative chapters or sections per rubric category rather than only the introduction. List which parts you actually reviewed.
 
 For each rubric category, output:
-- Rating
+- Rating: one of Strong alignment / Meaningful alignment / Limited alignment / Not a significant focus / Insufficient evidence – uncertain
 - Evidence found
 - Why the evidence supports the rating
 - What faculty may still need to supplement
-- Confidence level: High / Moderate / Low
+- Confidence level: High / Moderate / Low — this describes how sure you are about the rating you gave, not a substitute for it. If the evidence is too thin to support any rating with even Low confidence, use "Insufficient evidence – uncertain" as the rating instead of pairing a substantive rating with Low confidence.
 
 At the end, provide:
 - Strongest likely role for this OER:
@@ -202,7 +207,7 @@ OER / OER EVIDENCE:
 
   <section aria-labelledby="audit-heading">
     <h2 id="audit-heading">Prompt 3: Audit an AI-generated OER review</h2>
-    <p>This is the skeptical second-review prompt. It is meant to catch overclaiming, weak evidence, and false certainty.</p>
+    <p>This is the skeptical second-review prompt. It is meant to catch overclaiming, weak evidence, and false certainty. Use it the same way this project does on its own site: as the AI-assisted check that happens <em>before</em> a human makes the final call, not as a replacement for one. Run it yourself as a gut check on Prompt 2's output, or use it as an aid while you do your own review — either way, a person still decides what to keep, revise, or investigate further.</p>
 
     <div class="prompt-card">
       <span class="tag">AUDIT THE EVIDENCE</span>
@@ -240,10 +245,69 @@ ASSESSMENT TO AUDIT:
   </section>
 
   <section aria-labelledby="idea-heading">
-    <h2 id="idea-heading">Optional second lens: IDEA Framework crosswalk</h2>
+    <h2 id="idea-heading">Prompt 4: Optional second lens — IDEA Framework crosswalk</h2>
     <div class="idea">
       <p><strong>Keep IDEA separate from course alignment.</strong> Course alignment asks whether the OER supports the content and practices of the course. An IDEA crosswalk asks different questions about inclusion, diversity, equity, and anti-racism.</p>
       <p>When using the ASCCC OERI IDEA Framework, reference the framework explicitly and make clear that an independent crosswalk is not an official OERI IDEA assessment or badge.</p>
+    </div>
+
+    <div class="prompt-card">
+      <span class="tag">IDEA CROSSWALK</span>
+      <h3>ASCCC OERI IDEA Framework (Rubric 1) crosswalk prompt</h3>
+      <p>This prompt applies Rubric 1 — "IDEA OER Assessment of Existing Materials," from the ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework and Implementation Guide — to one chapter or one full OER. It uses the Framework's own eight areas and its own four-level scale, which are different from the course-alignment scale used in Prompts 1–3, and it does not touch course content or teachability at all.</p>
+      <pre id="prompt4">You are assisting a California community college faculty member in applying the ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework, Appendix A – Rubric 1 ("IDEA OER Assessment of Existing Materials"), to an open educational resource (OER). This is an independent, faculty-run crosswalk, not an official ASCCC OERI assessment or badge, and it should be treated as a draft for the discipline expert to review, not an end result.
+
+I will provide one chapter, or one full OER, to review.
+
+Use only the eight areas and four rating levels defined below, taken directly from Rubric 1. Do not substitute a different scale, borrow a course-alignment scale, or invent new categories.
+
+RUBRIC 1 AREAS AND RATING LEVELS (Not Applicable / Exclusive / Emerging Inclusive / Inclusive):
+
+1. Illustrations and Photos of People — rate (a) the share of photos/illustrations depicting BIPOC individuals (Exclusive: under 30%; Emerging Inclusive: 30-70%; Inclusive: over 70%), (b) diversity beyond race/ethnicity such as age, gender expression, disability, or body type (Exclusive: very few or no examples; Emerging Inclusive: 1-2 examples; Inclusive: more than 2 examples), and (c) absence of culturally insensitive or stereotyping imagery (Exclusive: many such examples; Emerging Inclusive: some; Inclusive: very few to none).
+2. Example Names — share of names in examples, cases, or vignettes reflecting BIPOC culture (Exclusive: under 30%; Emerging Inclusive: 30-70%; Inclusive: over 70%).
+3. Gender-Inclusive Language and Use of Pronouns — presence of gendered, non-inclusive language or inappropriate pronoun use (Exclusive: many examples; Emerging Inclusive: some examples; Inclusive: very few to none).
+4. Diverse Authors, Researchers, and Studies — presence of diverse authors, researchers, and studies related to BIPOC populations among cited sources (Exclusive: very few to none; Emerging Inclusive: some; Inclusive: many).
+5. Applications, Examples, and Problem Scenarios — presence of applications, examples, or scenarios reflecting BIPOC culture (Exclusive: very few to none; Emerging Inclusive: some; Inclusive: many).
+6. Appropriate Terminology — presence of derogatory or outdated terminology related to race, indigeneity, gender, sexuality, disability, or mental health (Exclusive: many examples; Emerging Inclusive: some; Inclusive: very few to none).
+7. Keyword, Glossary, and Metadata Representation — presence of keywords or glossary terms reflecting diverse topics and people (Exclusive: very few to none; Emerging Inclusive: some; Inclusive: many).
+8. Incorporating Diverse Perspectives — use of perspectives relevant to underrepresented groups when discussing issues, events, or concepts (Exclusive: 0 perspectives used; Emerging Inclusive: 1 perspective used; Inclusive: 2 or more perspectives used).
+
+"Not Applicable" is available for any area that genuinely does not apply to this resource (for example, images in a discipline that rarely uses them). Use it only with an explanation, never as a default when evidence is simply hard to find.
+
+Rules:
+1. Rate each of the eight areas independently using only the four levels above. Do not average them into one score.
+2. For every rating, quote or cite the specific evidence: chapter or section, page, image caption, name, or term.
+3. Clearly separate what you observed directly in the text from what you are recommending. Label these "Evidence" and "Recommendation" separately — never blend them into one sentence.
+4. If you cannot access enough of the OER to rate an area with confidence, say so explicitly rather than guessing, and name what additional material (for example, full chapter text, alt text, or image files) would be needed.
+5. Distinguish "restorative requirements" (the baseline the Framework asks every resource to meet for this area) from "elements for consideration" (additional context in the Framework that informs judgment but is not itself pass/fail).
+6. For any rating below "Inclusive," suggest a specific, actionable revision (for example, a specific alternative example, term, or source representing an underrepresented perspective), not general encouragement to "add more diversity."
+7. Do not claim this crosswalk is an official ASCCC OERI IDEA assessment, certification, or badge.
+8. Do not comment on course alignment, teachability, or academic content — that is a separate rubric and a separate review.
+9. Note explicitly that nuance in identity, race, disability, and lived experience will not be fully captured by this process, and that a human with relevant expertise or lived experience should review these ratings before they are acted on.
+
+For each of the eight areas, output:
+- Area
+- Rating: Not Applicable / Exclusive / Emerging Inclusive / Inclusive
+- Evidence
+- Recommendation (if not rated Inclusive)
+
+At the end, provide:
+- Category count: how many areas fall at each rating level
+- Summary: two to three sentences on the overall pattern
+- Suggestions: any IDEA-related opportunities beyond the specific ratings above
+- A closing note restating that this is an independent crosswalk based on the ASCCC OERI IDEA Framework, not an official OERI assessment or badge
+
+FRAMEWORK REFERENCE: ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework and Implementation Guide, Appendix A – Rubric 1.
+
+OER / CHAPTER TO REVIEW:
+[PASTE TEXT, LINK CONTENT, OR CHAPTER FILE HERE]</pre>
+      <div class="copy-row">
+        <button type="button" data-copy="prompt4">Copy IDEA crosswalk prompt</button>
+      </div>
+    </div>
+
+    <div class="note idea">
+      <strong>What faculty should check:</strong> Do the percentages and examples the AI cites actually hold up when you look at the OER yourself? Is "Not Applicable" being used honestly, or as a way to avoid a low rating? Are the suggested revisions specific enough to act on? And most importantly — as the Framework's own guidance puts it, gen-AI output here is a draft, not an end result: the human experience of race, identity, disability, and their intersections needs a reviewer, ideally including people whose identities are centered in the changes, before anything here is acted on.
     </div>
   </section>
 
