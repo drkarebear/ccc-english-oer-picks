@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,9 @@
       --cream: #fff9e8;
       --gold: #d9a441;
       --green: #3e6b57;
+      --purple: #6c5a86;
+      --purple-bg: #eeeaf5;
+      --purple-text: #625078;
       --text: #263746;
       --muted: #5f6f7d;
       --border: #d9e1e7;
@@ -262,6 +264,7 @@
       padding: 20px 22px 20px 62px;
       background: #ffffff;
       border: 1px solid var(--border);
+      border-left: 5px solid var(--navy);
       border-radius: 14px;
     }
 
@@ -281,6 +284,109 @@
       color: #ffffff;
       font-weight: 800;
       font-size: 0.9rem;
+    }
+
+    .process-item.idea {
+      border-left-color: var(--purple);
+    }
+
+    .process-item.idea::before {
+      background: var(--purple);
+    }
+
+    .lens-tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .lens-tag.cor {
+      background: var(--light-blue);
+      color: var(--blue);
+    }
+
+    .lens-tag.idea {
+      background: var(--purple-bg);
+      color: var(--purple-text);
+    }
+
+    .stepper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 6px;
+    }
+
+    .stepper-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px 8px 8px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+
+    .stepper-chip .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 0.76rem;
+      flex: none;
+    }
+
+    .stepper-chip.cor .num {
+      background: var(--navy);
+    }
+
+    .stepper-chip.idea .num {
+      background: var(--purple);
+    }
+
+    .stepper-chip .lens {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      display: block;
+      color: var(--muted);
+    }
+
+    .stepper-chip .label {
+      display: block;
+      color: var(--text);
+    }
+
+    .stepper-arrow {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 640px) {
+      .stepper {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stepper-arrow {
+        text-align: center;
+        transform: rotate(90deg);
+      }
     }
 
     .button-row {
@@ -397,6 +503,8 @@
       <p>
         How CCC English OER Picks turns course requirements into practical,
         course-specific alignment observations—and what those scores do and do not mean.
+        Every resource passes through two independent lenses, course alignment (COR) and
+        the ASCCC OERI IDEA Framework, each reviewed by AI first and then by a human editor.
       </p>
     </div>
   </div>
@@ -526,48 +634,89 @@
     </section>
 
     <section aria-labelledby="process-heading">
-      <h2 id="process-heading">How the initial review is produced</h2>
+      <h2 id="process-heading">How each review is produced: two lenses, four stages</h2>
+
+      <p>
+        Every resource goes through the same four-stage pipeline before anything is
+        published: an AI-assisted pass against the <strong>course rubric (COR)</strong>,
+        a human editorial pass on that result, an AI-assisted pass against the
+        <strong>ASCCC OERI IDEA Framework</strong>, and a human editorial pass on that
+        result. The two lenses run one after the other, but their findings are never
+        merged into a single score—see
+        <a href="#faculty-heading">why editorial alignment and faculty experience stay separate</a>
+        below, and the
+        <a href="oer-evaluation-toolkit.html#idea-heading">IDEA crosswalk methodology</a>
+        for how that second lens is applied.
+      </p>
+
+      <div class="stepper" role="list" aria-label="Four-stage review pipeline">
+        <div class="stepper-chip cor" role="listitem">
+          <span class="num">1</span>
+          <span><span class="lens">COR lens</span><span class="label">AI review</span></span>
+        </div>
+        <span class="stepper-arrow" aria-hidden="true">→</span>
+        <div class="stepper-chip cor" role="listitem">
+          <span class="num">2</span>
+          <span><span class="lens">COR lens</span><span class="label">Human review</span></span>
+        </div>
+        <span class="stepper-arrow" aria-hidden="true">→</span>
+        <div class="stepper-chip idea" role="listitem">
+          <span class="num">3</span>
+          <span><span class="lens">IDEA lens</span><span class="label">AI review</span></span>
+        </div>
+        <span class="stepper-arrow" aria-hidden="true">→</span>
+        <div class="stepper-chip idea" role="listitem">
+          <span class="num">4</span>
+          <span><span class="lens">IDEA lens</span><span class="label">Human review</span></span>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top: 10px;">
+        Preparation, before stage 1: each course's rubric is derived from statewide CCN
+        expectations, and publicly available information about the OER—text, table of
+        contents, chapter structure, assignments, ancillary materials, and licensing—is
+        gathered for review.
+      </p>
 
       <div class="process">
-        <div class="process-item">
-          <h3>Start with the course criteria</h3>
+        <div class="process-item cor">
+          <span class="lens-tag cor">Stage 1 · COR lens</span>
+          <h3>AI-assisted pass against the course rubric</h3>
           <p>
-            Each course uses its own rubric derived from the relevant statewide CCN
-            expectations and the kinds of work the course requires.
+            The OER is compared against the course-specific alignment rubric using an
+            AI-assisted first pass, producing draft dot scores and supporting notes for
+            every criterion in that course's rubric.
           </p>
         </div>
 
-        <div class="process-item">
-          <h3>Review the OER against that rubric</h3>
+        <div class="process-item cor">
+          <span class="lens-tag cor">Stage 2 · COR lens</span>
+          <h3>Human review of the course-alignment pass</h3>
           <p>
-            Publicly available information—including the text itself, table of contents,
-            chapter structure, assignments, ancillary materials, and licensing information
-            when available—is considered against the course-specific criteria.
+            A human editor checks the AI's draft scores against the resource itself,
+            adjusts anything that seems off, and adds practical notes about likely
+            strengths, gaps, and possible roles before this lens is published.
           </p>
         </div>
 
-        <div class="process-item">
-          <h3>Use AI-assisted analysis for the first pass</h3>
+        <div class="process-item idea">
+          <span class="lens-tag idea">Stage 3 · IDEA lens</span>
+          <h3>AI-assisted pass against the ASCCC OERI IDEA Framework</h3>
           <p>
-            To make initial review manageable across a large number of OER, the project
-            uses an AI-assisted rubric to compare resources with course-specific CCN
-            criteria.
+            The same OER is separately reviewed with an AI-assisted pass against the
+            ASCCC OERI IDEA Framework, asking a different set of questions about
+            inclusion, diversity, equity, and anti-racism rather than course content.
           </p>
         </div>
 
-        <div class="process-item">
-          <h3>Add human review and oversight</h3>
+        <div class="process-item idea">
+          <span class="lens-tag idea">Stage 4 · IDEA lens</span>
+          <h3>Human review of the IDEA pass</h3>
           <p>
-            A human editor reviews the results, adjusts observations when needed,
-            and adds practical notes about likely strengths, gaps, and possible roles.
-          </p>
-        </div>
-
-        <div class="process-item">
-          <h3>Keep faculty experience separate</h3>
-          <p>
-            Faculty recommendations and teaching notes provide an independent source
-            of evidence that can confirm, complicate, or correct the initial assessment.
+            A human editor reviews the AI's IDEA-framework observations the same
+            way—checking them against the resource and adjusting as needed—and makes
+            clear that this crosswalk is independent, not an official ASCCC OERI IDEA
+            assessment or badge.
           </p>
         </div>
       </div>
@@ -575,8 +724,18 @@
       <div class="callout warning">
         <strong>Important:</strong>
         AI-assisted analysis can miss context, misunderstand how a resource is intended
-        to be used, or overlook material embedded in a text. Human oversight and faculty
-        feedback are therefore part of the method, not optional extras.
+        to be used, or overlook material embedded in a text. That is true for both
+        lenses, which is why every AI-assisted pass—COR and IDEA alike—is followed by a
+        human editorial pass before anything is published.
+      </div>
+
+      <div class="callout">
+        <strong>A third, independent form of evidence sits outside this pipeline.</strong>
+        Faculty recommendations and teaching notes are gathered separately from both
+        lenses and can confirm, complicate, or correct what the four-stage review
+        produced. See
+        <a href="#faculty-heading">editorial alignment and faculty experience are
+        different evidence</a> below.
       </div>
     </section>
 
