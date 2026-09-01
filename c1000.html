@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>ENGL C1000 OER Picks | CCC English OER Picks</title>
+  <link rel="icon" type="image/png" href="favicon1.png">
 
   <meta
     name="description"
@@ -389,6 +390,73 @@
       color: var(--navy);
     }
 
+    #alignment-dialog {
+      width: min(calc(100% - 30px), 900px);
+      max-height: 90vh;
+    }
+
+    .alignment-dialog-body {
+      max-height: calc(90vh - 125px);
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .alignment-review-meta {
+      background: var(--blue-light);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 4px 0 20px;
+    }
+
+    .alignment-review-meta p {
+      margin: 5px 0;
+    }
+
+    .criterion-review {
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #ffffff;
+    }
+
+    .criterion-review h3 {
+      margin: 0 0 9px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .rating-chip {
+      display: inline-block;
+      margin-left: 6px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: var(--green-light);
+      color: #255d46;
+      font-size: 0.8rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    .criterion-review p {
+      margin: 7px 0;
+    }
+
+    .evidence-list {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+
+    .evidence-list li {
+      margin: 5px 0;
+    }
+
+    .alignment-loading {
+      color: var(--muted);
+      padding: 18px 0;
+    }
+
     .faculty-area {
       background: #f9fbfc;
       border-top: 1px solid var(--border);
@@ -659,9 +727,10 @@
     <section class="method-panel" aria-labelledby="rubric-link-heading">
       <h2 id="rubric-link-heading">Want to see exactly how C1000 is evaluated?</h2>
       <p>
-        The C1000 rubric shows the course-specific criteria behind the alignment dots,
-        including what we look for in reading and analysis, rhetoric, writing process,
-        genres and modalities, research, documentation, and language and style.
+        The C1000 rubric shows the course-specific criteria behind the alignment ratings,
+        including Academic Reading, Rhetoric &amp; Rhetorical Awareness, Writing Process,
+        Academic Genres, Research &amp; Source Use, Documentation, and Language, Style &amp;
+        Rhetorical Choice.
       </p>
       <a class="button button-secondary" href="c1000-rubric.html">
         View the C1000 Rubric &amp; Scoring Criteria
@@ -753,19 +822,25 @@
     <div id="oer-grid" class="cards" aria-live="polite"></div>
 
     <section class="method-panel" id="how-we-rate">
-      <h2>How we look at C1000 alignment</h2>
+      <h2>How C1000 alignment is reviewed</h2>
 
       <p>
-        The editorial review considers seven practical areas:
-        reading and rhetorical analysis, rhetoric, writing process,
-        genres/modalities, research, documentation, and language/style.
+        The editorial review considers seven course-specific areas: Academic Reading,
+        Rhetoric &amp; Rhetorical Awareness, Writing Process, Academic Genres,
+        Research &amp; Source Use, Documentation, and Language, Style &amp; Rhetorical Choice.
       </p>
 
       <p>
-        A three-dot rating means the resource contains strong coverage of that
-        area; two dots means meaningful coverage; one dot means limited or
-        supplemental coverage. A zero does not mean the resource is poor—it
-        usually means that is not what the resource is designed to do.
+        Ratings reflect <strong>explicit instructional coverage</strong>, not simply the
+        presence of a topic, reading, assignment, or opportunity to practice. Strong Alignment
+        means substantial, teachable instruction; Meaningful Alignment means useful explicit
+        instruction that may need supplementation; Limited Alignment means the area is present
+        but brief or secondary; Not a Significant Focus means little or no direct instruction.
+      </p>
+
+      <p>
+        Use <strong>View alignment details</strong> on any OER card to see the rationale,
+        evidence reviewed, and confidence behind each criterion.
       </p>
 
       <p class="small">
@@ -784,7 +859,7 @@
     </section>
 
     <section class="suggest-panel" id="suggest" aria-labelledby="suggest-heading">
-      <h2 id="suggest-heading">Know an OER we're missing?</h2>
+      <h2 id="suggest-heading">Know an OER that's missing?</h2>
 
       <p>
         Faculty can suggest another open resource. Suggestions are reviewed
@@ -853,6 +928,26 @@
     </section>
 
   </main>
+
+  <dialog id="alignment-dialog" aria-labelledby="alignment-dialog-title">
+    <div class="dialog-inner">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow" style="color:#765417;">Editorial alignment review</p>
+          <h2 id="alignment-dialog-title">C1000 alignment details</h2>
+        </div>
+        <button
+          class="close-button"
+          id="close-alignment-dialog"
+          type="button"
+          aria-label="Close alignment details"
+        >×</button>
+      </div>
+      <div id="alignment-dialog-body" class="alignment-dialog-body" tabindex="-1">
+        <p class="alignment-loading">Loading alignment details…</p>
+      </div>
+    </div>
+  </dialog>
 
   <dialog id="review-dialog">
     <div class="dialog-inner">
@@ -995,17 +1090,24 @@
 
     function scoreDots(score) {
       const number = Number(score || 0);
-
       return `${"●".repeat(number)}${"○".repeat(3 - number)}`;
     }
 
-    function resourceBadge(resource) {
+    function scoreLabel(score) {
+      const number = Number(score || 0);
+      if (number === 3) return "Strong Alignment";
+      if (number === 2) return "Meaningful Alignment";
+      if (number === 1) return "Limited Alignment";
+      return "Not a Significant Focus";
+    }
 
-      if (resource.resource_type === "reader") {
+    function resourceBadge(resourceType) {
+
+      if (resourceType === "reader") {
         return `<span class="badge badge-reader">Reader / anthology</span>`;
       }
 
-      if (resource.resource_type === "supplement") {
+      if (resourceType === "supplement") {
         return `<span class="badge badge-supplement">Supplement</span>`;
       }
 
@@ -1071,6 +1173,10 @@
     function renderCard(item) {
 
       const oer = item.oers;
+      const resourceType = item.course_resource_type || oer.resource_type || "primary_text";
+      const alignmentLabel = item.alignment_label || oer.alignment_label || "C1000 resource";
+      const bestRole = item.best_role || oer.best_role || "Varies by course design";
+      const alignmentNotes = item.alignment_notes || oer.alignment_notes || "";
 
       const featuredBadge = oer.is_featured
         ? `<span class="badge badge-featured">★ Start here</span>`
@@ -1079,7 +1185,7 @@
       return `
         <article
           class="oer-card ${oer.is_featured ? "featured" : ""}"
-          data-type="${escapeHtml(oer.resource_type)}"
+          data-type="${escapeHtml(resourceType)}"
           data-featured="${oer.is_featured ? "true" : "false"}"
         >
 
@@ -1087,7 +1193,7 @@
 
             <div class="card-kicker">
               ${featuredBadge}
-              ${resourceBadge(oer)}
+              ${resourceBadge(resourceType)}
             </div>
 
             <h3 class="oer-title">
@@ -1101,35 +1207,35 @@
             </p>
 
             <div class="alignment-label">
-              ${escapeHtml(oer.alignment_label || "C1000 resource")}
+              ${escapeHtml(alignmentLabel)}
             </div>
 
             <p class="best-role">
               <strong>Best role:</strong>
-              ${escapeHtml(oer.best_role || "Varies by course design")}
+              ${escapeHtml(bestRole)}
             </p>
 
             <p>
-              ${escapeHtml(oer.alignment_notes || "")}
+              ${escapeHtml(alignmentNotes)}
             </p>
 
             <div class="score-grid" aria-label="C1000 alignment">
 
               <div class="score-row">
-                <span>Reading &amp; analysis</span>
+                <span>Academic Reading</span>
                 <span
                   class="dots"
-                  aria-label="${item.reading_alignment} out of 3"
+                  aria-label="${scoreLabel(item.reading_alignment)}: ${item.reading_alignment} out of 3"
                 >
                   ${scoreDots(item.reading_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Rhetoric</span>
+                <span>Rhetoric &amp; Rhetorical Awareness</span>
                 <span
                   class="dots"
-                  aria-label="${item.rhetoric_alignment} out of 3"
+                  aria-label="${scoreLabel(item.rhetoric_alignment)}: ${item.rhetoric_alignment} out of 3"
                 >
                   ${scoreDots(item.rhetoric_alignment)}
                 </span>
@@ -1139,27 +1245,27 @@
                 <span>Writing process</span>
                 <span
                   class="dots"
-                  aria-label="${item.writing_process_alignment} out of 3"
+                  aria-label="${scoreLabel(item.writing_process_alignment)}: ${item.writing_process_alignment} out of 3"
                 >
                   ${scoreDots(item.writing_process_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Genres &amp; modalities</span>
+                <span>Academic Genres</span>
                 <span
                   class="dots"
-                  aria-label="${item.genres_alignment} out of 3"
+                  aria-label="${scoreLabel(item.genres_alignment)}: ${item.genres_alignment} out of 3"
                 >
                   ${scoreDots(item.genres_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Research</span>
+                <span>Research &amp; Source Use</span>
                 <span
                   class="dots"
-                  aria-label="${item.research_alignment} out of 3"
+                  aria-label="${scoreLabel(item.research_alignment)}: ${item.research_alignment} out of 3"
                 >
                   ${scoreDots(item.research_alignment)}
                 </span>
@@ -1169,17 +1275,17 @@
                 <span>Documentation</span>
                 <span
                   class="dots"
-                  aria-label="${item.documentation_alignment} out of 3"
+                  aria-label="${scoreLabel(item.documentation_alignment)}: ${item.documentation_alignment} out of 3"
                 >
                   ${scoreDots(item.documentation_alignment)}
                 </span>
               </div>
 
               <div class="score-row">
-                <span>Language &amp; style</span>
+                <span>Language, Style &amp; Rhetorical Choice</span>
                 <span
                   class="dots"
-                  aria-label="${item.language_style_alignment} out of 3"
+                  aria-label="${scoreLabel(item.language_style_alignment)}: ${item.language_style_alignment} out of 3"
                 >
                   ${scoreDots(item.language_style_alignment)}
                 </span>
@@ -1202,6 +1308,15 @@
             ` : ""}
 
             <div class="card-links">
+
+              <button
+                class="button button-secondary alignment-button"
+                type="button"
+                data-oer-id="${oer.id}"
+                data-oer-title="${escapeHtml(oer.title)}"
+              >
+                View alignment details
+              </button>
 
               <a
                 class="button button-primary"
@@ -1254,7 +1369,7 @@
 
       else if (filter !== "all") {
         resources = resources.filter(
-          item => item.oers.resource_type === filter
+          item => (item.course_resource_type || item.oers.resource_type) === filter
         );
       }
 
@@ -1267,6 +1382,15 @@
       grid.innerHTML = resources
         .map(renderCard)
         .join("");
+
+      document
+        .querySelectorAll(".alignment-button")
+        .forEach(button => {
+          button.addEventListener(
+            "click",
+            () => openAlignmentDialog(button)
+          );
+        });
 
       document
         .querySelectorAll(".review-button")
@@ -1291,7 +1415,7 @@
 
       if (courseError) {
         loading.textContent =
-          "We couldn't load the C1000 course record.";
+          "The site couldn't load the C1000 course record.";
         console.error(courseError);
         return;
       }
@@ -1309,6 +1433,10 @@
             research_alignment,
             documentation_alignment,
             language_style_alignment,
+            course_resource_type,
+            best_role,
+            alignment_label,
+            alignment_notes,
             watch_for,
             editorial_notes,
             oers (
@@ -1330,7 +1458,7 @@
 
       if (resourceError) {
         loading.textContent =
-          "We couldn't load the OER catalog.";
+          "The site couldn't load the OER catalog.";
         console.error(resourceError);
         return;
       }
@@ -1470,6 +1598,123 @@
         await updateAuthUI();
 
       });
+
+    const alignmentDialog =
+      document.getElementById("alignment-dialog");
+
+    const alignmentDialogBody =
+      document.getElementById("alignment-dialog-body");
+
+    let lastAlignmentTrigger = null;
+
+    const alignmentCriteria = [
+      ["academic_reading", "Academic Reading", "reading_alignment"],
+      ["rhetoric", "Rhetoric & Rhetorical Awareness", "rhetoric_alignment"],
+      ["writing_process", "Writing Process", "writing_process_alignment"],
+      ["academic_genres", "Academic Genres", "genres_alignment"],
+      ["research", "Research & Source Use", "research_alignment"],
+      ["documentation", "Documentation", "documentation_alignment"],
+      ["language_style", "Language, Style & Rhetorical Choice", "language_style_alignment"]
+    ];
+
+    function evidenceList(items = []) {
+      if (!Array.isArray(items) || !items.length) return "";
+      return `
+        <p><strong>Evidence reviewed</strong></p>
+        <ul class="evidence-list">
+          ${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    async function openAlignmentDialog(button) {
+
+      lastAlignmentTrigger = button;
+
+      document.getElementById(
+        "alignment-dialog-title"
+      ).textContent = button.dataset.oerTitle;
+
+      alignmentDialogBody.innerHTML =
+        '<p class="alignment-loading">Loading alignment details…</p>';
+
+      alignmentDialog.showModal();
+
+      const { data, error } =
+        await supabase
+          .from("oer_courses")
+          .select(`
+            reading_alignment,
+            rhetoric_alignment,
+            writing_process_alignment,
+            genres_alignment,
+            research_alignment,
+            documentation_alignment,
+            language_style_alignment,
+            alignment_details
+          `)
+          .eq("course_id", c1000CourseId)
+          .eq("oer_id", button.dataset.oerId)
+          .single();
+
+      if (error) {
+        console.error(error);
+        alignmentDialogBody.innerHTML = `
+          <div class="alignment-review-meta">
+            <p><strong>Detailed review is not available yet.</strong></p>
+            <p>The compact alignment ratings remain visible on the OER card. The detailed evidence panel will appear after the strengthened-review data is added to the database.</p>
+          </div>
+        `;
+        return;
+      }
+
+      const details = data.alignment_details || {};
+      const criteria = details.criteria || {};
+
+      const sections = alignmentCriteria.map(([key, label, scoreField]) => {
+        const entry = criteria[key] || {};
+        const score = Number(data[scoreField] || 0);
+        const rationale = entry.rationale
+          ? `<p>${escapeHtml(entry.rationale)}</p>`
+          : '<p class="small">A criterion-specific rationale has not been added yet.</p>';
+
+        return `
+          <section class="criterion-review">
+            <h3>
+              ${escapeHtml(label)}
+              <span class="rating-chip">${escapeHtml(scoreLabel(score))}</span>
+            </h3>
+            ${rationale}
+            ${evidenceList(entry.evidence)}
+          </section>
+        `;
+      }).join("");
+
+      alignmentDialogBody.innerHTML = `
+        <div class="alignment-review-meta">
+          <p><strong>Review confidence:</strong> ${escapeHtml(details.confidence || "Not recorded")}</p>
+          ${details.review_scope ? `<p><strong>Scope reviewed:</strong> ${escapeHtml(details.review_scope)}</p>` : ""}
+          <p>${escapeHtml(details.method_note || "Ratings reflect explicit instructional coverage rather than topic presence alone.")}</p>
+          <p class="small">This editorial alignment review is separate from faculty recommendations and from the IDEA Framework lens.</p>
+        </div>
+        ${sections}
+      `;
+
+      alignmentDialogBody.focus();
+    }
+
+    document
+      .getElementById("close-alignment-dialog")
+      .addEventListener(
+        "click",
+        () => alignmentDialog.close()
+      );
+
+    alignmentDialog.addEventListener("close", () => {
+      if (lastAlignmentTrigger) {
+        lastAlignmentTrigger.focus();
+      }
+    });
 
     const reviewDialog =
       document.getElementById("review-dialog");
