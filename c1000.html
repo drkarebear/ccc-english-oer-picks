@@ -495,6 +495,90 @@
       font-style: italic;
     }
 
+
+
+    .support-section {
+      margin: 42px 0 30px;
+    }
+
+    .support-heading-block {
+      background: var(--blue-light);
+      border: 1px solid #c8ddea;
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .support-heading-block h2 {
+      color: var(--navy);
+      margin: 2px 0 10px;
+    }
+
+    .support-heading-block p:last-child {
+      margin-bottom: 0;
+      max-width: 900px;
+    }
+
+    .support-eyebrow {
+      color: var(--blue);
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .support-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .support-category {
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 7px;
+    }
+
+    .support-card h3 {
+      color: var(--navy);
+      margin: 0 0 6px;
+      line-height: 1.28;
+    }
+
+    .support-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0 0 13px;
+    }
+
+    .support-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 14px 0;
+    }
+
+    .support-tag {
+      display: inline-block;
+      background: var(--purple-light);
+      color: #58467b;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .support-best-role {
+      margin: 12px 0 8px;
+    }
+
     .auth-panel,
     .suggest-panel,
     .method-panel {
@@ -645,7 +729,8 @@
 
     @media (max-width: 800px) {
       .cards,
-      .form-grid {
+      .form-grid,
+      .support-grid {
         grid-template-columns: 1fr;
       }
 
@@ -829,6 +914,167 @@
     </div>
 
     <div id="oer-grid" class="cards" aria-live="polite"></div>
+
+    <section class="support-section" id="c1000e-support" aria-labelledby="c1000e-support-heading">
+      <div class="support-heading-block">
+        <p class="eyebrow support-eyebrow">ENGL C1000E</p>
+        <h2 id="c1000e-support-heading">Embedded Support Resources</h2>
+        <p>
+          ENGL C1000E includes the same academic reading and writing core as C1000, with
+          embedded support determined locally. I list these resources separately because
+          they are especially useful for targeted scaffolding, guided practice, multilingual
+          writing support, language development, and editing. I do not score them as complete
+          C1000 textbooks.
+        </p>
+      </div>
+
+      <div class="support-grid">
+
+        <article class="support-card">
+          <p class="support-category">Academic Reading &amp; Sources</p>
+          <h3>Integrated Skills: Academic Writing with Sources</h3>
+          <p class="support-meta">
+            Trischa Duke, Becky Bonarek, and Steph Mielcarek · University of Illinois Chicago / LibreTexts · CC BY-NC-SA 4.0
+          </p>
+          <p class="support-best-role">
+            <strong>Best role:</strong> Highly scaffolded academic reading, source-use, and writing-process support
+          </p>
+          <p>
+            Explicit practice in active reading, annotation, paraphrase, summary, response,
+            source integration, argumentative research, peer feedback, revision, and portfolio work.
+          </p>
+          <div class="support-tags" aria-label="Support areas">
+            <span class="support-tag">Academic reading</span>
+            <span class="support-tag">Multilingual writers</span>
+            <span class="support-tag">Source integration</span>
+            <span class="support-tag">Writing process</span>
+            <span class="support-tag">Research scaffolding</span>
+            <span class="support-tag">Peer review</span>
+          </div>
+          <div class="watch-for">
+            <strong>Watch for:</strong> Designed for a pre-composition English for Academic Purposes course. Excellent for targeted support, but narrower than a full C1000 curriculum.
+          </div>
+          <div class="card-links">
+            <a class="button button-primary" href="https://human.libretexts.org/Bookshelves/Composition/Introductory_Composition/Integrated_Skills%3A_Academic_Writing_with_Sources_%28Duke_Bonarek_and_Mielcarek%29" target="_blank" rel="noopener noreferrer">Open the resource</a>
+          </div>
+        </article>
+
+        <article class="support-card">
+          <p class="support-category">Critical Reading &amp; Argument</p>
+          <h3>A Guide to Analyzing Arguments in an Academic Setting</h3>
+          <p class="support-meta">
+            Joshua Botvin, Yuan Zhang, and Jacqueline E. O'Dell · UMass Dartmouth · CC BY-NC-SA
+          </p>
+          <p class="support-best-role">
+            <strong>Best role:</strong> Highly scaffolded argument-reading and analysis support
+          </p>
+          <p>
+            Concise, student-friendly instruction in thesis, claims, evidence, counterargument,
+            implicit claims, audience, purpose, tone, agenda, bias, skeptical reading, and annotation.
+          </p>
+          <div class="support-tags" aria-label="Support areas">
+            <span class="support-tag">Critical reading</span>
+            <span class="support-tag">Argument analysis</span>
+            <span class="support-tag">Claims &amp; evidence</span>
+            <span class="support-tag">Counterargument</span>
+            <span class="support-tag">Annotation</span>
+          </div>
+          <div class="watch-for">
+            <strong>Watch for:</strong> A focused supplement rather than a broad writing curriculum. It does not provide full genre, research, documentation, or formal logic instruction.
+          </div>
+          <div class="card-links">
+            <a class="button button-primary" href="https://oercommons.org/courseware/lesson/111767/overview" target="_blank" rel="noopener noreferrer">Open the resource</a>
+          </div>
+        </article>
+
+        <article class="support-card">
+          <p class="support-category">Multilingual Academic Writing</p>
+          <h3>University Academic Writing for International Students: A Usage-based Approach</h3>
+          <p class="support-meta">
+            Carol Lynn Moder et al. · Oklahoma State University Libraries · CC BY 4.0 except where otherwise noted
+          </p>
+          <p class="support-best-role">
+            <strong>Best role:</strong> Genre-based academic writing, source-use, and language support for multilingual students
+          </p>
+          <p>
+            Modular support for audience and purpose, writing from readings and data, summary,
+            persuasive writing, source evaluation and integration, revision, and grammar taught in authentic genre contexts.
+          </p>
+          <div class="support-tags" aria-label="Support areas">
+            <span class="support-tag">Multilingual writers</span>
+            <span class="support-tag">Academic language</span>
+            <span class="support-tag">Genre</span>
+            <span class="support-tag">Source evaluation</span>
+            <span class="support-tag">Summary &amp; paraphrase</span>
+            <span class="support-tag">Revision</span>
+          </div>
+          <div class="watch-for">
+            <strong>Watch for:</strong> Designed specifically for international students rather than as a complete C1000 text. Some terminology reflects older native/non-native assumptions and benefits from a linguistic-justice framing.
+          </div>
+          <div class="card-links">
+            <a class="button button-primary" href="https://open.library.okstate.edu/internationalcomposition/" target="_blank" rel="noopener noreferrer">Open the resource</a>
+          </div>
+        </article>
+
+        <article class="support-card">
+          <p class="support-category">Language, Power &amp; Media Literacy</p>
+          <h3>Critical Language Awareness: Language Power Techniques and English Grammar</h3>
+          <p class="support-meta">
+            Jonathon Reinhardt, Anuj Gupta, Robert Poole, and Dilara Avci · University of Arizona · CC BY-NC 4.0 except where otherwise noted
+          </p>
+          <p class="support-best-role">
+            <strong>Best role:</strong> Critical language awareness, rhetoric, grammar, and media-literacy support
+          </p>
+          <p>
+            Connects grammar and language choices to ideology, power, metaphor, doublespeak,
+            pronoun choice, propaganda, logical fallacies, media literacy, and corpus analysis.
+          </p>
+          <div class="support-tags" aria-label="Support areas">
+            <span class="support-tag">Linguistic diversity</span>
+            <span class="support-tag">Grammar in context</span>
+            <span class="support-tag">Media literacy</span>
+            <span class="support-tag">Bias &amp; propaganda</span>
+            <span class="support-tag">Corpus analysis</span>
+          </div>
+          <div class="watch-for">
+            <strong>Watch for:</strong> Best used selectively. Some examples are politically charged by design and benefit from instructor framing and discussion of context.
+          </div>
+          <div class="card-links">
+            <a class="button button-primary" href="https://opentextbooks.library.arizona.edu/languageawareness/" target="_blank" rel="noopener noreferrer">Open the resource</a>
+          </div>
+        </article>
+
+        <article class="support-card">
+          <p class="support-category">Editing &amp; Conventions</p>
+          <h3>Grammar Essentials</h3>
+          <p class="support-meta">
+            Excelsior Online Writing Lab · CC BY 4.0
+          </p>
+          <p class="support-best-role">
+            <strong>Best role:</strong> Just-in-time grammar, punctuation, and editing practice
+          </p>
+          <p>
+            Modular, student-friendly reference and practice covering punctuation, parts of speech,
+            quotation integration, sentence-level conventions, and common editing issues. The live OWL includes interactive practice.
+          </p>
+          <div class="support-tags" aria-label="Support areas">
+            <span class="support-tag">Editing</span>
+            <span class="support-tag">Sentence-level support</span>
+            <span class="support-tag">Punctuation</span>
+            <span class="support-tag">Grammar &amp; usage</span>
+            <span class="support-tag">Interactive practice</span>
+          </div>
+          <div class="watch-for">
+            <strong>Watch for:</strong> Best used selectively as an editing and conventions resource, not as a complete writing curriculum. Frame conventions rhetorically and distinguish academic expectations from language difference.
+          </div>
+          <div class="card-links">
+            <a class="button button-primary" href="https://owl.excelsior.edu/grammar-essentials/" target="_blank" rel="noopener noreferrer">Open the resource</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
 
     <section class="method-panel" id="how-content-alignment-works">
       <h2>How I review C1000 Content Alignment</h2>
