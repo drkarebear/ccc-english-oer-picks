@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="OER Evaluation Toolkit for faculty: choose a prompt bank based on whether you need to discover, target, match, narrow, examine through IDEA, or compare OER." />
+  <meta name="description" content="OER Evaluation Toolkit for faculty: choose a guided step-by-step OER search or an advanced prompt library for more experienced AI users." />
   <link rel="icon" type="image/png" href="favicon1.png">
 <title>OER Evaluation Toolkit | CCC English OER Picks</title>
   <style>
@@ -129,6 +129,42 @@
       border-radius:10px;
       padding:17px 20px;
       margin-top:18px;
+    }
+
+    .path-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+    .path-card{
+      background:#fff;
+      border:2px solid var(--border);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+    .path-card.guided{border-top:6px solid var(--green)}
+    .path-card.advanced{border-top:6px solid var(--blue)}
+    .path-card h3{font-size:1.4rem;margin-bottom:8px}
+    .path-card .best-for{font-weight:800;color:var(--navy);margin-bottom:12px}
+    .path-action{
+      display:inline-block;
+      margin-top:6px;
+      padding:11px 16px;
+      border-radius:9px;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .path-action.advanced{background:var(--navy);color:#fff}
+    .path-action.pending{
+      background:var(--light-green);
+      color:var(--green);
+      border:1px solid #cbded3;
+    }
+    .path-action:focus-visible{
+      outline:3px solid rgba(36,93,120,.25);
+      outline-offset:3px;
     }
 
     .bank-grid{
@@ -287,7 +323,7 @@
       .workflow{grid-template-columns:repeat(3,1fr)}
     }
     @media(max-width:760px){
-      .bank-grid,.rubric-grid,.resource-grid{grid-template-columns:1fr}
+      .path-grid,.bank-grid,.rubric-grid,.resource-grid{grid-template-columns:1fr}
     }
     @media(max-width:640px){
       .topbar{flex-direction:column;align-items:flex-start}
@@ -308,25 +344,42 @@
   </div>
 
   <div class="hero">
-    <div class="eyebrow">FACULTY TOOLKIT · OER PROMPT LIBRARY</div>
-    <h1>What are you trying to do?</h1>
-    <p>Choose the prompt bank that matches where you are in the OER process—from finding possibilities to comparing your final contenders.</p>
+    <div class="eyebrow">FACULTY TOOLKIT · OER + AI</div>
+    <h1>Choose the level of guidance you want</h1>
+    <p>Start with a guided, step-by-step OER search or jump directly into the advanced prompt library.</p>
   </div>
 </header>
 
 <main id="main-content">
 
   <section class="lead" aria-labelledby="start-heading">
-    <h2 id="start-heading">Start with your problem, not with a prompt number</h2>
-    <p>Faculty arrive here at very different stages. You may be searching a niche field with almost no obvious OER, trying to find one missing topic, or staring at dozens of possible textbooks. Pick the situation that sounds most like yours.</p>
+    <h2 id="start-heading">How would you like to get started?</h2>
+    <p>You do not need to be an expert at prompting to use AI thoughtfully for OER work. Choose the path that matches how much guidance you want.</p>
+
+    <div class="path-grid">
+      <div class="path-card guided">
+        <h3>🌱 Guide Me Step by Step</h3>
+        <p class="best-for">Newer to AI or want a simple process?</p>
+        <p>Follow a short guided process from your Course Outline of Record (COR) to a manageable shortlist of OERs worth exploring yourself. You will work through one prompt at a time and check the results as you go.</p>
+        <span class="path-action pending">Guided OER Search · Coming Next</span>
+      </div>
+
+      <div class="path-card advanced">
+        <h3>⚡ Let Me Choose My Own Prompts</h3>
+        <p class="best-for">Already comfortable working with AI?</p>
+        <p>Jump directly into specialized prompts for discovering OER, finding a specific resource, matching materials to your course, narrowing candidates, applying the IDEA lens, or comparing finalists.</p>
+        <a class="path-action advanced" href="#advanced-prompt-library">Explore the Advanced Prompt Library ↓</a>
+      </div>
+    </div>
 
     <div class="quick-note">
-      <strong>If you are brand new to OER:</strong> begin with <strong>Discover OER</strong>. If you already have several plausible resources, skip ahead to <strong>Narrow by Content</strong>.
+      <strong>New to OER and new to AI are not the same thing.</strong> The guided path is about how much AI prompting support you want. The advanced library is available at any stage of your OER work.
     </div>
   </section>
 
-  <section aria-labelledby="banks-heading">
-    <h2 id="banks-heading">Choose a prompt bank</h2>
+  <section id="advanced-prompt-library" aria-labelledby="banks-heading">
+    <h2 id="banks-heading">Advanced Prompt Library</h2>
+    <p>Choose the task that matches what you need right now. You can use one prompt bank on its own or combine several as your OER search develops.</p>
 
     <div class="bank-grid">
 
@@ -382,8 +435,8 @@
   </section>
 
   <section aria-labelledby="workflow-heading">
-    <h2 id="workflow-heading">Not sure? Follow the full path</h2>
-    <p>You do not need every bank every time. This is the typical path when you are starting from scratch.</p>
+    <h2 id="workflow-heading">Using the advanced library from start to finish</h2>
+    <p>You do not need every prompt bank every time. If you want a fuller evaluation process, this is the typical path through the advanced tools.</p>
 
     <div class="workflow" aria-label="Full OER workflow">
       <div class="step"><span>1</span><b>DISCOVER</b>See what exists.</div>
