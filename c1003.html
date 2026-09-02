@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="favicon1.png">
-<title>ENGL C1003 OER Picks | CCC English OER Picks</title>
+  <title>ENGL C1003 OER Picks | CCC English OER Picks</title>
 
   <meta
     name="description"
@@ -396,6 +395,61 @@
       color: var(--navy);
     }
 
+
+
+    .find-more-panel {
+      background: var(--blue-light);
+      border: 1px solid #c8ddea;
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 34px 0 30px;
+    }
+
+    .find-more-panel h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .find-more-intro {
+      max-width: 850px;
+      color: var(--text);
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .source-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .source-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .source-card p {
+      margin: 8px 0;
+    }
+
+    .source-type {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: var(--purple-light);
+      color: #58467b;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
     .faculty-area {
       background: #f9fbfc;
       border-top: 1px solid var(--border);
@@ -561,12 +615,6 @@
     .footer-inner {
       width: min(100%, var(--max));
       margin: 0 auto;
-      text-align: center;
-    }
-
-    .footer-inner p {
-      margin: 6px 0;
-      font-size: 0.92rem;
     }
 
     footer a {
@@ -584,7 +632,8 @@
 
     @media (max-width: 800px) {
       .cards,
-      .form-grid {
+      .form-grid,
+      .source-grid {
         grid-template-columns: 1fr;
       }
 
@@ -659,8 +708,8 @@
         This page helps California Community College English faculty compare
         open resources for ENGL C1003, where literary study intersects with
         argument, logical reasoning, close reading, literary analysis, research,
-        source evaluation, revision, and documentation. Content Alignment is my
-        independent editorial review; Faculty Experience is separate community input.
+        source evaluation, revision, and documentation. Editorial alignment
+        and faculty experience are intentionally kept separate.
       </p>
     </section>
 
@@ -781,14 +830,61 @@
 
     <div id="oer-grid" class="cards" aria-live="polite"></div>
 
+
+
+    <section class="find-more-panel" aria-labelledby="find-more-heading">
+      <h2 id="find-more-heading">Find More Open Readings &amp; Primary Sources</h2>
+
+      <p class="find-more-intro">
+        These are discovery collections rather than C1003 textbooks, so I do not score them
+        with the Content Alignment rubric. They can help faculty locate additional literary texts,
+        historical context, and primary-source material to pair with a C1003 course spine.
+      </p>
+
+      <div class="source-grid">
+        <article class="source-card">
+          <span class="source-type">Public-domain literature library</span>
+          <h3>Project Gutenberg</h3>
+          <p>
+            Large collection of free ebooks, especially useful for older fiction, poetry, drama,
+            essays, and other works in the public domain in the United States.
+          </p>
+          <p class="small">
+            Check the rights and license information included with an individual title before
+            redistributing or adapting it, especially outside the United States.
+          </p>
+          <a class="button button-primary" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer">
+            Browse Project Gutenberg
+          </a>
+        </article>
+
+        <article class="source-card">
+          <span class="source-type">Primary sources + historical context</span>
+          <h3>Digital Public Library of America</h3>
+          <p>
+            Searchable collection connecting materials from libraries, archives, and museums.
+            Especially useful for pairing literature with photographs, manuscripts, newspapers,
+            letters, maps, and other cultural or historical sources.
+          </p>
+          <p class="small">
+            Rights vary by item. Check the rights statement attached to each object before reuse.
+          </p>
+          <a class="button button-primary" href="https://dp.la/" target="_blank" rel="noopener noreferrer">
+            Browse DPLA
+          </a>
+        </article>
+      </div>
+    </section>
+
+
     <section class="method-panel" id="how-i-rate">
-      <h2>How I review C1003 Content Alignment</h2>
+      <h2>How I look at C1003 alignment</h2>
 
       <p>
-        I apply the C1003 Content Alignment Rubric to the instructional content of each
-        resource. The nine areas are literary breadth, diverse literary voices, close
-        reading and literary analysis, argument and thesis development, logic and reasoning,
-        biases and fallacies, critical approaches and context, research and source evaluation,
+        The editorial review considers nine C1003-specific areas:
+        literary breadth, diverse literary voices, close reading and literary analysis,
+        argument and thesis development, logic and reasoning, biases and fallacies,
+        critical approaches and context, research and source evaluation,
         and writing, revision, and documentation.
       </p>
 
@@ -808,12 +904,6 @@
         touches the area or supports practice without substantial direct instruction.
         A zero does not mean the resource is poor—it usually means that is not what
         the resource is designed to teach.
-      </p>
-
-      <p>
-        I am currently the sole evaluator for these editorial Content Alignment reviews.
-        Faculty Experience is collected separately and never changes the Content Alignment
-        ratings. The IDEA Framework review is also a separate lens.
       </p>
 
       <p class="small">
@@ -995,12 +1085,19 @@
   </dialog>
 
   <footer>
-  <div class="footer-inner">
-    <p><strong>CCC English OER Picks</strong></p>
-    <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
-  </div>
-</footer>
+    <div class="footer-inner">
+      <p>
+        <strong>CCC English OER Picks</strong>
+      </p>
+
+      <p class="small">
+        I created and maintain CCC English OER Picks independently as a California
+        Community College English faculty member. This site is not affiliated with or
+        endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's
+        Office, or any individual California Community College.
+      </p>
+    </div>
+  </footer>
 
   <script type="module">
 
