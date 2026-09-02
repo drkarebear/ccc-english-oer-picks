@@ -848,8 +848,8 @@
           Readers &amp; anthologies
         </button>
 
-        <button class="filter-button" data-filter="supplement" type="button">
-          Supplements
+        <button class="filter-button" id="c1000e-support-button" type="button">
+          C1000E support
         </button>
       </div>
     </section>
@@ -903,10 +903,10 @@
     <h2 class="section-heading">C1000 OER</h2>
 
     <p class="section-intro">
-      Start Here resources are highlighted as the strongest general starting points. When I set
-      a manual display order, that order is used first; otherwise resources are grouped by type,
-      and broader Strong Content Alignment coverage appears earlier. This is a browse order,
-      not an overall ranking.
+      Start Here resources are highlighted as the strongest general starting points. The full
+      list is intentionally ordered to help faculty browse from broadly useful course spines
+      toward more specialized and build-your-own options. The order reflects likely teaching
+      role and usability, not a composite score or overall ranking.
     </p>
 
     <div id="loading" class="loading" role="status">
@@ -1791,7 +1791,8 @@
 
       allResources.sort((a, b) => {
 
-        // A deliberate course-specific display order takes priority when present.
+        // The curated C1000 browse order takes priority. New future resources
+        // without an assigned order fall back to the role/alignment logic below.
         const aOrder =
           a.display_order !== null &&
           a.display_order !== undefined &&
@@ -1852,7 +1853,7 @@
     }
 
     document
-      .querySelectorAll(".filter-button")
+      .querySelectorAll(".filter-button[data-filter]")
       .forEach(button => {
 
         button.addEventListener("click", () => {
@@ -1867,6 +1868,30 @@
         });
 
       });
+
+    const c1000eSupportButton =
+      document.getElementById("c1000e-support-button");
+
+    if (c1000eSupportButton) {
+      c1000eSupportButton.addEventListener("click", () => {
+
+        document
+          .querySelectorAll(".filter-button")
+          .forEach(item => item.classList.remove("active"));
+
+        c1000eSupportButton.classList.add("active");
+
+        const supportSection =
+          document.getElementById("c1000e-support");
+
+        if (supportSection) {
+          supportSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    }
 
     async function updateAuthUI() {
 
