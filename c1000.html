@@ -818,9 +818,10 @@
     <h2 class="section-heading">C1000 OER</h2>
 
     <p class="section-intro">
-      Start Here resources appear first. Within each resource type, books with broader
-      Strong Content Alignment coverage appear earlier. This browse order is meant to help
-      faculty investigate likely starting points; it is not an overall ranking.
+      Start Here resources are highlighted as the strongest general starting points. When I set
+      a manual display order, that order is used first; otherwise resources are grouped by type,
+      and broader Strong Content Alignment coverage appears earlier. This is a browse order,
+      not an overall ranking.
     </p>
 
     <div id="loading" class="loading" role="status">
@@ -1187,15 +1188,21 @@
       const bestRole = item.best_role || oer.best_role || "Varies by course design";
       const alignmentNotes = item.alignment_notes || oer.alignment_notes || "";
 
-      const featuredBadge = oer.is_featured
+      // Prefer the course-specific featured flag. The global OER flag is only a
+      // temporary fallback for older C1000 rows that have not been backfilled yet.
+      const isFeatured =
+        item.course_featured === true ||
+        (item.course_featured == null && oer.is_featured === true);
+
+      const featuredBadge = isFeatured
         ? `<span class="badge badge-featured">★ Start here</span>`
         : "";
 
       return `
         <article
-          class="oer-card ${oer.is_featured ? "featured" : ""}"
+          class="oer-card ${isFeatured ? "featured" : ""}"
           data-type="${escapeHtml(resourceType)}"
-          data-featured="${oer.is_featured ? "true" : "false"}"
+          data-featured="${isFeatured ? "true" : "false"}"
         >
 
           <div class="card-main">
@@ -1372,8 +1379,9 @@
       let resources = [...allResources];
 
       if (filter === "featured") {
-        resources = resources.filter(
-          item => item.oers.is_featured
+        resources = resources.filter(item =>
+          item.course_featured === true ||
+          (item.course_featured == null && item.oers.is_featured === true)
         );
       }
 
@@ -1444,6 +1452,10 @@
             documentation_alignment,
             language_style_alignment,
             course_resource_type,
+            course_featured,
+            display_order,
+            public_display,
+            review_confidence,
             best_role,
             alignment_label,
             alignment_notes,
@@ -1492,7 +1504,11 @@
         console.error(reviewError);
       }
 
-      allResources = resourceData || [];
+      // Treat explicit false as hidden. Null remains visible so older C1000
+      // mappings continue to work until every row is backfilled.
+      allResources = (resourceData || []).filter(
+        item => item.public_display !== false
+      );
       approvedReviews = reviewData || [];
 
       function strongCount(item) {
@@ -1529,9 +1545,37 @@
 
       allResources.sort((a, b) => {
 
-        // Start Here remains the strongest browse signal.
-        if (a.oers.is_featured !== b.oers.is_featured) {
-          return a.oers.is_featured ? -1 : 1;
+        // A deliberate course-specific display order takes priority when present.
+        const aOrder =
+          a.display_order !== null &&
+          a.display_order !== undefined &&
+          Number.isFinite(Number(a.display_order))
+            ? Number(a.display_order)
+            : Number.MAX_SAFE_INTEGER;
+
+        const bOrder =
+          b.display_order !== null &&
+          b.display_order !== undefined &&
+          Number.isFinite(Number(b.display_order))
+            ? Number(b.display_order)
+            : Number.MAX_SAFE_INTEGER;
+
+        if (aOrder !== bOrder) {
+          return aOrder - bOrder;
+        }
+
+        // Prefer the course-specific Start Here flag, with a temporary fallback
+        // to the older global flag for legacy C1000 rows.
+        const aFeatured =
+          a.course_featured === true ||
+          (a.course_featured == null && a.oers.is_featured === true);
+
+        const bFeatured =
+          b.course_featured === true ||
+          (b.course_featured == null && b.oers.is_featured === true);
+
+        if (aFeatured !== bFeatured) {
+          return aFeatured ? -1 : 1;
         }
 
         // Within featured/non-featured groups, show likely course spines before
