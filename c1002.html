@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" href="favicon1.png">
-<title>ENGL C1002 OER Picks | CCC English OER Picks</title>
+  <title>ENGL C1002 OER Picks | CCC English OER Picks</title>
 
   <meta
     name="description"
@@ -478,6 +478,61 @@
       padding: 18px 0;
     }
 
+
+
+    .find-more-panel {
+      background: var(--blue-light);
+      border: 1px solid #c8ddea;
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 34px 0 30px;
+    }
+
+    .find-more-panel h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .find-more-intro {
+      max-width: 850px;
+      color: var(--text);
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .source-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .source-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .source-card p {
+      margin: 8px 0;
+    }
+
+    .source-type {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: var(--purple-light);
+      color: #58467b;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
     .faculty-area {
       background: #f9fbfc;
       border-top: 1px solid var(--border);
@@ -666,7 +721,8 @@
 
     @media (max-width: 800px) {
       .cards,
-      .form-grid {
+      .form-grid,
+      .source-grid {
         grid-template-columns: 1fr;
       }
 
@@ -868,6 +924,53 @@
     </div>
 
     <div id="oer-grid" class="cards" aria-live="polite"></div>
+
+
+
+    <section class="find-more-panel" aria-labelledby="find-more-heading">
+      <h2 id="find-more-heading">Find More Open Readings &amp; Primary Sources</h2>
+
+      <p class="find-more-intro">
+        These are discovery collections rather than C1002 textbooks, so I do not score them
+        with the Content Alignment rubric. They can be useful when you need additional
+        literary texts, historical context, or primary-source material for a course you are building.
+      </p>
+
+      <div class="source-grid">
+        <article class="source-card">
+          <span class="source-type">Public-domain literature library</span>
+          <h3>Project Gutenberg</h3>
+          <p>
+            Large collection of free ebooks, especially useful for older fiction, poetry, drama,
+            essays, and other works in the public domain in the United States.
+          </p>
+          <p class="small">
+            Check the rights and license information included with an individual title before
+            redistributing or adapting it, especially outside the United States.
+          </p>
+          <a class="button button-primary" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer">
+            Browse Project Gutenberg
+          </a>
+        </article>
+
+        <article class="source-card">
+          <span class="source-type">Primary sources + historical context</span>
+          <h3>Digital Public Library of America</h3>
+          <p>
+            Searchable collection connecting materials from libraries, archives, and museums.
+            Especially useful for pairing literature with photographs, manuscripts, newspapers,
+            letters, maps, and other cultural or historical sources.
+          </p>
+          <p class="small">
+            Rights vary by item. Check the rights statement attached to each object before reuse.
+          </p>
+          <a class="button button-primary" href="https://dp.la/" target="_blank" rel="noopener noreferrer">
+            Browse DPLA
+          </a>
+        </article>
+      </div>
+    </section>
+
 
     <section class="method-panel" id="how-content-alignment-works">
       <h2>How I review C1002 Content Alignment</h2>
@@ -1394,7 +1497,7 @@
           <div class="faculty-area">
 
             <div class="faculty-summary">
-              Faculty experience:
+              Faculty Experience:
               ${facultySummary(oer.id)}
             </div>
 
@@ -1781,13 +1884,14 @@
 
       contentReviewDialogBody.innerHTML = `
         <p>
-          This is my independent editorial review of how explicitly the OER teaches
-          the eight areas in the C1002 Content Alignment Rubric. It is a content review,
-          not an overall quality score or a faculty vote.
+          This is my independent editorial Content Alignment review of how explicitly
+          the OER teaches the eight areas in the C1002 Content Alignment Rubric. The
+          ratings describe instructional coverage, not overall OER quality or faculty
+          recommendation.
         </p>
 
         <div class="content-review-meta">
-          <p><strong>Evaluator:</strong> Site maintainer (one evaluator)</p>
+          <p><strong>Evaluator:</strong> Site maintainer (sole evaluator)</p>
           <p><strong>Review confidence:</strong> ${escapeHtml(details.confidence || item.review_confidence || "Not recorded")}</p>
           ${details.reviewed_on
             ? `<p><strong>Review date:</strong> ${escapeHtml(details.reviewed_on)}</p>`
