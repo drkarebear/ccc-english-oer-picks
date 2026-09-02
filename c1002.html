@@ -1505,6 +1505,7 @@
           .select(`
             course_resource_type,
             course_featured,
+            display_order,
             best_role,
             alignment_label,
             alignment_notes,
@@ -1565,6 +1566,24 @@
       approvedReviews = reviewData || [];
 
       allResources.sort((a, b) => {
+
+        const aOrder =
+          a.display_order !== null &&
+          a.display_order !== undefined &&
+          Number.isFinite(Number(a.display_order))
+            ? Number(a.display_order)
+            : Number.MAX_SAFE_INTEGER;
+
+        const bOrder =
+          b.display_order !== null &&
+          b.display_order !== undefined &&
+          Number.isFinite(Number(b.display_order))
+            ? Number(b.display_order)
+            : Number.MAX_SAFE_INTEGER;
+
+        if (aOrder !== bOrder) {
+          return aOrder - bOrder;
+        }
 
         if (a.course_featured !== b.course_featured) {
           return a.course_featured ? -1 : 1;
