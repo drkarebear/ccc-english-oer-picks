@@ -113,24 +113,38 @@ Keep this concise. I will use this information to help us evaluate possible OERs
     </article>
 
     <article class="step-card" aria-labelledby="step2-heading">
-      <div class="step-head"><div class="step-num" aria-hidden="true">2</div><div><h3 id="step2-heading">Compare known OER options</h3><p>Start with resources that have already been identified as possibilities.</p></div></div>
-      <div class="do-this"><strong>What to provide:</strong> Paste your list of possible OER titles and links. This could come from the ASCCC OERI, a librarian, your discipline, or another trusted source.</div>
+      <div class="step-head"><div class="step-num" aria-hidden="true">2</div><div><h3 id="step2-heading">Start with OER already collected for your field</h3><p>You do not need to search the whole internet first.</p></div></div>
+
+      <div class="do-this"><strong>What to provide:</strong> Give AI a starting list of possible OER titles and links. If you already have a list from your librarian, department, or discipline, use it. If you do not, the ASCCC OERI is a good California Community Colleges starting point.</div>
+
+      <div class="starter-box">
+        <h4>Need a starting list?</h4>
+        <p><a href="https://asccc-oeri.org/open-educational-resources-by-discipline/" target="_blank" rel="noopener">Browse ASCCC OERI OER collections by discipline</a>. These collections are curated by OERI Discipline Leads and include a searchable OER-by-C-ID collection as well as individual discipline collections.</p>
+        <ol class="mini-steps">
+          <li>Open your discipline or search by C-ID if your course has one.</li>
+          <li>Find the section or course closest to yours.</li>
+          <li>Copy the promising OER titles and links. You do not need to evaluate them yet.</li>
+          <li>Paste that list into the prompt below.</li>
+        </ol>
+        <p><strong>Can't find much?</strong> That's okay. Use whatever promising options you find and continue to Step 3, where AI will help broaden the search.</p>
+      </div>
+
       <div class="prompt-wrap">
         <div class="prompt" id="prompt2">Here are OERs that have already been identified as possible resources for this course:
 
 [PASTE OER TITLES AND LINKS HERE]
 
-Please research these resources and compare them with my COR. Identify the 3–5 most promising options.
+Please research these resources and compare them with the COR I shared earlier. Identify the 3–5 most promising options.
 
-For each, tell me:
-• what it covers well
+For each, briefly tell me:
+• what it covers well for my course
 • what may be missing
-• why it might or might not work for this course
+• why it might or might not be a strong fit
 
-Please do not assume an OER is a good fit simply because it appears on this list. If you cannot verify a resource or its contents, say so.</div>
+Please do not assume a resource is a good fit simply because it appears on this list. Verify what you can from the actual resource. If you cannot access or verify something, tell me instead of guessing.</div>
         <button class="copy-btn" data-copy="prompt2">Copy Step 2 Prompt</button>
       </div>
-      <div class="check"><strong>Before moving on:</strong> Notice which resources keep appearing as strong fits. Do not choose one yet.</div>
+      <div class="check"><strong>Before moving on:</strong> You are not choosing a textbook yet. Look at the comparison, notice the strongest possibilities, and correct anything that does not seem right.</div>
     </article>
 
     <article class="step-card" aria-labelledby="step3-heading">
