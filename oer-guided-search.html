@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A guided, step-by-step AI workflow for faculty who want to find and shortlist OER using their Course Outline of Record." />
+  <link rel="icon" type="image/png" href="favicon1.png">
+  <title>Guided OER Search | CCC English OER Picks</title>
+  <style>
+    :root{
+      --navy:#18324a;--blue:#245d78;--gold:#d9a441;--green:#3e6b57;--text:#263746;
+      --muted:#5f6f7d;--border:#d9e1e7;--white:#fff;--bg:#f7f9fb;--cream:#fffaf2;
+      --light-blue:#eef4f7;--light-green:#edf5f0;--shadow:0 8px 24px rgba(29,49,67,.09);--max:980px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:var(--blue)}
+    .skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}
+    .skip-link:focus{left:10px}
+    header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 66px}
+    .topbar{max-width:var(--max);margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .brand,.home{color:#fff;text-decoration:none;font-weight:800}
+    .hero{max-width:850px;margin:0 auto;text-align:center}
+    .eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800;font-size:.9rem;margin-bottom:14px}
+    h1{margin:0;font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}
+    .hero p{max-width:760px;margin:20px auto 0;color:#eef5f8;font-size:clamp(1.05rem,2vw,1.22rem)}
+    main{max-width:var(--max);margin:0 auto;padding:54px 20px 76px}
+    section{margin-top:54px}
+    h2{color:var(--navy);font-size:clamp(1.65rem,3vw,2.2rem);line-height:1.2;margin:0 0 12px}
+    h3{color:var(--navy);font-size:1.3rem;margin:0 0 8px}
+    p{margin:0 0 16px}
+    .intro{margin-top:-90px;position:relative;background:var(--cream);border:1px solid #eadfc8;border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+    .route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px}
+    .route div{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px;text-align:center;font-weight:800;color:var(--navy)}
+    .route span{display:block;color:var(--green);font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
+    .prep{background:var(--light-blue);border-left:5px solid var(--blue);border-radius:12px;padding:20px;margin-top:20px}
+    .step-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:var(--shadow);margin-top:22px}
+    .step-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+    .step-num{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;font-weight:900;font-size:1.15rem}
+    .step-head h3{font-size:1.45rem;margin-top:3px}
+    .do-this{background:var(--light-green);border-radius:12px;padding:15px 18px;margin:18px 0}
+    .prompt-wrap{position:relative;margin-top:14px}
+    .prompt{white-space:pre-wrap;background:#f5f7f9;border:1px solid #ccd6de;border-radius:12px;padding:20px;font-family:Arial,Helvetica,sans-serif;line-height:1.55;color:#1f303e}
+    .copy-btn{margin-top:10px;background:var(--navy);color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}
+    .copy-btn:hover{background:var(--blue)}
+    .copy-btn:focus-visible,.button:focus-visible{outline:3px solid rgba(36,93,120,.28);outline-offset:3px}
+    .check{border-left:5px solid var(--gold);background:var(--cream);border-radius:10px;padding:16px 18px;margin-top:18px}
+    .check strong{color:var(--navy)}
+    .stop{background:#fff;border:3px solid var(--green);border-radius:18px;padding:28px;text-align:center;box-shadow:var(--shadow)}
+    .stop .stop-label{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:6px 12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+    .stop h2{margin-bottom:12px}
+    .button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .button{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;border-radius:9px;padding:11px 16px;font-weight:800}
+    .button.secondary{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+    .tip{font-size:.95rem;color:var(--muted)}
+    #copy-status{position:absolute;left:-9999px}
+    footer{background:#10283b;color:#dce7ed;padding:34px 20px}
+    .footer-inner{max-width:var(--max);margin:0 auto}
+    footer a{color:#fff}
+    @media(max-width:760px){.route{grid-template-columns:1fr 1fr}.topbar{align-items:flex-start}.step-card{padding:22px}.intro{padding:24px}}
+    @media(max-width:480px){.route{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+  <div class="topbar">
+    <a class="brand" href="index.html">CCC English OER Picks</a>
+    <a class="home" href="oer-evaluation-toolkit-hub.html">← OER + AI Toolkit</a>
+  </div>
+  <div class="hero">
+    <div class="eyebrow">GUIDED OER SEARCH · NEWER TO AI</div>
+    <h1>Find OER One Step at a Time</h1>
+    <p>Use four simple prompts to move from your Course Outline of Record to a short list of OERs worth exploring yourself.</p>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="intro" aria-labelledby="how-heading">
+    <h2 id="how-heading">You do not need one perfect prompt</h2>
+    <p>This guided path breaks the search into small decisions. Complete one step, look at what the AI gives you, and then move to the next step. You are not asking AI to choose your textbook. You are using it to make the search more manageable.</p>
+    <div class="route" aria-label="Four-step guided OER search">
+      <div><span>Step 1</span>Understand</div>
+      <div><span>Step 2</span>Compare</div>
+      <div><span>Step 3</span>Search</div>
+      <div><span>Step 4</span>Shortlist</div>
+    </div>
+    <div class="prep">
+      <strong>Before you begin:</strong> have your Course Outline of Record (COR) ready. If you already have a list of possible OERs from the ASCCC OERI, your college, a librarian, or another trusted source, keep that list handy too.
+    </div>
+  </section>
+
+  <section aria-labelledby="steps-heading">
+    <h2 id="steps-heading">The Guided Search</h2>
+    <p>Use the prompts in order. You can copy each one into ChatGPT or another AI tool.</p>
+
+    <article class="step-card" aria-labelledby="step1-heading">
+      <div class="step-head"><div class="step-num" aria-hidden="true">1</div><div><h3 id="step1-heading">Help AI understand your course</h3><p>Start with the COR before searching for materials.</p></div></div>
+      <div class="do-this"><strong>What to provide:</strong> Attach your COR, upload it, or paste the relevant text into the chat.</div>
+      <div class="prompt-wrap">
+        <div class="prompt" id="prompt1">I am looking for free or zero-cost course materials for this class. Please review the Course Outline of Record (COR) I provided.
+
+Before we search for materials, briefly identify:
+• the major topics students need to learn
+• the skills students need to develop
+• any topics or requirements that an OER would especially need to cover
+
+Keep this concise. I will use this information to help us evaluate possible OERs.</div>
+        <button class="copy-btn" data-copy="prompt1">Copy Step 1 Prompt</button>
+      </div>
+      <div class="check"><strong>Before moving on:</strong> Does this sound like your course? Correct anything the AI misunderstood or missed.</div>
+    </article>
+
+    <article class="step-card" aria-labelledby="step2-heading">
+      <div class="step-head"><div class="step-num" aria-hidden="true">2</div><div><h3 id="step2-heading">Compare known OER options</h3><p>Start with resources that have already been identified as possibilities.</p></div></div>
+      <div class="do-this"><strong>What to provide:</strong> Paste your list of possible OER titles and links. This could come from the ASCCC OERI, a librarian, your discipline, or another trusted source.</div>
+      <div class="prompt-wrap">
+        <div class="prompt" id="prompt2">Here are OERs that have already been identified as possible resources for this course:
+
+[PASTE OER TITLES AND LINKS HERE]
+
+Please research these resources and compare them with my COR. Identify the 3–5 most promising options.
+
+For each, tell me:
+• what it covers well
+• what may be missing
+• why it might or might not work for this course
+
+Please do not assume an OER is a good fit simply because it appears on this list. If you cannot verify a resource or its contents, say so.</div>
+        <button class="copy-btn" data-copy="prompt2">Copy Step 2 Prompt</button>
+      </div>
+      <div class="check"><strong>Before moving on:</strong> Notice which resources keep appearing as strong fits. Do not choose one yet.</div>
+    </article>
+
+    <article class="step-card" aria-labelledby="step3-heading">
+      <div class="step-head"><div class="step-num" aria-hidden="true">3</div><div><h3 id="step3-heading">Look for possibilities you may have missed</h3><p>Now expand beyond your starting list.</p></div></div>
+      <div class="do-this"><strong>What to provide:</strong> Nothing new is required. Keep working in the same AI conversation so it still has your COR and earlier results.</div>
+      <div class="prompt-wrap">
+        <div class="prompt" id="prompt3">Now look for other reputable OERs that might be a strong fit for this course but were not included on my list.
+
+Prioritize established OER sources, including resources from colleges and universities, OpenStax, LibreTexts, Pressbooks, and other reputable OER repositories.
+
+Only recommend resources you can verify actually exist and are currently accessible. Give me a direct link to each resource when possible, identify the open license if you can verify it, and briefly explain why each resource is worth considering.
+
+If the field is sparse, tell me that instead of padding the list with weak options.</div>
+        <button class="copy-btn" data-copy="prompt3">Copy Step 3 Prompt</button>
+      </div>
+      <div class="check"><strong>Before moving on:</strong> Open a few links. Make sure the resources actually exist, are accessible, and appear to be what the AI says they are.</div>
+    </article>
+
+    <article class="step-card" aria-labelledby="step4-heading">
+      <div class="step-head"><div class="step-num" aria-hidden="true">4</div><div><h3 id="step4-heading">Create a manageable shortlist</h3><p>Ask AI to narrow the field, not to make the final decision.</p></div></div>
+      <div class="do-this"><strong>What to provide:</strong> Stay in the same conversation so AI can consider the COR, your original list, and the additional resources it found.</div>
+      <div class="prompt-wrap">
+        <div class="prompt" id="prompt4">Considering everything we have reviewed, which 3–5 resources should I actually open and explore myself?
+
+Rank them from strongest to weakest fit for my COR.
+
+For each one, give me:
+• Resource title and direct link
+• Why I should look at it
+• One potential weakness or gap
+• What I should examine when I open it
+
+Keep this short. I want a manageable list that I can evaluate myself rather than having AI make the final decision for me.</div>
+        <button class="copy-btn" data-copy="prompt4">Copy Step 4 Prompt</button>
+      </div>
+      <div class="check"><strong>Before moving on:</strong> Your goal is a shortlist, not a winner. AI has helped organize the search. The next judgment is yours.</div>
+    </article>
+  </section>
+
+  <section class="stop" aria-labelledby="stop-heading">
+    <div class="stop-label">Human Checkpoint</div>
+    <h2 id="stop-heading">Stop and explore the resources yourself</h2>
+    <p>Open the strongest candidates. Click through the table of contents. Read part of a chapter. Look at the examples, navigation, accessibility, organization, and tone. Ask yourself whether you would actually want to teach with this resource and whether your students could realistically use it.</p>
+    <p><strong>The COR sets the requirements. The OER supports the course. Faculty make the decision.</strong></p>
+  </section>
+
+  <section aria-labelledby="next-heading">
+    <h2 id="next-heading">Found one or more promising OERs?</h2>
+    <p>Once you have a shortlist, the advanced tools can help you examine course fit, content gaps, and tradeoffs more closely. You do not need to start over.</p>
+    <div class="button-row">
+      <a class="button" href="oer-prompts-course-fit.html">Match OER to My Course</a>
+      <a class="button secondary" href="oer-prompts-content.html">Evaluate Content Fit</a>
+      <a class="button secondary" href="oer-evaluation-toolkit-hub.html#advanced-prompt-library">Browse All Advanced Prompts</a>
+    </div>
+    <p class="tip" style="margin-top:18px;">Tip: save or keep the same AI conversation. Your COR, shortlist, and corrections can become useful context for the next stage.</p>
+  </section>
+
+  <div id="copy-status" role="status" aria-live="polite"></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>CCC English OER Picks</strong></p>
+    <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
+    <p><a href="index.html">Home</a> · <a href="oer-evaluation-toolkit-hub.html">OER + AI Toolkit</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+  </div>
+</footer>
+<script>
+  const status = document.getElementById('copy-status');
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    button.addEventListener('click', async () => {
+      const target = document.getElementById(button.dataset.copy);
+      try {
+        await navigator.clipboard.writeText(target.innerText);
+        const original = button.textContent;
+        button.textContent = 'Copied!';
+        status.textContent = 'Prompt copied to clipboard.';
+        setTimeout(() => { button.textContent = original; }, 1600);
+      } catch (error) {
+        status.textContent = 'Copy was not available. Select the prompt text and copy it manually.';
+      }
+    });
+  });
+</script>
+</body>
+</html>
