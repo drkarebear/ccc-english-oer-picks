@@ -1,287 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Faculty prompt bank for applying, auditing, and comparing ASCCC OERI IDEA Framework crosswalks as a separate lens from course content.">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="The prompt library formerly on CCC English OER Picks now lives in The OER Promptbook.">
 <link rel="icon" type="image/png" href="favicon1.png">
-<title>Examine with IDEA | CCC English OER Picks</title>
+<title>Prompt Library Moved | CCC English OER Picks</title>
 <style>
-:root{--navy:#18324a;--blue:#245d78;--gold:#d9a441;--green:#3e6b57;--purple:#6c5a86;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--bg:#f7f9fb;--cream:#fffaf2;--light-blue:#eef4f7;--light-green:#edf5f0;--shadow:0 8px 24px rgba(29,49,67,.09);--max:1120px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}a{color:var(--blue)}
-.skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}.skip-link:focus{left:10px}
-header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 64px}.topbar{max-width:var(--max);margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand,.back{color:#fff;text-decoration:none;font-weight:800}
-.hero{max-width:900px;margin:0 auto;text-align:center}.eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800;font-size:.9rem;margin-bottom:14px}h1{margin:0;font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}.hero p{max-width:800px;margin:20px auto 0;color:#eef5f8;font-size:clamp(1.05rem,2vw,1.24rem)}
-main{max-width:var(--max);margin:0 auto;padding:54px 20px 76px}section{margin-top:58px}h2{color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.2;margin:0 0 12px}h3{color:var(--navy);margin:0 0 8px}p{margin:0 0 16px}
-.lead{margin-top:-88px;position:relative;background:var(--cream);border:1px solid #eadfc8;border-radius:18px;padding:30px;box-shadow:var(--shadow)}.lead h2{font-size:clamp(1.8rem,3vw,2.5rem)}.rule{background:#fff;border-left:5px solid var(--gold);border-radius:10px;padding:17px 20px;margin-top:18px}
-.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.choice{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}.choice strong{display:block;color:var(--navy);margin-bottom:5px}.choice a{font-weight:800}
-.funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}.funnel-step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}.funnel-step .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:999px;background:var(--light-blue);color:var(--navy);font-weight:900;margin-bottom:8px}.funnel-step b{display:block;color:var(--navy);margin-bottom:5px}.funnel-arrow{color:var(--muted);font-weight:800}
-.prompt-card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);margin-top:20px;overflow:hidden}.prompt-head{padding:24px}.tag-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}.tag{display:inline-block;background:#e7f1f5;color:var(--blue);padding:5px 9px;border-radius:999px;font-size:.8rem;font-weight:800}.prompt-number{font-size:.86rem;color:var(--muted);font-weight:700}.prompt-head p{margin-bottom:0;color:var(--muted)}
-.prompt-details{border-top:1px solid var(--border)}.prompt-details summary{cursor:pointer;list-style:none;padding:16px 24px;background:#f9fbfc;color:var(--navy);font-weight:800}.prompt-details summary::-webkit-details-marker{display:none}.prompt-details summary::after{content:"+";float:right;font-size:1.25rem}.prompt-details[open] summary::after{content:"–"}.prompt-details summary:focus-visible{outline:3px solid rgba(36,93,120,.2);outline-offset:-3px}.prompt-body{padding:0 24px 24px}
-pre{white-space:pre-wrap;word-wrap:break-word;background:#f5f7f9;border:1px solid #dfe6eb;border-radius:12px;padding:18px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;line-height:1.55}.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button,.button{appearance:none;border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:9px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}button:focus-visible,.button:focus-visible{outline:3px solid rgba(36,93,120,.25);outline-offset:3px}
-.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.check{background:#fff;border:1px solid var(--border);border-radius:12px;padding:17px}.method{background:var(--light-blue);border-left:5px solid var(--blue);border-radius:10px;padding:18px 20px;margin-top:20px}.next{background:var(--light-green);border-left:5px solid var(--green);border-radius:10px;padding:19px 21px;margin-top:22px}.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}.button.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
-.rubric-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.rubric-link{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px}.rubric-link a{font-weight:800}
-footer{background:#182734;color:#dbe6ec;padding:32px 20px}.footer-inner{max-width:1000px;margin:auto;text-align:center}.footer-inner a{color:#fff;font-weight:700}
-@media(max-width:900px){.funnel{grid-template-columns:1fr 1fr}}@media(max-width:720px){.chooser,.checklist,.rubric-links{grid-template-columns:1fr}}@media(max-width:640px){.topbar{flex-direction:column;align-items:flex-start}.funnel{grid-template-columns:1fr}main{padding-top:42px}.lead{margin-top:-64px}}
+:root{--navy:#18324a;--blue:#245d78;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--bg:#f7f9fb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.65}a{color:var(--blue)}.skip-link{position:absolute;left:-9999px;top:10px;background:#fff;color:#000;padding:10px 14px;border:2px solid #000;z-index:999}.skip-link:focus{left:10px}header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 48px}.bar{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.bar a{color:#fff;font-weight:800}main{max-width:760px;margin:0 auto;padding:64px 20px}.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px;box-shadow:0 8px 24px rgba(29,49,67,.09)}h1{color:var(--navy);line-height:1.15;margin-top:0}.button{display:inline-flex;align-items:center;min-height:44px;padding:12px 18px;border-radius:10px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800}footer{background:#182734;color:#dbe6ec;padding:28px 20px;text-align:center}footer a{color:#fff;font-weight:700}
+
+
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #111827 !important;
+    }
+    :where(button, input, select, textarea, summary, .button) {
+      min-height: 44px;
+      font: inherit;
+    }
+    :where(input, select, textarea) {
+      max-width: 100%;
+    }
+    :where(a) {
+      text-decoration-thickness: .08em;
+      text-underline-offset: .16em;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    @media (forced-colors: active) {
+      :where(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid CanvasText !important;
+        box-shadow: none !important;
+      }
+    }
+
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-
-<header>
-  <div class="topbar">
-    <a class="brand" href="index.html">CCC English OER Picks</a>
-    <a class="back" href="oer-evaluation-toolkit.html">← Back to Prompt Library</a>
-  </div>
-  <div class="hero">
-    <div class="eyebrow">PROMPT BANK · IDEA LENS</div>
-    <h1>Examine with IDEA</h1>
-    <p>Apply the IDEA Framework to serious OER finalists without collapsing inclusion, diversity, equity, and anti-racism findings into the course-content score.</p>
-  </div>
-</header>
-
-<main id="main-content">
-
-<section class="lead" aria-labelledby="purpose-heading">
-  <h2 id="purpose-heading">Keep the IDEA lens separate and evidence-based</h2>
-  <p>Use the IDEA Framework after you have narrowed the field to resources you are seriously considering. Course Content Alignment and IDEA findings can inform the same adoption decision, but they answer different questions and should remain visibly separate.</p>
-  <div class="rule"><strong>Transparency matters:</strong> an AI-assisted IDEA crosswalk on this site or in your own workflow is an independent analysis, not an official ASCCC OERI assessment, certification, badge, or endorsement.</div>
-</section>
-
-<section aria-labelledby="choose-heading">
-  <h2 id="choose-heading">What do you need to do?</h2>
-  <div class="chooser">
-    <div class="choice"><strong>I have one finalist.</strong>Use <a href="#apply-heading">Apply the IDEA Framework</a>.</div>
-    <div class="choice"><strong>I already have an AI-generated crosswalk.</strong>Use <a href="#audit-heading">Audit the Crosswalk</a>.</div>
-    <div class="choice"><strong>I have 2–4 completed crosswalks.</strong>Use <a href="#compare-heading">Compare IDEA Findings</a>.</div>
-    <div class="choice"><strong>I still have too many OER.</strong>Go back to <a href="oer-prompts-content.html">Narrow by Content</a> first.</div>
-  </div>
-</section>
-
-<section aria-labelledby="method-heading">
-  <h2 id="method-heading">A separate second lens</h2>
-  <div class="funnel">
-    <div class="funnel-step"><span class="num">1</span><b>FINALIST</b>Use the same OER you reviewed for content.</div>
-    <div class="funnel-step"><span class="num">2</span><b>CROSSWALK</b>Apply the IDEA Framework with inspectable evidence.</div>
-    <div class="funnel-step"><span class="num">3</span><b>CHECK</b>Audit weak claims, uncertainty, and overreach.</div>
-    <div class="funnel-step"><span class="num">4</span><b>KEEP SEPARATE</b>Carry IDEA and Content findings forward side by side.</div>
-  </div>
-  <div class="method"><strong>Do not convert representation into a shortcut score.</strong> Look at the framework areas individually, identify evidence and counterevidence, and preserve uncertainty when the resource cannot support a confident conclusion.</div>
-</section>
-
-<section id="apply-heading" aria-labelledby="apply-title">
-  <h2 id="apply-title">Prompt 1: Apply the IDEA Framework to a Finalist</h2>
-  <p>Use this on a resource that has already earned serious consideration through the content-review process.</p>
-  <article class="prompt-card">
-  <div class="prompt-head">
-    <div class="tag-row"><span class="tag">IDEA CROSSWALK</span><span class="prompt-number">Prompt 1</span></div>
-    <h3>Evidence-Based IDEA Crosswalk</h3>
-    <p>Apply the framework as a distinct lens with inspectable evidence and explicit uncertainty.</p>
-  </div>
-  <details class="prompt-details" open>
-    <summary>Open full prompt</summary>
-    <div class="prompt-body">
-      <pre id="prompt-idea-apply">You are helping a college faculty member examine one open educational resource (OER) through the ASCCC OERI Inclusion, Diversity, Equity, and Anti-Racism (IDEA) Framework as a SEPARATE lens from course-content alignment.
-
-I will provide:
-1. the OER or a stable link / file,
-2. the relevant ASCCC OERI IDEA Framework materials or rubric,
-3. optional notes from a separate course-content review.
-
-Your job is to create an evidence-based, independent IDEA crosswalk.
-
-IMPORTANT BOUNDARIES
-- Do not merge IDEA findings into a course-content score.
-- Do not claim this is an official ASCCC OERI review, badge, certification, or endorsement.
-- Use the framework categories and rating language I provide rather than inventing a substitute framework.
-- Do not infer an author, editor, or represented person&#x27;s race, ethnicity, gender, disability, sexuality, religion, or other identity from a name, image, or appearance.
-- Distinguish what is directly observable in the resource from interpretation.
-- If access is partial, say so and lower confidence accordingly.
-- &quot;Not found&quot; is not the same as &quot;not present.&quot; Use &quot;insufficient evidence&quot; when appropriate.
-
-FOR EACH IDEA AREA
-1. State the framework area.
-2. Give the most supportable rating or finding using the framework&#x27;s own scale.
-3. Cite specific, inspectable evidence: chapter, section, page, example, image, activity, author/reading selection, or other location.
-4. Explain the reasoning briefly.
-5. Note counterevidence, mixed evidence, or important limitations.
-6. State confidence: High / Medium / Low, with one sentence explaining why.
-7. Identify one concrete opportunity for improvement when useful.
-
-END WITH
-- Strongest IDEA findings
-- Most important concerns or opportunities
-- Areas where evidence is mixed or insufficient
-- Items a faculty member should verify directly
-- A short reminder that this is an independent crosswalk, not an official ASCCC OERI assessment
-
-OER:
-[PASTE LINK, UPLOAD FILE, OR IDENTIFY RESOURCE]
-
-IDEA FRAMEWORK / RUBRIC:
-[PASTE OR ATTACH THE FRAMEWORK MATERIALS]
-
-OPTIONAL CONTENT-REVIEW NOTES:
-[PASTE IF USEFUL, BUT KEEP THEM SEPARATE FROM IDEA RATINGS]</pre>
-      <div class="copy-row"><button type="button" data-copy="prompt-idea-apply">Copy prompt</button></div>
-    </div>
-  </details>
-</article>
-</section>
-
-<section id="audit-heading" aria-labelledby="audit-title">
-  <h2 id="audit-title">Prompt 2: Audit an IDEA Crosswalk</h2>
-  <p>Use this when the first pass seems too confident, too neat, or too dependent on weak evidence.</p>
-  <article class="prompt-card">
-  <div class="prompt-head">
-    <div class="tag-row"><span class="tag">QUALITY CONTROL</span><span class="prompt-number">Prompt 2</span></div>
-    <h3>Skeptical IDEA Review</h3>
-    <p>Pressure-test claims, identity inferences, missing evidence, and false certainty.</p>
-  </div>
-  <details class="prompt-details" >
-    <summary>Open full prompt</summary>
-    <div class="prompt-body">
-      <pre id="prompt-idea-audit">You are auditing an AI-generated IDEA Framework crosswalk for an open educational resource.
-
-I will provide:
-1. the OER or accessible evidence,
-2. the relevant ASCCC OERI IDEA Framework materials,
-3. the AI-generated crosswalk to audit.
-
-Do NOT simply rewrite the first review more confidently. Pressure-test it.
-
-CHECK FOR
-- ratings that are not supported by inspectable evidence,
-- identity claims inferred from names, photos, or appearance,
-- broad claims based on one isolated example,
-- missing counterevidence or contradictory material,
-- confusion between representation and instructional treatment,
-- claims based only on a table of contents or description when fuller evidence is needed,
-- &quot;not found&quot; treated as proof of absence,
-- framework language that has been altered or collapsed,
-- IDEA findings improperly merged with course-content alignment,
-- language that could imply an official ASCCC OERI assessment or badge.
-
-FOR EACH QUESTIONABLE FINDING, PROVIDE
-- original claim / rating,
-- why it may be unsupported, overstated, or incomplete,
-- evidence that supports or complicates it,
-- recommended action: Keep / Revise / Mark uncertain / Investigate further.
-
-END WITH
-- findings that appear well supported,
-- findings that most need faculty verification,
-- any framework areas where evidence is insufficient,
-- whether the crosswalk appears ready for human editorial review.
-
-OER / EVIDENCE:
-[PASTE OR ATTACH]
-
-IDEA FRAMEWORK / RUBRIC:
-[PASTE OR ATTACH]
-
-CROSSWALK TO AUDIT:
-[PASTE HERE]</pre>
-      <div class="copy-row"><button type="button" data-copy="prompt-idea-audit">Copy prompt</button></div>
-    </div>
-  </details>
-</article>
-</section>
-
-<section id="compare-heading" aria-labelledby="compare-title">
-  <h2 id="compare-title">Prompt 3: Compare IDEA Findings Across Finalists</h2>
-  <p>Use this only after each finalist has its own completed crosswalk. The goal is to surface meaningful differences, not manufacture a single IDEA winner.</p>
-  <article class="prompt-card">
-  <div class="prompt-head">
-    <div class="tag-row"><span class="tag">SIDE-BY-SIDE</span><span class="prompt-number">Prompt 3</span></div>
-    <h3>Compare Completed IDEA Crosswalks</h3>
-    <p>Keep framework areas distinct while surfacing tradeoffs, concerns, and supplementation opportunities.</p>
-  </div>
-  <details class="prompt-details" >
-    <summary>Open full prompt</summary>
-    <div class="prompt-body">
-      <pre id="prompt-idea-compare">You are helping a college faculty member compare IDEA Framework findings across 2–4 OER finalists.
-
-I will provide the completed IDEA crosswalk for each finalist. These crosswalks should already have been reviewed for evidence quality.
-
-Your job is to COMPARE, not rescore.
-
-RULES
-- Preserve the framework&#x27;s distinct areas; do not create one overall IDEA score.
-- Do not merge IDEA findings with course-content ratings.
-- Compare only claims supported by the crosswalk evidence provided.
-- Surface mixed evidence and uncertainty rather than forcing a winner.
-- Do not infer identities that are not explicitly and reliably established.
-
-OUTPUT
-1. A side-by-side comparison by IDEA area.
-2. For each finalist: strongest findings, most important concerns, and areas needing verification.
-3. Meaningful differences among the finalists that could matter for teaching.
-4. Opportunities for supplementation or adaptation for each finalist.
-5. Questions faculty should ask before making an adoption decision.
-6. A short synthesis that describes tradeoffs without ranking the resources overall.
-
-IDEA CROSSWALKS:
-[PASTE 2–4 COMPLETED CROSSWALKS HERE]</pre>
-      <div class="copy-row"><button type="button" data-copy="prompt-idea-compare">Copy prompt</button></div>
-    </div>
-  </details>
-</article>
-</section>
-
-<section aria-labelledby="guardrails-heading">
-  <h2 id="guardrails-heading">IDEA-review guardrails</h2>
-  <div class="checklist">
-    <div class="check"><h3>Do not infer identity.</h3><p>Names, photos, or appearance are not reliable evidence of race, ethnicity, gender, disability, sexuality, religion, or other identity.</p></div>
-    <div class="check"><h3>One example is not the whole resource.</h3><p>Look across the text and note both supporting and complicating evidence.</p></div>
-    <div class="check"><h3>Partial access means partial confidence.</h3><p>A preview or table of contents cannot support the same certainty as a full-text review.</p></div>
-    <div class="check"><h3>Keep Content and IDEA separate.</h3><p>The two lenses can inform one decision without being collapsed into one score.</p></div>
-    <div class="check"><h3>Use the actual framework.</h3><p>Provide the current ASCCC OERI framework materials rather than asking AI to reconstruct the rubric from memory.</p></div>
-    <div class="check"><h3>Faculty make the final call.</h3><p>AI can organize evidence; faculty remain responsible for interpretation, context, and adoption decisions.</p></div>
-  </div>
-</section>
-
-<section aria-labelledby="next-heading">
-  <h2 id="next-heading">What comes after the IDEA review?</h2>
-  <p>Carry the completed Content Rubric findings and IDEA crosswalk findings forward as two separate sets of evidence. The final comparison should make their tradeoffs visible without blending them into a hidden total score.</p>
-  <div class="next"><strong>Typical handoff:</strong> Content findings + IDEA findings → compare finalists → identify supplementation and tradeoffs → faculty decision.</div>
-  <div class="button-row">
-    <a class="button" href="oer-prompts-compare.html">Next: Compare Finalists</a>
-    <a class="button secondary" href="oer-prompts-content.html">Back: Narrow by Content</a>
-    <a class="button secondary" href="oer-evaluation-toolkit.html">Back to Prompt Library</a>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <p><strong>CCC English OER Picks</strong></p>
-    <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll('[data-copy]').forEach(function(btn){
-  btn.addEventListener('click', async function(){
-    const id=btn.getAttribute('data-copy');
-    const content=document.getElementById(id).innerText;
-    try{
-      await navigator.clipboard.writeText(content);
-      const old=btn.textContent;
-      btn.textContent='✓ Copied';
-      setTimeout(function(){btn.textContent=old;},1600);
-    }catch(e){
-      const range=document.createRange();
-      range.selectNodeContents(document.getElementById(id));
-      const sel=window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-  });
-});
-</script>
-</body>
-</html>
+<header><div class="bar"><strong>CCC English OER Picks</strong><a href="index.html">Back to Course Guides</a></div></header>
+<main id="main-content" tabindex="-1"><div class="card"><h1>The prompt library has moved</h1><p>CCC English OER Picks now focuses on curated English OER, course-specific rubrics, and transparent editorial review.</p><p>The broader prompting workflows for finding, comparing, evaluating, and planning with OER and other zero-cost materials now live in <em>The OER Promptbook</em>.</p><p><a class="button" href="https://drkarebear.github.io/OER-Promptbook/">Open The OER Promptbook</a></p><p><a href="scoring-method.html">See how CCC English OER reviews are produced</a></p></div></main>
+<footer><p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p></footer>
+</body></html>

@@ -675,7 +675,40 @@
         width: 100%;
       }
     }
-  </style>
+  
+
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #111827 !important;
+    }
+    :where(button, input, select, textarea, summary, .button) {
+      min-height: 44px;
+      font: inherit;
+    }
+    :where(input, select, textarea) {
+      max-width: 100%;
+    }
+    :where(a) {
+      text-decoration-thickness: .08em;
+      text-underline-offset: .16em;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    @media (forced-colors: active) {
+      :where(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid CanvasText !important;
+        box-shadow: none !important;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -694,7 +727,7 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <section class="hero">
       <p class="eyebrow">ENGL C1003</p>
@@ -902,7 +935,7 @@
         teachable instruction in that area; two dots means meaningful instruction is
         present but supplementation may be appropriate; one dot means the resource
         touches the area or supports practice without substantial direct instruction.
-        A zero does not mean the resource is poor—it usually means that is not what
+        A zero does not mean the resource is poor - it usually means that is not what
         the resource is designed to teach.
       </p>
 
@@ -992,7 +1025,7 @@
 
   </main>
 
-  <dialog id="review-dialog">
+  <dialog id="review-dialog" aria-labelledby="review-dialog-title">
     <div class="dialog-inner">
 
       <div class="dialog-header">
@@ -1019,8 +1052,8 @@
           <label for="review-recommend">Would you recommend this for ENGL C1003?</label>
 
           <select id="review-recommend" required>
-            <option value="true">Yes — recommend</option>
-            <option value="false">No — would not recommend</option>
+            <option value="true">Yes  -  recommend</option>
+            <option value="false">No  -  would not recommend</option>
           </select>
         </div>
 
@@ -1096,6 +1129,7 @@
         endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's
         Office, or any individual California Community College.
       </p>
+      <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
     </div>
   </footer>
 

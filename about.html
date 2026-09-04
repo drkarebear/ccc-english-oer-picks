@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="About CCC English OER Picks: an independent faculty project currently maintained by Karen Crozer, with transparent OER comparisons and opportunities for faculty contribution."
+    content="About CCC English OER Picks: how course-specific rubrics are developed, how AI assists with first-pass OER analysis, how human editorial review is applied, and how the project approaches ethics and accessibility."
   />
   <link rel="icon" type="image/png" href="favicon1.png">
 <title>About This Project | CCC English OER Picks</title>
@@ -15,7 +15,7 @@
       --navy: #18324a;
       --blue: #245d78;
       --cream: #fffaf2;
-      --gold: #d9a441;
+      --gold: #9b6a00;
       --green: #3e6b57;
       --rose: #9a5b66;
       --purple: #6c5a86;
@@ -272,7 +272,15 @@
         margin-top: -62px;
       }
     }
-  </style>
+  
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {outline:3px solid #fff !important;outline-offset:3px !important;box-shadow:0 0 0 5px #111827 !important}
+    :where(button, input, select, textarea, summary, .button){min-height:44px;font:inherit}
+    :where(input, select, textarea){max-width:100%}
+    :where(a){text-decoration-thickness:.08em;text-underline-offset:.16em}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+    @media(forced-colors:active){:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid CanvasText !important;box-shadow:none !important}}
+</style>
 </head>
 
 <body>
@@ -288,224 +296,90 @@
       <div class="eyebrow">About the project</div>
       <h1>A practical faculty guide to a very large OER landscape.</h1>
       <p>
-        CCC English OER Picks is an independent faculty project created and currently
-        maintained by Karen Crozer. It helps California Community College English faculty
-        compare open resources, understand what each appears to teach well, and decide
-        what may be worth investigating first. The project is maintained on a volunteer
-        basis and is open to faculty feedback, corrections, teaching experience, rubric
-        review, and other contributions.
+        CCC English OER Picks is an independent faculty project for comparing promising
+        English OER by course, making the review criteria visible, and helping faculty
+        decide what is worth investigating first.
       </p>
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <section class="lead-card" aria-labelledby="why-heading">
       <h2 id="why-heading">Why this exists</h2>
-
-      <p>
-        California Community College faculty already have access to a growing
-        collection of excellent open educational resources. The challenge is no
-        longer simply finding OER. It is deciding which resources are the strongest
-        fit for a particular course, what each resource does especially well, and
-        where additional materials may still be needed.
-      </p>
-
-      <p>
-        This site was created and is currently maintained by <strong>Karen Crozer</strong>,
-        a California Community College English faculty member, as a way to make OER
-        comparison more manageable. The goal is not to establish one person's rankings
-        as definitive. Instead, the project makes its criteria and editorial judgments
-        visible so they can be examined, questioned, corrected, and strengthened over time.
-      </p>
+      <p>Finding free or open materials is only the beginning. Faculty still have to decide which resources fit a particular course, what each resource actually teaches, where supplementation may be needed, and whether a promising title is worth the time required for deeper review.</p>
+      <p><strong>CCC English OER Picks is designed to reduce some of that first-pass work without outsourcing the academic decision.</strong> The site organizes promising resources by California Community College English course and makes the criteria behind the editorial observations visible.</p>
     </section>
 
-    <section aria-labelledby="principles-heading">
-      <h2 id="principles-heading">What the project is trying to do</h2>
+    <section aria-labelledby="project-heading">
+      <h2 id="project-heading">About the project</h2>
+      <p><em>CCC English OER Picks</em> is an independent faculty project created and maintained by <strong>Karen Crozer</strong>, a California Community College English faculty member. I maintain the project on a volunteer basis. It is not an official ASCCC OERI, CCCCO, CCN, articulation, or curriculum resource.</p>
+      <p>The project is intentionally revisable. Corrections, faculty teaching notes, rubric feedback, and stronger evidence can change what appears here over time.</p>
+    </section>
 
+    <section aria-labelledby="approach-heading">
+      <h2 id="approach-heading">The approach</h2>
       <div class="principles">
-        <div class="principle">
-          <h3>Compare by course</h3>
-          <p>
-            Resources are evaluated differently for C1000, C1001, C1002, and
-            C1003 because the courses ask faculty and students to do different work.
-          </p>
-        </div>
-
-        <div class="principle">
-          <h3>Show strengths and gaps</h3>
-          <p>
-            A useful OER does not need to do everything. The site highlights likely
-            strengths, limitations, and the role a resource might best play.
-          </p>
-        </div>
-
-        <div class="principle">
-          <h3>Separate editorial analysis from faculty experience</h3>
-          <p>
-            Editorial alignment observations describe what a resource appears to teach.
-            Faculty recommendations and teaching notes describe what instructors experienced
-            when using it. The site keeps those forms of evidence separate rather than
-            blending them into one score.
-          </p>
-        </div>
-
-        <div class="principle">
-          <h3>Stay open to correction</h3>
-          <p>
-            Editorial observations are not permanent verdicts. Ratings, evidence, notes,
-            and interpretations may change as resources are revised, deeper review uncovers
-            new evidence, or faculty contribute additional context.
-          </p>
-        </div>
+        <div class="principle"><h3>Compare by course</h3><p>C1000, C1001, C1002, and C1003 ask students to do different work, so each course uses its own rubric rather than one permanent score for a book.</p></div>
+        <div class="principle"><h3>Make the criteria visible</h3><p>The published rubrics show what each dot rating means and what instructional coverage the review is looking for.</p></div>
+        <div class="principle"><h3>Use AI for first-pass labor</h3><p>AI can help scan large OER, locate possible evidence, and organize draft findings. It is a research assistant here, not the final evaluator.</p></div>
+        <div class="principle"><h3>Keep professional judgment human</h3><p>I check the source material, revise the draft ratings and notes, and make the final decision about what is published. Faculty still decide what belongs in their own courses.</p></div>
       </div>
     </section>
 
-    <section aria-labelledby="method-heading">
-      <h2 id="method-heading">How the initial alignment review works</h2>
-
+    <section aria-labelledby="rubric-heading">
+      <h2 id="rubric-heading">How I built and use the course rubrics</h2>
       <div class="method-box">
-        <p>
-          Initial alignment reviews use course-specific rubrics developed from CCN
-          course expectations and related curriculum guidance. AI assists with reviewing
-          large OER, locating relevant instructional evidence, and applying the rubric
-          consistently. I then check the evidence, ratings, and notes myself before
-          publishing the editorial analysis.
-        </p>
-
-        <p>
-          Ratings are based on <strong>explicit instructional coverage</strong>, not simply
-          whether a resource contains a topic, reading, assignment, or opportunity for
-          students to practice a skill. Where possible, reviews sample multiple sections
-          of a resource and record the evidence supporting each criterion.
-        </p>
-
-        <p>
-          These observations are provisional editorial judgments. They may change when a
-          resource is revised, when stronger evidence becomes available, or when faculty
-          experience complicates the initial review.
-        </p>
-
-        <p>
-          These observations are meant to help faculty decide what to investigate,
-          not to certify that a resource satisfies a course outline, local curriculum,
-          articulation requirement, or any other institutional standard.
-        </p>
-
-        <div class="callout">
-          <strong>The alignment ratings are not grades or overall rankings.</strong>
-          Each criterion is evaluated independently. A Strong Alignment rating means the
-          resource appears to provide substantial, explicit, teachable instruction in that
-          area. A resource can be excellent while receiving Limited Alignment or Not a
-          Significant Focus in categories outside its purpose. The dots shown on course
-          cards are simply a compact visual representation of these four alignment levels.
-        </div>
-
-        <div class="scale" aria-label="Alignment scale">
-          <div class="scale-item">
-            <span class="dots">●●●</span>
-            <strong>Strong Alignment</strong><br />
-            Substantial, explicit, teachable coverage
-          </div>
-
-          <div class="scale-item">
-            <span class="dots">●●○</span>
-            <strong>Meaningful Alignment</strong><br />
-            Useful coverage; some supplementation may help
-          </div>
-
-          <div class="scale-item">
-            <span class="dots">●○○</span>
-            <strong>Limited Alignment</strong><br />
-            Present, but mainly supplemental
-          </div>
-
-          <div class="scale-item">
-            <span class="dots">○○○</span>
-            <strong>Not a Significant Focus</strong><br />
-            Minimal, absent, or outside the resource's purpose
-          </div>
-        </div>
+        <p>I developed a separate working rubric for each course from statewide Common Course Numbering expectations and related curriculum guidance. The goal was to turn broad course expectations into a manageable set of instructional domains that could be applied consistently across very different kinds of OER.</p>
+        <p>AI helped with drafting, organizing, and testing the rubric language, but the rubric is a project-developed analytical tool rather than an official CCN instrument. I reviewed and revised the categories, descriptions, and scoring levels before using them on the site.</p>
+        <div class="callout"><strong>AI is not the evidence.</strong> A model's statement that a resource covers a criterion is not enough. The underlying OER is the evidence.</div>
+        <p>When I review an OER, I use AI for a structured first pass against the course rubric. That pass produces draft criterion ratings and possible supporting evidence. I then perform a human editorial pass: I open the resource, check whether the cited material actually supports the claim, revise ratings that are overstated or unsupported, and add practical notes about strengths, gaps, and likely course roles.</p>
+        <p>Ratings are based on <strong>explicit instructional coverage</strong>, not simply topic presence. A chapter title, reading, assignment, or vocabulary term does not automatically earn a strong score. Stronger ratings require meaningful, teachable instruction, modeling, guided practice, or sustained coverage.</p>
       </div>
-
-      <div class="method-actions">
-        <a class="button" href="scoring-method.html">View the Scoring Method</a>
-      </div>
+      <div class="method-actions"><a class="button" href="scoring-method.html">View the Full Scoring Method</a></div>
     </section>
 
-    <section aria-labelledby="faculty-heading">
-      <h2 id="faculty-heading">Why faculty feedback matters</h2>
+    <section aria-labelledby="idea-heading">
+      <h2 id="idea-heading">Scope of the current review</h2>
+      <p>I explored adding a formal IDEA-based review layer, but I am not currently publishing IDEA scores, badges, dots, or crosswalks because I cannot apply that framework consistently across every resource at the level of care it deserves. Representation, inclusion, equity, anti-racism, and accessibility may still appear in qualitative notes when there is relevant evidence, but they are not a separate scored evaluation.</p>
+    </section>
 
-      <p>
-        A table of contents can tell us a great deal, but it cannot tell us everything
-        about teaching with a resource. Faculty can identify strengths, omissions,
-        accessibility issues, assignment possibilities, sequencing challenges, student
-        responses, and other realities that may not be visible in an initial review.
-      </p>
+    <section id="faculty-heading" aria-labelledby="faculty-title">
+      <h2 id="faculty-title">Why faculty feedback matters</h2>
+      <p>An editorial review can identify apparent instructional coverage, but it cannot reproduce the experience of teaching with a resource. Faculty can surface accessibility barriers, sequencing issues, assignment possibilities, representation concerns, student responses, and other realities that an initial review may miss.</p>
+      <p>Faculty recommendations and teaching notes therefore remain separate from the alignment ratings. They can confirm, complicate, or correct the editorial analysis rather than disappearing inside one blended score.</p>
+    </section>
 
-      <p>
-        That is why faculty recommendations and teaching notes are not treated as
-        decoration. They are an independent source of evidence that can reinforce,
-        complicate, or change the project's initial editorial observations.
-      </p>
+    <section aria-labelledby="ethics-heading">
+      <h2 id="ethics-heading">AI use and ethics</h2>
+      <p>I am a co-PI on the Peer and AI Review + Reflection (PAIRR) project, which asks educators to approach generative AI critically rather than treat it as neutral or cost-free. The PAIRR ethics statement linked below was written by Julie Gamberg, Marit MacArthur, Anna Mills, Aparna Sinha, and Lisa Sperber; I did not write the statement.</p>
+      <p>Its discussion of environmental impact, labor, bias, privacy, intellectual property, voice, and human judgment informs how I use AI in this project. Here, that means using AI where it can reduce repetitive first-pass labor, protecting confidential information, checking claims against source material, and keeping professional decisions with people.</p>
+      <p><a class="button secondary" href="https://juliegamberg.github.io/ai-is-problematic-why-pairr-uses-ai/">Read “AI Is Problematic. Why Does PAIRR Use It?”</a></p>
+    </section>
+
+    <section id="accessibility" aria-labelledby="accessibility-heading">
+      <h2 id="accessibility-heading">Accessibility</h2>
+      <p>I aim for <em>CCC English OER Picks</em> to meet or exceed <strong>WCAG 2.2 Level AA</strong> for the parts of the experience controlled by this project. The site uses semantic headings and landmarks, keyboard-accessible controls, visible focus indicators, responsive reflow, accessible form labels and status messages, and reduced-motion support.</p>
+      <p>I test first-party pages for common WAVE errors and contrast problems and also review keyboard access, focus behavior, reflow, and accessible names. Automated tools cannot certify legal compliance, so accessibility remains an ongoing human review process as the site changes.</p>
+      <p>Third-party services and linked resources, including Google Groups, Supabase authentication/data services, GitHub Pages, and external OER platforms, are maintained by their own providers and may have different accessibility features or barriers.</p>
+      <p>If you encounter an accessibility barrier in this site itself, please <a href="mailto:karencrozer@gmail.com?subject=CCC%20English%20OER%20Picks%20Accessibility">email me about the accessibility issue</a> and include the page and a short description of what was difficult to use.</p>
+    </section>
+
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading">Related project: The OER Promptbook</h2>
+      <p>This site now focuses on curated English OER, course-specific rubrics, and transparent review. My separate project, <em>The OER Promptbook</em>, houses the broader AI prompting workflows for finding, evaluating, comparing, and planning with OER and other zero-cost materials.</p>
+      <p><a class="button" href="https://drkarebear.github.io/OER-Promptbook/">Visit The OER Promptbook</a></p>
     </section>
 
     <section aria-labelledby="community-heading">
-      <h2 id="community-heading">Currently maintained by one faculty member, open to many contributors</h2>
-
-      <p>
-        CCC English OER Picks is created and maintained as a volunteer
-        project by Karen Crozer. It is designed, however, to benefit from many kinds of
-        faculty contribution.
-      </p>
-
-      <p>
-        You do not need to take on an ongoing role to help. A contribution might be a
-        teaching note from a resource you have used, a correction to a rating or link,
-        evidence the initial review missed, feedback on a rubric, a suggested OER, or
-        help reviewing a future course guide.
-      </p>
-
-      <p>
-        Faculty and OER practitioners who would like to participate in the broader
-        conversation can also join the English OER CCC Google Group.
-      </p>
-
-      <p>
-        <a
-          class="button"
-          href="https://groups.google.com/g/englishoer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Join the English OER CCC Google Group
-        </a>
-      </p>
-
-      <p class="small-note">
-        Participation in the Google Group does not imply endorsement of the ratings
-        or editorial judgments published on this independent site.
-      </p>
+      <h2 id="community-heading">Open to faculty contribution</h2>
+      <p>You do not need to take on an ongoing role to help. A contribution might be a teaching note from a resource you have used, a correction to a rating or link, evidence the initial review missed, feedback on a rubric, or a suggested OER.</p>
+      <p><a class="button secondary" href="https://groups.google.com/g/englishoer" target="_blank" rel="noopener noreferrer">Join the English OER CCC Google Group</a></p>
     </section>
 
     <section aria-labelledby="oeri-heading">
       <h2 id="oeri-heading">Built beside OERI, not instead of it</h2>
-
-      <p>
-        ASCCC OERI maintains the comprehensive, discipline-curated collection of
-        English OER. This project is intended as a practical comparison and
-        recommendation layer beside that work, not as a replacement for the official
-        collection or for faculty curriculum review.
-      </p>
-
-      <p>
-        <a
-          href="https://asccc-oeri.org/open-educational-resources-and-english/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit the official ASCCC OERI English collection
-        </a>
-      </p>
+      <p>ASCCC OERI maintains the comprehensive, discipline-curated collection of English OER. This project is intended as a practical comparison and recommendation layer beside that work, not as a replacement for the official collection or for faculty curriculum review.</p>
+      <p><a href="https://asccc-oeri.org/open-educational-resources-and-english/" target="_blank" rel="noopener noreferrer">Visit the official ASCCC OERI English collection</a></p>
     </section>
   </main>
 
@@ -513,7 +387,7 @@
   <div class="footer-inner">
     <p><strong>CCC English OER Picks</strong></p>
     <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 </body>

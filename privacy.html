@@ -17,7 +17,7 @@
       --blue: #245d78;
       --light-blue: #eef4f7;
       --cream: #fff9e8;
-      --gold: #d9a441;
+      --gold: #9b6a00;
       --text: #263746;
       --muted: #5f6f7d;
       --border: #d9e1e7;
@@ -262,7 +262,35 @@
         margin-top: -58px;
       }
     }
-  </style>
+  
+
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #111827 !important;
+    }
+    :where(button, input, select, textarea, summary, .button) {
+      min-height: 44px;
+      font: inherit;
+    }
+    :where(input, select, textarea) { max-width: 100%; }
+    :where(a) { text-decoration-thickness: .08em; text-underline-offset: .16em; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    @media (forced-colors: active) {
+      :where(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid CanvasText !important;
+        box-shadow: none !important;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -292,7 +320,7 @@
     </div>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <section class="lead-card" aria-labelledby="summary-heading">
       <h2 id="summary-heading">The short version</h2>
       <p>
@@ -392,7 +420,7 @@
   <div class="footer-inner">
     <p><strong>CCC English OER Picks</strong></p>
     <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 </body>

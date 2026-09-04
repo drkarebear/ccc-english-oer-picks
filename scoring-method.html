@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="General scoring method used by CCC English OER Picks to compare open educational resources with course-specific California Community College Common Course Numbering criteria."
+    content="How CCC English OER Picks develops course-specific rubrics and uses an AI-assisted first pass followed by human editorial review to produce transparent OER alignment observations."
   />
   <link rel="icon" type="image/png" href="favicon1.png">
 <title>Scoring Method | CCC English OER Picks</title>
@@ -16,7 +16,7 @@
       --blue: #245d78;
       --light-blue: #eef4f7;
       --cream: #fff9e8;
-      --gold: #d9a441;
+      --gold: #9b6a00;
       --green: #3e6b57;
       --purple: #6c5a86;
       --purple-bg: #eeeaf5;
@@ -483,7 +483,15 @@
         padding-left: 56px;
       }
     }
-  </style>
+  
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {outline:3px solid #fff !important;outline-offset:3px !important;box-shadow:0 0 0 5px #111827 !important}
+    :where(button, input, select, textarea, summary, .button){min-height:44px;font:inherit}
+    :where(input, select, textarea){max-width:100%}
+    :where(a){text-decoration-thickness:.08em;text-underline-offset:.16em}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+    @media(forced-colors:active){:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid CanvasText !important;box-shadow:none !important}}
+</style>
 </head>
 
 <body>
@@ -507,341 +515,100 @@
       <p class="eyebrow">Transparency &amp; Methodology</p>
       <h1>General Scoring Method</h1>
       <p>
-        How CCC English OER Picks turns course requirements into practical,
-        course-specific alignment observations—and what those scores do and do not mean.
-        Every resource passes through two independent lenses, course alignment (COR) and
-        the ASCCC OERI IDEA Framework. AI assists with the first pass for each lens, and
-        I check the evidence, ratings, and notes before anything is published.
+        How CCC English OER Picks turns course expectations into practical,
+        course-specific alignment observations. AI assists with a structured first pass;
+        I check the source evidence, revise the draft ratings and notes, and make the
+        final editorial judgment before publication.
       </p>
     </div>
   </div>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <section class="lead-card" aria-labelledby="purpose-heading">
-      <h2 id="purpose-heading">What the scores are for</h2>
+      <h2 id="purpose-heading">What the ratings are for</h2>
+      <p>The alignment ratings help faculty compare a large number of OER before investing time in a full adoption review. They are <strong>not rankings of overall quality</strong> and are not official determinations that a resource satisfies a Common Course Numbering course, local course outline, articulation requirement, accessibility standard, or institutional curriculum process.</p>
+      <p>Each rating answers a narrower question: <strong>How much meaningful, teachable coverage of this particular course criterion appears to be present in this resource?</strong></p>
+    </section>
 
-      <p>
-        The alignment scores are designed to help faculty quickly compare a large
-        number of open educational resources before investing time opening, reading,
-        and evaluating each one in depth.
-      </p>
-
-      <p>
-        They are <strong>not rankings of overall quality</strong>, and they are not
-        official determinations that an OER satisfies a Common Course Numbering (CCN)
-        course, a local course outline, articulation requirements, or institutional
-        curriculum standards.
-      </p>
-
-      <p>
-        Instead, each score answers a narrower question:
-        <strong>How much meaningful, teachable coverage of this particular course
-        criterion appears to be present in this resource?</strong>
-      </p>
+    <section aria-labelledby="rubric-source-heading">
+      <h2 id="rubric-source-heading">Step 1: Build a course-specific rubric</h2>
+      <p>I developed a separate working rubric for each course using statewide CCN expectations and related curriculum guidance. The rubric converts broad course expectations into distinct instructional domains so that very different OER can be examined using the same course-specific questions.</p>
+      <div class="method-grid">
+        <article class="method-card"><h3>Start with course expectations</h3><p>The rubric begins with what students are expected to read, analyze, research, reason through, and write in the course.</p></article>
+        <article class="method-card"><h3>Separate the domains</h3><p>Each major area is scored independently. A resource can be strong in one domain and limited in another without receiving one reductive overall grade.</p></article>
+        <article class="method-card"><h3>Define visible evidence</h3><p>Rubric descriptions distinguish explicit, teachable instruction from simple topic presence, a chapter title, an assignment prompt, or a passing mention.</p></article>
+        <article class="method-card"><h3>Revise the working tool</h3><p>AI assisted with drafting, organizing, and testing rubric language, but I reviewed and revised the project-developed rubric before applying it. The rubrics remain open to correction and refinement.</p></article>
+      </div>
     </section>
 
     <section aria-labelledby="scale-heading">
       <h2 id="scale-heading">The four-point alignment scale</h2>
-
-      <p>
-        Every course-specific rubric uses the same general scale. The individual
-        criteria change from course to course, but the meaning of the dots stays consistent.
-      </p>
-
+      <p>The criteria change by course, but the meaning of the dots stays consistent.</p>
       <div class="scale-grid">
-        <article class="scale-card">
-          <span class="dots" aria-label="3 out of 3 dots">●●●</span>
-          <strong>Strong alignment</strong>
-          <p>
-            The resource provides substantial, teachable coverage of this criterion
-            and could reasonably support a major part of the course requirement.
-          </p>
-        </article>
-
-        <article class="scale-card">
-          <span class="dots" aria-label="2 out of 3 dots">●●○</span>
-          <strong>Meaningful alignment</strong>
-          <p>
-            The resource provides useful coverage, but faculty may want additional
-            readings, examples, assignments, or instruction.
-          </p>
-        </article>
-
-        <article class="scale-card">
-          <span class="dots" aria-label="1 out of 3 dots">●○○</span>
-          <strong>Limited alignment</strong>
-          <p>
-            The resource touches the criterion but is better understood as
-            supplemental rather than substantial coverage.
-          </p>
-        </article>
-
-        <article class="scale-card">
-          <span class="dots" aria-label="0 out of 3 dots">○○○</span>
-          <strong>Not a significant focus</strong>
-          <p>
-            The criterion is absent, minimal, or outside the intended purpose of
-            the resource.
-          </p>
-        </article>
+        <article class="scale-card"><span class="dots" aria-label="3 out of 3 dots">●●●</span><strong>Strong alignment</strong><p>Substantial, explicit, teachable coverage that could support a major part of the course criterion.</p></article>
+        <article class="scale-card"><span class="dots" aria-label="2 out of 3 dots">●●○</span><strong>Meaningful alignment</strong><p>Useful coverage, though faculty may want additional readings, examples, assignments, or instruction.</p></article>
+        <article class="scale-card"><span class="dots" aria-label="1 out of 3 dots">●○○</span><strong>Limited alignment</strong><p>The criterion is present but mainly supplemental rather than substantial.</p></article>
+        <article class="scale-card"><span class="dots" aria-label="0 out of 3 dots">○○○</span><strong>Not a significant focus</strong><p>The criterion is absent, minimal, or outside the intended purpose of the resource.</p></article>
       </div>
-
-      <div class="callout">
-        <strong>Three dots does not mean “best book.”</strong>
-        A resource can be excellent at a narrower job and still earn one or zero dots
-        for criteria it was never designed to address.
-      </div>
-    </section>
-
-    <section aria-labelledby="course-heading">
-      <h2 id="course-heading">Scores are course-specific</h2>
-
-      <p>
-        The same OER may receive very different observations in C1000, C1001,
-        C1002, and C1003 because those courses ask students and instructors to do
-        different work. The goal is not to assign one permanent score to a book.
-        The goal is to consider how well that resource appears to serve a
-        <em>particular course</em>.
-      </p>
-
-      <div class="method-grid">
-        <article class="method-card">
-          <h3>Coverage, not prestige</h3>
-          <p>
-            Scores describe apparent coverage of a criterion. They do not measure
-            reputation, popularity, production quality, or whether a faculty member
-            personally likes the resource.
-          </p>
-        </article>
-
-        <article class="method-card">
-          <h3>Role matters</h3>
-          <p>
-            A resource may be a strong primary text, a reader or anthology, or a
-            targeted supplement. Not every OER needs to function as an all-in-one textbook.
-          </p>
-        </article>
-
-        <article class="method-card">
-          <h3>Combinations may be stronger</h3>
-          <p>
-            When one resource has clear strengths and clear gaps, pairing it with
-            another OER may be more useful than searching for a single text that does everything.
-          </p>
-        </article>
-
-        <article class="method-card">
-          <h3>Scores can change</h3>
-          <p>
-            OER are revised, links change, and faculty notice things that an initial
-            review may miss. Alignment observations are therefore treated as revisable.
-          </p>
-        </article>
-      </div>
+      <div class="callout"><strong>Three dots does not mean “best book.”</strong> The dots describe alignment with one criterion in one course. A focused resource can be excellent at a narrower job and still earn one or zero dots elsewhere.</div>
     </section>
 
     <section aria-labelledby="process-heading">
-      <h2 id="process-heading">How each review is produced: two lenses, four stages</h2>
-
-      <p>
-        Every resource goes through the same four-stage pipeline before anything is
-        published: an AI-assisted pass against the <strong>course rubric (COR)</strong>,
-        my editorial review of that result, an AI-assisted pass against the
-        <strong>ASCCC OERI IDEA Framework</strong>, and my editorial review of that
-        result. The two lenses run one after the other, but their findings are never
-        merged into a single score—see
-        <a href="#faculty-heading">why editorial alignment and faculty experience stay separate</a>
-        below, and the
-        <a href="oer-evaluation-toolkit.html#idea-heading">IDEA crosswalk methodology</a>
-        for how that second lens is applied.
-      </p>
-
-      <div class="stepper" role="list" aria-label="Four-stage review pipeline">
-        <div class="stepper-chip cor" role="listitem">
-          <span class="num">1</span>
-          <span><span class="lens">COR lens</span><span class="label">AI review</span></span>
-        </div>
+      <h2 id="process-heading">Step 2: AI-assisted first pass, then human editorial review</h2>
+      <p>The published review uses a two-stage process. AI helps with scale and organization; the final editorial judgment is human.</p>
+      <div class="stepper" role="list" aria-label="Two-stage review pipeline">
+        <div class="stepper-chip cor" role="listitem"><span class="num">1</span><span><span class="lens">Course rubric</span><span class="label">AI-assisted first pass</span></span></div>
         <span class="stepper-arrow" aria-hidden="true">→</span>
-        <div class="stepper-chip cor" role="listitem">
-          <span class="num">2</span>
-          <span><span class="lens">COR lens</span><span class="label">Human review</span></span>
-        </div>
-        <span class="stepper-arrow" aria-hidden="true">→</span>
-        <div class="stepper-chip idea" role="listitem">
-          <span class="num">3</span>
-          <span><span class="lens">IDEA lens</span><span class="label">AI review</span></span>
-        </div>
-        <span class="stepper-arrow" aria-hidden="true">→</span>
-        <div class="stepper-chip idea" role="listitem">
-          <span class="num">4</span>
-          <span><span class="lens">IDEA lens</span><span class="label">Human review</span></span>
-        </div>
+        <div class="stepper-chip cor" role="listitem"><span class="num">2</span><span><span class="lens">Source evidence</span><span class="label">Human editorial pass</span></span></div>
       </div>
-
-      <p class="small" style="margin-top: 10px;">
-        Preparation, before stage 1: each course's rubric is derived from statewide CCN
-        expectations, and publicly available information about the OER—text, table of
-        contents, chapter structure, assignments, ancillary materials, and licensing—is
-        gathered for review.
-      </p>
-
       <div class="process">
-        <div class="process-item cor">
-          <span class="lens-tag cor">Stage 1 · COR lens</span>
-          <h3>AI-assisted pass against the course rubric</h3>
-          <p>
-            The OER is compared against the course-specific alignment rubric using an
-            AI-assisted first pass, producing draft dot scores and supporting notes for
-            every criterion in that course's rubric.
-          </p>
-        </div>
-
-        <div class="process-item cor">
-          <span class="lens-tag cor">Stage 2 · COR lens</span>
-          <h3>My editorial review of the course-alignment pass</h3>
-          <p>
-            I check the AI-assisted draft scores against the resource itself, revise anything
-            that seems unsupported or overstated, and add practical notes about likely
-            strengths, gaps, and possible roles before this lens is published.
-          </p>
-        </div>
-
-        <div class="process-item idea">
-          <span class="lens-tag idea">Stage 3 · IDEA lens</span>
-          <h3>AI-assisted pass against the ASCCC OERI IDEA Framework</h3>
-          <p>
-            The same OER is separately reviewed with an AI-assisted pass against the
-            ASCCC OERI IDEA Framework, asking a different set of questions about
-            inclusion, diversity, equity, and anti-racism rather than course content.
-          </p>
-        </div>
-
-        <div class="process-item idea">
-          <span class="lens-tag idea">Stage 4 · IDEA lens</span>
-          <h3>My editorial review of the IDEA pass</h3>
-          <p>
-            I review the AI-assisted IDEA Framework observations the same way—checking them
-            against the resource, revising them as needed, and making clear that this
-            crosswalk is independent, not an official ASCCC OERI IDEA assessment or badge.
-          </p>
-        </div>
+        <div class="process-item cor"><span class="lens-tag cor">Stage 1</span><h3>AI-assisted pass against the course rubric</h3><p>The OER is compared with the course-specific rubric. The first pass identifies possible evidence, drafts criterion-level dot ratings, and notes likely strengths or gaps. This is a draft, not the published conclusion.</p></div>
+        <div class="process-item cor"><span class="lens-tag cor">Stage 2</span><h3>My human editorial pass</h3><p>I open the OER and check the underlying material. I verify that the evidence actually supports the criterion, revise ratings or notes that are unsupported or overstated, and add context about likely course roles and supplementation needs before publishing.</p></div>
       </div>
+      <div class="callout warning"><strong>AI is not the evidence.</strong> Generative AI can miss context, invent details, misunderstand a resource's purpose, or overlook material. A model's confidence does not count as verification. The resource itself is the evidence used for the final editorial pass.</div>
+    </section>
 
-      <div class="callout warning">
-        <strong>Important:</strong>
-        AI-assisted analysis can miss context, misunderstand how a resource is intended
-        to be used, or overlook material embedded in a text. That is true for both
-        lenses, which is why I review every AI-assisted pass—COR and IDEA alike—before
-        anything is published.
+    <section aria-labelledby="course-heading">
+      <h2 id="course-heading">Ratings are course-specific</h2>
+      <p>The same OER may receive different observations in C1000, C1001, C1002, and C1003 because those courses ask students and instructors to do different work. The goal is not to assign one permanent score to a book. The goal is to understand the role it may play in a particular course.</p>
+      <div class="method-grid">
+        <article class="method-card"><h3>Coverage, not prestige</h3><p>Ratings describe instructional coverage, not reputation, popularity, production quality, or whether I personally like the resource.</p></article>
+        <article class="method-card"><h3>Role matters</h3><p>A resource may work best as a primary text, reader, anthology, or targeted supplement. Not every OER needs to do everything.</p></article>
+        <article class="method-card"><h3>Combinations may be stronger</h3><p>A strong pairing can be more useful than searching indefinitely for a single resource that covers every need.</p></article>
+        <article class="method-card"><h3>Ratings can change</h3><p>OER are revised, links change, and better evidence can emerge. Published observations are treated as revisable.</p></article>
       </div>
+    </section>
 
-      <div class="callout">
-        <strong>A third, independent form of evidence sits outside this pipeline.</strong>
-        Faculty recommendations and teaching notes are gathered separately from both
-        lenses and can confirm, complicate, or correct what the four-stage review
-        produced. See
-        <a href="#faculty-heading">editorial alignment and faculty experience are
-        different evidence</a> below.
+    <section aria-labelledby="idea-heading">
+      <h2 id="idea-heading">Scope of the current review</h2>
+      <p>The project previously explored a separate ASCCC OERI IDEA Framework crosswalk. I am not currently publishing formal IDEA scores or badges because I cannot apply that layer consistently across every resource at the level of care it deserves. Qualitative notes may still identify relevant representation, inclusion, equity, anti-racism, or accessibility considerations.</p>
+    </section>
+
+    <section aria-labelledby="faculty-heading" id="faculty-heading">
+      <h2>Editorial alignment and faculty experience are different evidence</h2>
+      <p>The site intentionally does not blend editorial alignment with faculty recommendations into a single score.</p>
+      <div class="method-grid">
+        <article class="method-card"><h3>Editorial alignment</h3><p>Asks: <strong>What does this resource appear to teach in relation to this course?</strong> It comes from the course rubric, source evidence, and editorial review process above.</p></article>
+        <article class="method-card"><h3>Faculty experience</h3><p>Asks: <strong>What happened when someone actually taught with it?</strong> Recommendations and teaching notes can reveal classroom realities that an initial review cannot.</p></article>
       </div>
     </section>
 
     <section aria-labelledby="labels-heading">
       <h2 id="labels-heading">What the other labels mean</h2>
-
-      <p>
-        Several editorial labels appear beside the dot scores. These are practical
-        shortcuts, not additional numerical ratings.
-      </p>
-
       <div class="label-grid">
-        <article class="label-card">
-          <h3>Start Here</h3>
-          <p>
-            A resource that appears especially worth investigating early when faculty
-            are deciding where to begin. It is an editorial shortcut, not an award or
-            official endorsement.
-          </p>
-        </article>
-
-        <article class="label-card">
-          <h3>Best Role</h3>
-          <p>
-            A practical judgment about how the resource may work best—for example,
-            as a primary or core text, a reader or anthology, or a targeted supplement.
-          </p>
-        </article>
-
-        <article class="label-card">
-          <h3>Watch For</h3>
-          <p>
-            A note about something faculty may want to examine more closely, such as
-            a coverage gap, mixed licensing, an older version, representation concerns,
-            or a likely need for supplementation.
-          </p>
-        </article>
+        <article class="label-card"><h3>Start Here</h3><p>A resource that appears especially worth investigating early. It is an editorial shortcut, not an award or official endorsement.</p></article>
+        <article class="label-card"><h3>Best Role</h3><p>A practical judgment about whether the resource may work best as a core text, reader, anthology, or supplement.</p></article>
+        <article class="label-card"><h3>Watch For</h3><p>A note about something faculty may want to examine more closely, such as a coverage gap, mixed licensing, an older version, representation concerns, or likely supplementation needs.</p></article>
       </div>
-    </section>
-
-    <section aria-labelledby="faculty-heading">
-      <h2 id="faculty-heading">Editorial alignment and faculty experience are different evidence</h2>
-
-      <p>
-        The site intentionally does not blend the initial alignment observations
-        with faculty recommendations into a single score.
-      </p>
-
-      <div class="method-grid">
-        <article class="method-card">
-          <h3>Editorial alignment</h3>
-          <p>
-            Asks: <strong>What does this resource appear to cover in relation to this
-            course?</strong> It is based on the course-specific rubric and review process.
-          </p>
-        </article>
-
-        <article class="method-card">
-          <h3>Faculty experience</h3>
-          <p>
-            Asks: <strong>What happened when someone actually taught with it?</strong>
-            Faculty can add recommendations and teaching notes based on real classroom use.
-          </p>
-        </article>
-      </div>
-
-      <p>
-        Keeping those two forms of evidence visible and separate allows faculty to
-        see when they reinforce one another—and when lived teaching experience
-        complicates the initial analysis.
-      </p>
     </section>
 
     <section aria-labelledby="limits-heading">
-      <h2 id="limits-heading">What these scores should not be used for</h2>
-
-      <div class="callout warning">
-        <p>
-          These observations should not be treated as official CCN compliance reviews,
-          curriculum approvals, articulation decisions, accessibility certifications,
-          licensing audits, or endorsements by ASCCC, ASCCC OERI, or the California
-          Community Colleges Chancellor's Office.
-        </p>
-        <p style="margin-bottom: 0;">
-          Faculty remain responsible for reviewing resources in relation to their own
-          course outline, local requirements, student needs, accessibility expectations,
-          and instructional goals.
-        </p>
-      </div>
+      <h2 id="limits-heading">What these ratings should not be used for</h2>
+      <div class="callout warning"><p>These observations should not be treated as official CCN compliance reviews, curriculum approvals, articulation decisions, accessibility certifications, licensing audits, or endorsements by ASCCC, ASCCC OERI, or the California Community Colleges Chancellor's Office.</p><p style="margin-bottom:0">Faculty remain responsible for reviewing resources in relation to their own course outline, local requirements, student needs, accessibility expectations, licensing, and instructional goals.</p></div>
     </section>
 
     <section aria-labelledby="next-heading">
       <h2 id="next-heading">See the course-specific rubrics</h2>
-
-      <p>
-        The general scoring scale stays consistent across the site, but each course
-        uses different criteria. Course-specific rubric pages will explain exactly
-        what is being considered for each course.
-      </p>
-
       <div class="button-row">
         <a class="button secondary" href="c1000-rubric.html">C1000 Rubric</a>
         <a class="button secondary" href="c1001-rubric.html">C1001 Rubric</a>
@@ -849,19 +616,15 @@
         <a class="button secondary" href="c1003-rubric.html">C1003 Rubric</a>
         <a class="button" href="about.html">About This Project</a>
       </div>
+      <p class="small" style="margin-top:18px">Want to search or evaluate beyond the resources curated here? <a href="https://drkarebear.github.io/OER-Promptbook/">Use The OER Promptbook</a>.</p>
     </section>
-
-    <p class="small">
-      Methodology may be refined as the project grows and additional faculty feedback
-      is incorporated.
-    </p>
   </main>
 
   <footer>
   <div class="footer-inner">
     <p><strong>CCC English OER Picks</strong></p>
     <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 </body>

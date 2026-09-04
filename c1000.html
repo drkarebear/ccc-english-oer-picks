@@ -772,7 +772,40 @@
         width: 100%;
       }
     }
-  </style>
+  
+
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #111827 !important;
+    }
+    :where(button, input, select, textarea, summary, .button) {
+      min-height: 44px;
+      font: inherit;
+    }
+    :where(input, select, textarea) {
+      max-width: 100%;
+    }
+    :where(a) {
+      text-decoration-thickness: .08em;
+      text-underline-offset: .16em;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    @media (forced-colors: active) {
+      :where(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid CanvasText !important;
+        box-shadow: none !important;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -791,7 +824,7 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <section class="hero">
       <p class="eyebrow">ENGL C1000</p>
@@ -1102,7 +1135,7 @@
       <p>
         I am currently the sole evaluator for these editorial Content Alignment reviews.
         Faculty Experience is collected separately and never changes the Content Alignment
-        ratings. The IDEA Framework review is also a separate lens.
+        ratings. The course-alignment review is separate from faculty experience and does not represent an official accessibility, licensing, or curriculum determination.
       </p>
 
       <p class="small">
@@ -1211,7 +1244,7 @@
     </div>
   </dialog>
 
-  <dialog id="review-dialog">
+  <dialog id="review-dialog" aria-labelledby="review-dialog-title">
     <div class="dialog-inner">
 
       <div class="dialog-header">
@@ -1238,8 +1271,8 @@
           <label for="review-recommend">Would you recommend this for ENGL C1000?</label>
 
           <select id="review-recommend" required>
-            <option value="true">Yes — recommend</option>
-            <option value="false">No — would not recommend</option>
+            <option value="true">Yes  -  recommend</option>
+            <option value="false">No  -  would not recommend</option>
           </select>
         </div>
 
@@ -1307,7 +1340,7 @@
   <div class="footer-inner">
     <p><strong>CCC English OER Picks</strong></p>
     <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 
@@ -2010,7 +2043,7 @@
 
       document.getElementById(
         "alignment-dialog-title"
-      ).textContent = `${button.dataset.oerTitle} — C1000 Content Review`;
+      ).textContent = `${button.dataset.oerTitle}  -  C1000 Content Review`;
 
       alignmentDialogBody.innerHTML =
         '<p class="alignment-loading">Loading alignment details…</p>';
@@ -2070,14 +2103,13 @@
       alignmentDialogBody.innerHTML = `
         <p>
           This editorial review looks at how explicitly the resource teaches the major
-          content areas of ENGL C1000. It is separate from faculty experience and the
-          IDEA Framework review.
+          content areas of ENGL C1000. It is separate from faculty experience.
         </p>
         <div class="alignment-review-meta">
           <p><strong>Review confidence:</strong> ${escapeHtml(details.confidence || "Not recorded")}</p>
           ${details.review_scope ? `<p><strong>Scope reviewed:</strong> ${escapeHtml(details.review_scope)}</p>` : ""}
           <p>${escapeHtml(details.method_note || "Ratings reflect explicit instructional coverage rather than topic presence alone.")}</p>
-          <p class="small">This editorial content review is separate from faculty experience and from the IDEA Framework lens.</p>
+          <p class="small">This editorial content review is separate from faculty experience.</p>
         </div>
         ${sections}
         <div class="alignment-review-meta">

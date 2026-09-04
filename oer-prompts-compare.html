@@ -1,299 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Faculty prompt bank for comparing OER finalists, testing resource pairings, and stress-testing an adoption decision using separate Content and IDEA findings.">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="The prompt library formerly on CCC English OER Picks now lives in The OER Promptbook.">
 <link rel="icon" type="image/png" href="favicon1.png">
-<title>Compare Finalists | CCC English OER Picks</title>
+<title>Prompt Library Moved | CCC English OER Picks</title>
 <style>
-:root{--navy:#18324a;--blue:#245d78;--gold:#d9a441;--green:#3e6b57;--purple:#6c5a86;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--bg:#f7f9fb;--cream:#fffaf2;--light-blue:#eef4f7;--light-green:#edf5f0;--shadow:0 8px 24px rgba(29,49,67,.09);--max:1120px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}a{color:var(--blue)}
-.skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}.skip-link:focus{left:10px}
-header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 64px}.topbar{max-width:var(--max);margin:0 auto 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand,.back{color:#fff;text-decoration:none;font-weight:800}
-.hero{max-width:900px;margin:0 auto;text-align:center}.eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800;font-size:.9rem;margin-bottom:14px}h1{margin:0;font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;letter-spacing:-.03em}.hero p{max-width:800px;margin:20px auto 0;color:#eef5f8;font-size:clamp(1.05rem,2vw,1.24rem)}
-main{max-width:var(--max);margin:0 auto;padding:54px 20px 76px}section{margin-top:58px}h2{color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);line-height:1.2;margin:0 0 12px}h3{color:var(--navy);margin:0 0 8px}p{margin:0 0 16px}
-.lead{margin-top:-88px;position:relative;background:var(--cream);border:1px solid #eadfc8;border-radius:18px;padding:30px;box-shadow:var(--shadow)}.lead h2{font-size:clamp(1.8rem,3vw,2.5rem)}.rule{background:#fff;border-left:5px solid var(--gold);border-radius:10px;padding:17px 20px;margin-top:18px}
-.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.choice{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}.choice strong{display:block;color:var(--navy);margin-bottom:5px}.choice a{font-weight:800}
-.funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}.funnel-step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center}.funnel-step .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:999px;background:var(--light-blue);color:var(--navy);font-weight:900;margin-bottom:8px}.funnel-step b{display:block;color:var(--navy);margin-bottom:5px}.funnel-arrow{color:var(--muted);font-weight:800}
-.prompt-card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);margin-top:20px;overflow:hidden}.prompt-head{padding:24px}.tag-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:8px}.tag{display:inline-block;background:#e7f1f5;color:var(--blue);padding:5px 9px;border-radius:999px;font-size:.8rem;font-weight:800}.prompt-number{font-size:.86rem;color:var(--muted);font-weight:700}.prompt-head p{margin-bottom:0;color:var(--muted)}
-.prompt-details{border-top:1px solid var(--border)}.prompt-details summary{cursor:pointer;list-style:none;padding:16px 24px;background:#f9fbfc;color:var(--navy);font-weight:800}.prompt-details summary::-webkit-details-marker{display:none}.prompt-details summary::after{content:"+";float:right;font-size:1.25rem}.prompt-details[open] summary::after{content:"–"}.prompt-details summary:focus-visible{outline:3px solid rgba(36,93,120,.2);outline-offset:-3px}.prompt-body{padding:0 24px 24px}
-pre{white-space:pre-wrap;word-wrap:break-word;background:#f5f7f9;border:1px solid #dfe6eb;border-radius:12px;padding:18px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;line-height:1.55}.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button,.button{appearance:none;border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:9px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}button:focus-visible,.button:focus-visible{outline:3px solid rgba(36,93,120,.25);outline-offset:3px}
-.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.check{background:#fff;border:1px solid var(--border);border-radius:12px;padding:17px}.method{background:var(--light-blue);border-left:5px solid var(--blue);border-radius:10px;padding:18px 20px;margin-top:20px}.next{background:var(--light-green);border-left:5px solid var(--green);border-radius:10px;padding:19px 21px;margin-top:22px}.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}.button.secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
-.rubric-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.rubric-link{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px}.rubric-link a{font-weight:800}
-footer{background:#182734;color:#dbe6ec;padding:32px 20px}.footer-inner{max-width:1000px;margin:auto;text-align:center}.footer-inner a{color:#fff;font-weight:700}
-@media(max-width:900px){.funnel{grid-template-columns:1fr 1fr}}@media(max-width:720px){.chooser,.checklist,.rubric-links{grid-template-columns:1fr}}@media(max-width:640px){.topbar{flex-direction:column;align-items:flex-start}.funnel{grid-template-columns:1fr}main{padding-top:42px}.lead{margin-top:-64px}}
+:root{--navy:#18324a;--blue:#245d78;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--bg:#f7f9fb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.65}a{color:var(--blue)}.skip-link{position:absolute;left:-9999px;top:10px;background:#fff;color:#000;padding:10px 14px;border:2px solid #000;z-index:999}.skip-link:focus{left:10px}header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 48px}.bar{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.bar a{color:#fff;font-weight:800}main{max-width:760px;margin:0 auto;padding:64px 20px}.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px;box-shadow:0 8px 24px rgba(29,49,67,.09)}h1{color:var(--navy);line-height:1.15;margin-top:0}.button{display:inline-flex;align-items:center;min-height:44px;padding:12px 18px;border-radius:10px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800}footer{background:#182734;color:#dbe6ec;padding:28px 20px;text-align:center}footer a{color:#fff;font-weight:700}
+
+
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #111827 !important;
+    }
+    :where(button, input, select, textarea, summary, .button) {
+      min-height: 44px;
+      font: inherit;
+    }
+    :where(input, select, textarea) {
+      max-width: 100%;
+    }
+    :where(a) {
+      text-decoration-thickness: .08em;
+      text-underline-offset: .16em;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    @media (forced-colors: active) {
+      :where(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid CanvasText !important;
+        box-shadow: none !important;
+      }
+    }
+
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-
-<header>
-  <div class="topbar">
-    <a class="brand" href="index.html">CCC English OER Picks</a>
-    <a class="back" href="oer-evaluation-toolkit.html">← Back to Prompt Library</a>
-  </div>
-  <div class="hero">
-    <div class="eyebrow">PROMPT BANK · FINAL COMPARISON</div>
-    <h1>Compare Finalists</h1>
-    <p>Bring Content findings, IDEA findings, supplementation needs, resource roles, and your own teaching priorities together without turning them into a hidden leaderboard.</p>
-  </div>
-</header>
-
-<main id="main-content">
-
-<section class="lead" aria-labelledby="purpose-heading">
-  <h2 id="purpose-heading">Compare tradeoffs, not just scores</h2>
-  <p>The final step should help you understand what each resource would mean in an actual course: what it teaches well, what it leaves for you to supply, how the separate IDEA findings complicate the picture, and what students would have to navigate.</p>
-  <div class="rule"><strong>No hidden leaderboard.</strong> The goal is a defensible faculty decision tied to course needs and teaching priorities—not an AI-generated winner detached from context.</div>
-</section>
-
-<section aria-labelledby="choose-heading">
-  <h2 id="choose-heading">What kind of final comparison do you need?</h2>
-  <div class="chooser">
-    <div class="choice"><strong>I have 2–4 finalists.</strong>Use <a href="#finalists-heading">Compare My Finalists</a>.</div>
-    <div class="choice"><strong>No single OER covers enough.</strong>Use <a href="#pairing-heading">Test a Core + Supplement Pairing</a>.</div>
-    <div class="choice"><strong>I think I know what I want.</strong>Use <a href="#stress-heading">Stress-Test My Provisional Choice</a>.</div>
-    <div class="choice"><strong>I do not have IDEA findings yet.</strong>Go back to <a href="oer-prompts-idea.html">Examine with IDEA</a>.</div>
-  </div>
-</section>
-
-<section aria-labelledby="funnel-heading">
-  <h2 id="funnel-heading">The decision layer</h2>
-  <div class="funnel">
-    <div class="funnel-step"><span class="num">1</span><b>CONTENT</b>What does each resource explicitly teach?</div>
-    <div class="funnel-step"><span class="num">2</span><b>IDEA</b>What does the separate framework lens reveal?</div>
-    <div class="funnel-step"><span class="num">3</span><b>REALITY</b>What would adoption require from you and students?</div>
-    <div class="funnel-step"><span class="num">4</span><b>DECIDE</b>Choose by your priorities, not a hidden total.</div>
-  </div>
-  <div class="method"><strong>Role is part of the decision.</strong> A reader can be an excellent reader; a targeted supplement can be an excellent supplement. Final comparison should ask what job each resource can realistically do.</div>
-</section>
-
-<section id="finalists-heading" aria-labelledby="finalists-title">
-  <h2 id="finalists-title">Prompt 1: Compare My Finalists</h2>
-  <p>Bring together the evidence you already gathered and connect it to your own course priorities.</p>
-  <article class="prompt-card">
-  <div class="prompt-head">
-    <div class="tag-row"><span class="tag">FINAL SYNTHESIS</span><span class="prompt-number">Prompt 1</span></div>
-    <h3>Compare Finalists by Evidence and Priorities</h3>
-    <p>Surface meaningful tradeoffs while keeping Content and IDEA findings distinct.</p>
-  </div>
-  <details class="prompt-details" open>
-    <summary>Open full prompt</summary>
-    <div class="prompt-body">
-      <pre id="prompt-finalists">You are helping a college faculty member compare 2–4 OER finalists after separate Content Rubric and IDEA Framework reviews have already been completed.
-
-I will provide, for each finalist:
-- title and link,
-- intended or likely role,
-- completed Content Rubric findings,
-- completed IDEA Framework crosswalk findings,
-- known access, licensing, accessibility, currency, or format concerns,
-- my teaching priorities and non-negotiables.
-
-Your job is to SYNTHESIZE the existing evidence, not silently rescore the books.
-
-RULES
-1. Keep Content and IDEA findings visibly separate.
-2. Do not create one overall numeric score unless I explicitly provide a faculty-designed scoring method.
-3. Do not treat every resource as though it must be an all-in-one textbook.
-4. Distinguish evidence from judgment.
-5. Surface uncertainty and missing information.
-6. Do not call a resource &quot;best&quot; unless the stated faculty priorities clearly justify that conclusion.
-7. Identify where pairing resources may solve a gap better than choosing a single text.
-
-OUTPUT
-A. Side-by-side snapshot
-For each finalist, summarize:
-- strongest Content Alignment areas,
-- most important content gaps / supplementation needs,
-- strongest IDEA findings,
-- most important IDEA concerns / opportunities,
-- likely role,
-- practical implementation issues,
-- evidence confidence.
-
-B. Tradeoffs that matter
-Identify the 5–8 differences most likely to affect an instructor&#x27;s decision.
-
-C. Match to my priorities
-For each priority I provide, explain which finalist appears strongest, why, and what uncertainty remains.
-
-D. Supplementation map
-Show what each finalist would still need if adopted as the primary or core resource.
-
-E. Decision questions
-List the questions I should answer myself before choosing.
-
-F. Provisional recommendation
-Offer a recommendation only if the evidence and my stated priorities support one. Otherwise, explain why the remaining choice is genuinely judgment-dependent.
-
-FINALISTS + REVIEW RESULTS:
-[PASTE HERE]
-
-MY TEACHING PRIORITIES / NON-NEGOTIABLES:
-[PASTE HERE]</pre>
-      <div class="copy-row"><button type="button" data-copy="prompt-finalists">Copy prompt</button></div>
-    </div>
-  </details>
-</article>
-</section>
-
-<section id="pairing-heading" aria-labelledby="pairing-title">
-  <h2 id="pairing-title">Prompt 2: Test a Core + Supplement Pairing</h2>
-  <p>Use this when two narrower resources may create a stronger course than one supposedly comprehensive text.</p>
-  <article class="prompt-card">
-  <div class="prompt-head">
-    <div class="tag-row"><span class="tag">RESOURCE PAIRING</span><span class="prompt-number">Prompt 2</span></div>
-    <h3>Compare Single-Text and Paired Options</h3>
-    <p>Look for complementary strengths without ignoring duplication, workload, or platform burden.</p>
-  </div>
-  <details class="prompt-details" >
-    <summary>Open full prompt</summary>
-    <div class="prompt-body">
-      <pre id="prompt-pairing">You are helping a college faculty member test whether a PAIRING of OER would work better than any single finalist alone.
-
-I will provide:
-- 2–4 OER finalists,
-- their Content Rubric findings,
-- their separate IDEA findings,
-- known strengths, gaps, licenses, formats, and implementation concerns,
-- my course priorities.
-
-Evaluate plausible pairings such as:
-- core text + targeted supplement,
-- literature reader + writing / research support,
-- argument text + anthology,
-- primary text + ancillary activities.
-
-RULES
-- Do not reward a pairing merely because it contains more material.
-- Look for complementary strengths that address documented gaps.
-- Flag duplication, student workload, navigation burden, accessibility complexity, and mixed licensing.
-- Keep Content and IDEA findings separate.
-- Prefer the simplest workable combination when two options solve the same need.
-
-OUTPUT
-1. Most promising pairings.
-2. What gap each pairing solves.
-3. What duplication or new burden it creates.
-4. Likely student experience: number of platforms, navigation, reading load, and coherence.
-5. Remaining supplementation needs.
-6. Best single-resource option for comparison.
-7. Recommendation: single resource or pairing, with reasons tied to my stated priorities.
-
-FINALISTS + REVIEW RESULTS:
-[PASTE HERE]
-
-MY COURSE PRIORITIES:
-[PASTE HERE]</pre>
-      <div class="copy-row"><button type="button" data-copy="prompt-pairing">Copy prompt</button></div>
-    </div>
-  </details>
-</article>
-</section>
-
-<section id="stress-heading" aria-labelledby="stress-title">
-  <h2 id="stress-title">Prompt 3: Stress-Test My Provisional Choice</h2>
-  <p>Run this after you have a likely choice but before you stop looking. It is designed to catch the concern that becomes obvious only after adoption.</p>
-  <article class="prompt-card">
-  <div class="prompt-head">
-    <div class="tag-row"><span class="tag">DECISION CHECK</span><span class="prompt-number">Prompt 3</span></div>
-    <h3>Skeptical Adoption Review</h3>
-    <p>Test the strongest case for and against your provisional choice.</p>
-  </div>
-  <details class="prompt-details" >
-    <summary>Open full prompt</summary>
-    <div class="prompt-body">
-      <pre id="prompt-stress">You are a skeptical second reviewer helping a college faculty member stress-test a provisional OER adoption decision.
-
-I will provide:
-- the finalists and their evidence-based Content and IDEA findings,
-- my provisional choice,
-- my reasons for choosing it,
-- any planned supplements.
-
-Your job is NOT to argue against my choice automatically. Your job is to find the strongest reasons the decision could be wrong, incomplete, or harder to implement than it appears.
-
-CHECK FOR
-- a major course-content gap I minimized,
-- IDEA concerns I treated as cosmetic,
-- a resource role mismatch,
-- dependence on supplements that creates too much workload or fragmentation,
-- access, licensing, accessibility, currency, or platform issues,
-- evidence that was weak or based on partial access,
-- a finalist I dismissed for reasons not supported by the evidence,
-- hidden assumptions about my students or teaching context.
-
-OUTPUT
-1. Strongest case for my provisional choice.
-2. Strongest case against it.
-3. Three things I should verify directly before adopting.
-4. What would make the decision safer or stronger.
-5. Whether another finalist or pairing deserves reconsideration.
-6. Final assessment: Well supported / Reasonable with cautions / Needs more evidence.
-
-PROVISIONAL DECISION + EVIDENCE:
-[PASTE HERE]</pre>
-      <div class="copy-row"><button type="button" data-copy="prompt-stress">Copy prompt</button></div>
-    </div>
-  </details>
-</article>
-</section>
-
-<section aria-labelledby="guardrails-heading">
-  <h2 id="guardrails-heading">Final-comparison guardrails</h2>
-  <div class="checklist">
-    <div class="check"><h3>Do not merge the lenses.</h3><p>Content Alignment and IDEA findings can sit beside one another without becoming one total score.</p></div>
-    <div class="check"><h3>Do not confuse breadth with fit.</h3><p>A larger book is not automatically a better teaching choice.</p></div>
-    <div class="check"><h3>Count supplementation honestly.</h3><p>A resource can look stronger on paper than it feels once you add three extra platforms and six missing units.</p></div>
-    <div class="check"><h3>Keep uncertainty visible.</h3><p>If a finalist was only partially accessible, that limitation belongs in the decision.</p></div>
-    <div class="check"><h3>Use your own priorities.</h3><p>AI should organize tradeoffs, not invent the values that decide your course.</p></div>
-    <div class="check"><h3>Faculty decide.</h3><p>The best final output is a clear decision aid, not an automated adoption verdict.</p></div>
-  </div>
-</section>
-
-<section aria-labelledby="next-heading">
-  <h2 id="next-heading">End with a teaching decision you can explain</h2>
-  <p>A useful final comparison should leave you able to say why a resource fits your course, what it does not do, what you will supplement, and what evidence shaped the decision.</p>
-  <div class="next"><strong>Final handoff:</strong> evidence → tradeoffs → teaching priorities → adoption role → supplementation plan → faculty decision.</div>
-  <div class="button-row">
-    <a class="button" href="oer-evaluation-toolkit.html">Return to the Full Prompt Library</a>
-    <a class="button secondary" href="oer-prompts-idea.html">Back: Examine with IDEA</a>
-    <a class="button secondary" href="scoring-method.html">See This Project's Method</a>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <p><strong>CCC English OER Picks</strong></p>
-    <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll('[data-copy]').forEach(function(btn){
-  btn.addEventListener('click', async function(){
-    const id=btn.getAttribute('data-copy');
-    const content=document.getElementById(id).innerText;
-    try{
-      await navigator.clipboard.writeText(content);
-      const old=btn.textContent;
-      btn.textContent='✓ Copied';
-      setTimeout(function(){btn.textContent=old;},1600);
-    }catch(e){
-      const range=document.createRange();
-      range.selectNodeContents(document.getElementById(id));
-      const sel=window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-  });
-});
-</script>
-</body>
-</html>
+<header><div class="bar"><strong>CCC English OER Picks</strong><a href="index.html">Back to Course Guides</a></div></header>
+<main id="main-content" tabindex="-1"><div class="card"><h1>The prompt library has moved</h1><p>CCC English OER Picks now focuses on curated English OER, course-specific rubrics, and transparent editorial review.</p><p>The broader prompting workflows for finding, comparing, evaluating, and planning with OER and other zero-cost materials now live in <em>The OER Promptbook</em>.</p><p><a class="button" href="https://drkarebear.github.io/OER-Promptbook/">Open The OER Promptbook</a></p><p><a href="scoring-method.html">See how CCC English OER reviews are produced</a></p></div></main>
+<footer><p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p></footer>
+</body></html>

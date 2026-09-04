@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Independent faculty guide to English OER for California Community Colleges, with transparent course rubrics, IDEA reviews, faculty experience, and an OER evaluation toolkit." />
+  <meta name="description" content="Independent faculty guide to English OER for California Community Colleges, with transparent course-specific rubrics, AI-assisted first-pass analysis, human editorial review, and faculty teaching experience." />
   <link rel="icon" type="image/png" href="favicon1.png">
 <title>CCC English OER Picks</title>
   <style>
-    :root{--navy:#18324a;--blue:#245d78;--cream:#fffaf2;--gold:#d9a441;--green:#3e6b57;--rose:#9a5b66;--purple:#6c5a86;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--white:#fff;--bg:#f7f9fb;--shadow:0 8px 24px rgba(29,49,67,.09);--shadow-hover:0 14px 32px rgba(29,49,67,.14)}
+    :root{--navy:#18324a;--blue:#245d78;--cream:#fffaf2;--gold:#9b6a00;--green:#3e6b57;--rose:#9a5b66;--purple:#6c5a86;--text:#263746;--muted:#5f6f7d;--border:#d9e1e7;--white:#fff;--bg:#f7f9fb;--shadow:0 8px 24px rgba(29,49,67,.09);--shadow-hover:0 14px 32px rgba(29,49,67,.14)}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.6} a{color:inherit}
     .skip-link{position:absolute;left:-9999px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border:2px solid #000}.skip-link:focus{left:10px}
     header{background:linear-gradient(135deg,var(--navy),var(--blue));color:var(--white);padding:22px 20px 58px}.topbar{max-width:1180px;margin:0 auto 42px;display:flex;justify-content:space-between;align-items:center;gap:24px}.brand{font-size:1.05rem;font-weight:800;letter-spacing:.02em;text-decoration:none;color:#fff;white-space:nowrap}.nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:16px}.nav a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;border-bottom:2px solid transparent}.nav a:hover,.nav a:focus-visible{border-bottom-color:rgba(255,255,255,.7);outline:none}
@@ -20,31 +20,37 @@
     .contribute{background:#fffaf2;border:1px solid #eadfc8;border-radius:20px;padding:30px;box-shadow:var(--shadow)}.contribute-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}.contribute-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}.contribute-item h3{margin:0 0 8px;color:var(--navy);font-size:1.05rem}.contribute-item p{margin:0;color:var(--muted);font-size:.96rem}.oeri-note{max-width:900px;margin:0 auto;padding:54px 20px 64px;text-align:center}.oeri-note p{max-width:760px;margin:0 auto 20px;color:var(--muted)}
     footer{background:#182734;color:#dbe6ec;padding:34px 20px}.footer-inner{max-width:1000px;margin:0 auto;text-align:center}.footer-inner p{margin:6px 0;font-size:.92rem}.footer-inner a{color:#fff;font-weight:700}
     @media(max-width:820px){.topbar{align-items:flex-start;flex-direction:column;margin-bottom:32px}.nav{justify-content:flex-start;gap:12px 16px}.course-grid,.lens-grid,.contribute-grid{grid-template-columns:1fr}.course-card{min-height:auto}}@media(max-width:520px){header{padding:18px 16px 48px}.section{padding:46px 16px}.project-wrap{padding:0 16px}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .button{text-align:center}.nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.course-card{transition:none}.course-card:hover,.lens-card:hover{transform:none}}
-  </style>
+  
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {outline:3px solid #fff !important;outline-offset:3px !important;box-shadow:0 0 0 5px #111827 !important}
+    :where(button, input, select, textarea, summary, .button){min-height:44px;font:inherit}
+    :where(input, select, textarea){max-width:100%}
+    :where(a){text-decoration-thickness:.08em;text-underline-offset:.16em}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+    @media(forced-colors:active){:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid CanvasText !important;box-shadow:none !important}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
     <div class="topbar">
       <a class="brand" href="index.html">CCC English OER Picks</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#find">Find OER</a><a href="#evaluate">Rubrics &amp; Method</a><a href="oer-evaluation-toolkit-hub.html">Evaluation Toolkit</a><a href="#contribute">Contribute</a><a href="about.html">About</a>
-      </nav>
+      <nav class="nav" aria-label="Main navigation"><a href="#find">Find OER</a><a href="#evaluate">Rubrics &amp; Method</a><a href="https://drkarebear.github.io/OER-Promptbook/">OER Promptbook</a><a href="#contribute">Contribute</a><a href="about.html">About</a></nav>
     </div>
     <div class="hero">
       <div class="eyebrow">Independent faculty guide to English OER</div>
       <h1>Too many OERs?<br />Start with the strongest matches.</h1>
-      <p>Compare California Community College English OER using transparent course-alignment rubrics, an additional IDEA review lens, and faculty teaching experience.</p>
+      <p>Compare California Community College English OER using transparent course-specific rubrics, an AI-assisted first pass, my human editorial review, and faculty teaching experience.</p>
       <div class="hero-actions"><a class="button primary" href="#find">Find an OER</a><a class="button secondary" href="#evaluate">See how reviews work</a></div>
     </div>
   </header>
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <div class="project-wrap">
       <section class="project-card" aria-labelledby="project-heading">
         <h2 id="project-heading">A small, open faculty project</h2>
         <p><strong>CCC English OER Picks is created, reviewed, and maintained by one California Community College English faculty member, Karen Crozer.</strong> It is an independent volunteer project, not an official ASCCC OERI or CCCCO resource.</p>
-        <p>Faculty input is welcome: recommend resources, share teaching experience, suggest corrections, review draft rubrics or IDEA crosswalks, or volunteer for a larger role.</p>
-        <div class="project-links"><a href="about.html">About the project →</a><a href="#contribute">Ways to contribute →</a></div>
+        <p>Faculty input is welcome: recommend resources, share teaching experience, suggest corrections, review draft rubrics, or volunteer for a larger role.</p>
+        <div class="project-links"><a href="about.html">About the project →</a><a href="scoring-method.html">How the reviews work →</a><a href="https://drkarebear.github.io/OER-Promptbook/">Search beyond these picks with The OER Promptbook →</a></div>
       </section>
     </div>
 
@@ -60,13 +66,13 @@
     </section>
 
     <section class="section alt" id="evaluate" aria-labelledby="evaluation-heading"><div class="inner">
-      <h2 id="evaluation-heading">Explore the evaluation</h2>
-      <p class="section-lead">The ratings are meant to be inspectable. See the criteria, the additional review lenses, the scoring method, and the evidence behind the observations.</p>
+      <h2 id="evaluation-heading">See how the reviews work</h2>
+      <p class="section-lead">The ratings are meant to be inspectable. The site publishes the course criteria, explains the AI-assisted first pass and human review, and keeps faculty experience separate from editorial alignment.</p>
       <div class="lens-grid">
-        <article class="lens-card rubric"><span class="lens-tag">COURSE RUBRICS</span><h3>See exactly what the course-alignment scores are based on.</h3><p>Each course has its own published rubric. More English-course rubrics can be added over time as draft, faculty-reviewed, and OER-tested resources.</p><div class="rubric-links" aria-label="Course rubric links"><a href="c1000-rubric.html">C1000</a><a href="c1001-rubric.html">C1001</a><a href="c1002-rubric.html">C1002</a><a href="c1003-rubric.html">C1003</a></div></article>
-        <article class="lens-card idea"><span class="lens-tag">IDEA FRAMEWORK</span><h3>Add a separate inclusion, diversity, equity, and anti-racism lens.</h3><p>IDEA crosswalks sit beside course alignment rather than change it, making it easier to see what a resource does well and where opportunities remain.</p><a href="idea-framework.html">Explore the IDEA Framework lens →</a></article>
-        <article class="lens-card method"><span class="lens-tag">SCORING &amp; METHOD</span><h3>See how the observations are developed.</h3><p>Review the alignment scale, course-specific scoring logic, AI-assisted first pass, my editorial review, and the role of faculty experience.</p><a href="scoring-method.html">View the scoring method →</a></article>
-        <article class="lens-card toolkit" id="toolkit"><span class="lens-tag">OER EVALUATION TOOLKIT</span><h3>Try the method with an OER of your own.</h3><p>Start with a COR, CCN, or C-ID record; build or adapt a rubric; investigate an OER; check the evidence; and make a teaching decision.</p><a href="oer-evaluation-toolkit-hub.html">Open the OER Evaluation Toolkit →</a></article>
+        <article class="lens-card rubric"><span class="lens-tag">COURSE RUBRICS</span><h3>See exactly what each course-alignment rating is based on.</h3><p>Each course has its own working rubric built around the instructional work of that course rather than a generic textbook checklist.</p><div class="rubric-links" aria-label="Course rubric links"><a href="c1000-rubric.html">C1000</a><a href="c1001-rubric.html">C1001</a><a href="c1002-rubric.html">C1002</a><a href="c1003-rubric.html">C1003</a></div></article>
+        <article class="lens-card method"><span class="lens-tag">AI + HUMAN REVIEW</span><h3>See how an OER moves from a first pass to a published observation.</h3><p>AI helps scan large resources and draft criterion-level findings. I then open the resource, check the evidence, revise unsupported claims or scores, and make the final editorial judgment.</p><a href="scoring-method.html">View the scoring method →</a></article>
+        <article class="lens-card toolkit"><span class="lens-tag">FACULTY EXPERIENCE</span><h3>Keep classroom experience visible as a different kind of evidence.</h3><p>Faculty recommendations and teaching notes are not folded into the alignment score. They can reinforce, complicate, or correct what an editorial review suggests.</p><a href="about.html#faculty-heading">Why faculty feedback matters →</a></article>
+        <article class="lens-card idea"><span class="lens-tag">SEARCH BEYOND THESE PICKS</span><h3>Use The OER Promptbook when you want to conduct your own broader search.</h3><p>The separate Promptbook project now houses the step-by-step and advanced AI prompts for finding, comparing, evaluating, and planning with OER and other ZTC materials.</p><a href="https://drkarebear.github.io/OER-Promptbook/">Open The OER Promptbook →</a></article>
       </div>
     </div></section>
 
@@ -77,11 +83,17 @@
         <div class="contribute-item"><h3>Used one of these OERs?</h3><p>Share a faculty recommendation or teaching note from real classroom use.</p></div>
         <div class="contribute-item"><h3>See something differently?</h3><p>Suggest a correction, add evidence, or question an editorial observation.</p></div>
         <div class="contribute-item"><h3>Teach another English course?</h3><p>Help review a future COR-based rubric or suggest a course for the rubric library.</p></div>
-        <div class="contribute-item"><h3>Interested in IDEA?</h3><p>Review an IDEA crosswalk or help refine how that lens is applied to OER.</p></div>
+        <div class="contribute-item"><h3>Have another perspective?</h3><p>Share context about representation, accessibility, teaching use, or another issue that a course-alignment review may not capture.</p></div>
         <div class="contribute-item"><h3>Know an OER that should be here?</h3><p>Recommend a resource that should be considered for one of the course guides.</p></div>
         <div class="contribute-item"><h3>Want to help more?</h3><p>Volunteer for a larger role in reviewing, rubric development, or project maintenance.</p></div>
       </div>
       <p style="margin-top:24px"><a class="button dark" href="https://groups.google.com/g/englishoer" target="_blank" rel="noopener noreferrer">Join the English OER CCC Google Group</a></p>
+    </div></section>
+
+    <section class="section alt" aria-labelledby="related-heading"><div class="inner">
+      <h2 id="related-heading">Related project: The OER Promptbook</h2>
+      <p class="section-lead">CCC English OER Picks is the curated, course-specific side of the work. <em>The OER Promptbook</em> is the prompting and search-method side. Use this site when you want English recommendations and transparent course-fit reviews; use the Promptbook when you want to search, compare, or plan with OER yourself.</p>
+      <p><a class="button dark" href="https://drkarebear.github.io/OER-Promptbook/">Visit The OER Promptbook</a></p>
     </div></section>
 
     <section class="oeri-note" aria-labelledby="oeri-heading">
@@ -94,7 +106,7 @@
   <div class="footer-inner">
     <p><strong>CCC English OER Picks</strong></p>
     <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 </body>

@@ -9,7 +9,7 @@
 <style>
 :root {
   --navy:#18324a; --blue:#245d78; --light-blue:#eef4f7; --cream:#fff9e8;
-  --gold:#d9a441; --purple:#6c5a86; --text:#263746; --muted:#5f6f7d;
+  --gold:#9b6a00; --purple:#6c5a86; --text:#263746; --muted:#5f6f7d;
   --border:#d9e1e7; --white:#fff; --shadow:0 8px 24px rgba(29,49,67,.09);
   --max:1120px;
 }
@@ -75,6 +75,34 @@ footer{background:#182734;color:#dbe6ec;padding:34px 20px}
   .hero-wrap{padding-left:16px;padding-right:16px}
   .lead-card{margin-top:-62px;padding:22px}
 }
+
+
+    /* WCAG 2.2 Level AA hardening for first-party pages. */
+    :where(a, button, input, select, textarea, summary):focus-visible {
+      outline: 3px solid #ffffff !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 5px #111827 !important;
+    }
+    :where(button, input, select, textarea, summary, .button) {
+      min-height: 44px;
+      font: inherit;
+    }
+    :where(input, select, textarea) { max-width: 100%; }
+    :where(a) { text-decoration-thickness: .08em; text-underline-offset: .16em; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    @media (forced-colors: active) {
+      :where(a, button, input, select, textarea, summary):focus-visible {
+        outline: 3px solid CanvasText !important;
+        box-shadow: none !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -100,20 +128,19 @@ footer{background:#182734;color:#dbe6ec;padding:34px 20px}
   </div>
 </div>
 
-<main id="main-content">
+<main id="main-content" tabindex="-1">
   <section class="lead-card" aria-labelledby="purpose-heading">
     <h2 id="purpose-heading">What this content rubric does</h2>
     <p>This rubric is built around the distinctive work of C1001: critical reading, argument, reasoning, source evaluation, evidence use, and revision. The categories are scored independently because a logic-centered resource, an argument handbook, a research guide, and a nonfiction reader can all be useful for different reasons.</p>
     <p><strong>No single overall score.</strong> The goal is to make those differences visible rather than collapse them into one number.</p>
 
     <div class="lens-box">
-      <strong>This is the content lens.</strong> It asks whether an OER provides meaningful, teachable coverage of C1001's instructional work. It is separate from the site's <strong>ASCCC OERI IDEA Framework crosswalk</strong>, which examines inclusion, diversity, equity, and anti-racism. The two lenses are never merged into one score.
+      <strong>This is a course-alignment rubric.</strong> It asks whether an OER provides meaningful, teachable coverage of this course's instructional work. It does not assign separate scores for accessibility, licensing, representation, equity, inclusion, anti-racism, or overall quality. Those considerations may be noted qualitatively when relevant, but they are not currently a formal scored layer.
     </div>
 
     <div class="button-row">
       <a class="button" href="c1001.html">Back to C1001 OER</a>
       <a class="button secondary" href="scoring-method.html">General Scoring Method</a>
-      <a class="button secondary" href="oer-evaluation-toolkit.html#idea-heading">IDEA Crosswalk Method</a>
     </div>
   </section>
 
@@ -140,7 +167,7 @@ footer{background:#182734;color:#dbe6ec;padding:34px 20px}
       </div>
       <div class="method-card">
         <strong>3. Keep the evidence visible.</strong>
-        <p>Reviewers support each rating with a brief rationale and a specific location—chapter, section, page, heading, or stable URL anchor whenever possible.</p>
+        <p>Reviewers support each rating with a brief rationale and a specific location - chapter, section, page, heading, or stable URL anchor whenever possible.</p>
       </div>
     </div>
     <div class="status"><strong>Working rubric:</strong> This is a faculty-developed analytical tool, not an official CCC, CCN, articulation, or curriculum determination. The rubric may be revised as evidence and faculty feedback improve the project.</div>
@@ -379,7 +406,7 @@ footer{background:#182734;color:#dbe6ec;padding:34px 20px}
 
   <section aria-labelledby="limits-heading">
     <h2 id="limits-heading">What this content rubric does not determine</h2>
-    <p>I use this rubric to guide an initial AI-assisted review, then check the evidence and ratings myself before publishing the editorial analysis. It is meant to help faculty decide what to investigate first—not to certify that a resource satisfies ENGL C1001 or a local course outline.</p>
+    <p>I use this rubric for an initial AI-assisted pass, then open the resource and check the evidence and draft ratings myself before publishing the editorial analysis. It is meant to help faculty decide what to investigate first - not to certify that a resource satisfies ENGL C1001 or a local course outline.</p>
     <p>It does not determine official CCN compliance, local curriculum approval, articulation, accessibility compliance, licensing compliance, or suitability for every instructor, assignment, or student population.</p>
     <p>Faculty should review any OER they plan to adopt in relation to their own course outline, local requirements, accessibility expectations, students, assignments, and instructional goals.</p>
     <div class="button-row">
@@ -394,7 +421,7 @@ footer{background:#182734;color:#dbe6ec;padding:34px 20px}
   <div class="footer-inner">
     <p><strong>CCC English OER Picks</strong></p>
     <p>Independent faculty project created and maintained by Karen Crozer. Not affiliated with or endorsed by ASCCC, ASCCC OERI, the California Community Colleges Chancellor's Office, or any individual California Community College.</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#accessibility">Accessibility</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 </body>
