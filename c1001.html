@@ -828,12 +828,11 @@
           sign in using your email address.
         </p>
 
-        <form id="login-form">
+        <form id="login-form" method="post" action="">
           <div class="field">
             <label for="login-email">Email address</label>
             <input
               id="login-email"
-              name="email"
               type="email"
               autocomplete="email"
               required
@@ -968,7 +967,12 @@
             <textarea
               id="suggest-reason"
               maxlength="1000"
+              aria-describedby="suggest-privacy-note"
             ></textarea>
+            <p id="suggest-privacy-note" class="small">
+              Protect student privacy: Do not include student names, student IDs, grades,
+              disability or accessibility information, assignment submissions, or other confidential information.
+            </p>
           </div>
 
         </div>
@@ -1077,8 +1081,13 @@
           <textarea
             id="review-comment"
             maxlength="1000"
+            aria-describedby="review-privacy-note"
             placeholder="What worked? What would you supplement? What should another instructor know?"
           ></textarea>
+          <p id="review-privacy-note" class="small">
+            Protect student privacy: Do not include student names, student IDs, grades,
+            disability or accessibility information, assignment submissions, or other confidential information.
+          </p>
         </div>
 
         <div class="form-grid">
@@ -1129,7 +1138,13 @@
 
     const supabase = createClient(
       SUPABASE_URL,
-      SUPABASE_PUBLISHABLE_KEY
+      SUPABASE_PUBLISHABLE_KEY,
+      {
+        auth: {
+          persistSession: true,
+          storage: window.sessionStorage
+        }
+      }
     );
 
     let currentUser = null;
@@ -1493,6 +1508,7 @@
           .select(`
             course_resource_type,
             course_featured,
+            public_display,
             best_role,
             alignment_label,
             alignment_notes,
@@ -1505,7 +1521,6 @@
             writing_process_alignment,
             diverse_nonfiction_alignment,
             watch_for,
-            editorial_notes,
             review_confidence,
             alignment_details,
             oers (
@@ -1519,7 +1534,8 @@
               ancillary_notes
             )
           `)
-          .eq("course_id", c1001CourseId);
+          .eq("course_id", c1001CourseId)
+          .eq("public_display", true);
 
       if (resourceError) {
         loading.textContent =
@@ -1541,7 +1557,8 @@
             display_name,
             created_at
           `)
-          .eq("course_id", c1001CourseId);
+          .eq("course_id", c1001CourseId)
+          .eq("status", "approved");
 
       if (reviewError) {
         console.error(reviewError);
@@ -1637,7 +1654,7 @@
           await supabase.auth.signInWithOtp({
             email,
             options: {
-              emailRedirectTo: window.location.href
+              emailRedirectTo: window.location.origin + window.location.pathname
             }
           });
 
