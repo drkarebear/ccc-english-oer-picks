@@ -894,7 +894,7 @@
         </button>
 
         <button class="filter-button" data-filter="supplement" type="button">
-          Analysis / research support
+          Supplement
         </button>
       </div>
     </section>
@@ -908,7 +908,7 @@
           sign in using your email address.
         </p>
 
-        <form id="login-form" method="post" action="">
+        <form id="login-form">
           <div class="field">
             <label for="login-email">Email address</label>
             <input
@@ -930,6 +930,11 @@
             role="status"
             aria-live="polite"
           ></div>
+
+          <p class="small">
+            After you click the link in your email, return to this tab (refreshing if needed) —
+            the link may open in a new tab or window.
+          </p>
         </form>
       </div>
 
@@ -1025,12 +1030,11 @@
 
       <p>
         I am currently the sole evaluator for these editorial Content Alignment reviews.
-        Faculty Experience is collected separately and never changes the Content Alignment
-        ratings. The course-alignment review is separate from faculty experience and does not represent an official accessibility, licensing, or curriculum determination.
+        The course-alignment review is separate from faculty experience and does not represent an official accessibility, licensing, or curriculum determination.
       </p>
 
       <p class="small">
-        These are independent editorial assessments, not ASCCC/OERI ratings or endorsements.
+        These are independent editorial observations, not ASCCC/OERI ratings or endorsements.
       </p>
 
       <div class="card-links">
@@ -1081,7 +1085,8 @@
 
           <div class="field">
             <label for="suggest-course">Best course</label>
-            <select id="suggest-course">
+            <select id="suggest-course" required>
+              <option value="" selected disabled>Select a course</option>
               <option value="ENGL C1000">ENGL C1000</option>
               <option value="ENGL C1001">ENGL C1001</option>
               <option value="ENGL C1002">ENGL C1002</option>
@@ -1174,8 +1179,9 @@
           <label for="review-recommend">Would you recommend this for ENGL C1002?</label>
 
           <select id="review-recommend" required>
-            <option value="true">Yes  -  recommend</option>
-            <option value="false">No  -  would not recommend</option>
+            <option value="" selected disabled>Select one</option>
+            <option value="true">Yes - recommend</option>
+            <option value="false">No - would not recommend</option>
           </select>
         </div>
 
@@ -1183,6 +1189,7 @@
           <label for="review-use-type">How have you used it?</label>
 
           <select id="review-use-type" required>
+            <option value="" selected disabled>Select one</option>
             <option value="primary_text">Primary / whole text</option>
             <option value="selected_chapters">Selected chapters</option>
             <option value="supplement">Supplement</option>
@@ -1292,7 +1299,7 @@
     }
 
     function scoreDots(score) {
-      const number = Number(score || 0);
+      const number = Math.max(0, Math.min(3, Number(score || 0)));
 
       return `${"●".repeat(number)}${"○".repeat(3 - number)}`;
     }
@@ -1570,27 +1577,27 @@
 
       else if (filter === "poetry") {
         resources = resources.filter(
-          item => Number(item.poetry_alignment || 0) >= 3
+          item => Number(item.poetry_alignment || 0) >= 2
         );
       }
 
       else if (filter === "drama") {
         resources = resources.filter(
-          item => Number(item.drama_alignment || 0) >= 3
+          item => Number(item.drama_alignment || 0) >= 2
         );
       }
 
       else if (filter === "fiction") {
         resources = resources.filter(
-          item => Number(item.fiction_alignment || 0) >= 3
+          item => Number(item.fiction_alignment || 0) >= 2
         );
       }
 
       else if (filter === "analysis") {
         resources = resources.filter(
           item =>
-            Number(item.close_reading_alignment || 0) >= 3 ||
-            Number(item.literary_terms_alignment || 0) >= 3
+            Number(item.close_reading_alignment || 0) >= 2 ||
+            Number(item.literary_terms_alignment || 0) >= 2
         );
       }
 
@@ -1890,7 +1897,7 @@
       document.getElementById(
         "content-review-dialog-title"
       ).textContent =
-        `${button.dataset.oerTitle}  -  C1002 Content Review`;
+        `${button.dataset.oerTitle} - C1002 Content Review`;
 
       if (!item) {
         contentReviewDialogBody.innerHTML = `
@@ -2002,7 +2009,11 @@
     const reviewDialog =
       document.getElementById("review-dialog");
 
+    let lastReviewTrigger = null;
+
     function openReviewDialog(button) {
+
+      lastReviewTrigger = button;
 
       if (!currentUser) {
 
@@ -2042,6 +2053,12 @@
         "click",
         () => reviewDialog.close()
       );
+
+    reviewDialog.addEventListener("close", () => {
+      if (lastReviewTrigger) {
+        lastReviewTrigger.focus();
+      }
+    });
 
     document
       .getElementById("review-form")

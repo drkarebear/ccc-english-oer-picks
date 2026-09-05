@@ -912,6 +912,11 @@
             Email me a sign-in link
           </button>
 
+          <p class="small">
+            After you click the link in your email, return to this tab (refreshing if needed) —
+            the link may open in a new tab or window.
+          </p>
+
           <div
             id="login-status"
             class="status-message"
@@ -938,7 +943,9 @@
       Start Here resources are highlighted as the strongest general starting points. The full
       list is intentionally ordered to help faculty browse from broadly useful course spines
       toward more specialized and build-your-own options. The order reflects likely teaching
-      role and usability, not a composite score or overall ranking.
+      role and usability, not a composite score or overall ranking. When resources tie on
+      role and type, they are then ordered by how many rubric domains score "Strong" or
+      "Meaningful."
     </p>
 
     <div id="loading" class="loading" role="status">
@@ -1190,7 +1197,8 @@
 
           <div class="field">
             <label for="suggest-course">Best course</label>
-            <select id="suggest-course">
+            <select id="suggest-course" required>
+              <option value="" selected disabled>Select a course</option>
               <option value="ENGL C1000">ENGL C1000</option>
               <option value="ENGL C1001">ENGL C1001</option>
               <option value="ENGL C1002">ENGL C1002</option>
@@ -1275,8 +1283,9 @@
           <label for="review-recommend">Would you recommend this for ENGL C1000?</label>
 
           <select id="review-recommend" required>
-            <option value="true">Yes  -  recommend</option>
-            <option value="false">No  -  would not recommend</option>
+            <option value="" selected disabled>Select one</option>
+            <option value="true">Yes - recommend</option>
+            <option value="false">No - would not recommend</option>
           </select>
         </div>
 
@@ -1284,6 +1293,7 @@
           <label for="review-use-type">How have you used it?</label>
 
           <select id="review-use-type" required>
+            <option value="" selected disabled>Select one</option>
             <option value="primary_text">Primary / whole text</option>
             <option value="selected_chapters">Selected chapters</option>
             <option value="supplement">Supplement</option>
@@ -1393,7 +1403,7 @@
     }
 
     function scoreDots(score) {
-      const number = Number(score || 0);
+      const number = Math.max(0, Math.min(3, Number(score || 0)));
       return `${"●".repeat(number)}${"○".repeat(3 - number)}`;
     }
 
@@ -1749,7 +1759,6 @@
             course_featured,
             display_order,
             public_display,
-            review_confidence,
             best_role,
             alignment_label,
             alignment_notes,
@@ -2027,6 +2036,7 @@
       document.getElementById("alignment-dialog-body");
 
     let lastAlignmentTrigger = null;
+    let lastReviewTrigger = null;
 
     const alignmentCriteria = [
       ["academic_reading", "Academic Reading", "reading_alignment"],
@@ -2054,7 +2064,7 @@
 
       document.getElementById(
         "alignment-dialog-title"
-      ).textContent = `${button.dataset.oerTitle}  -  C1000 Content Review`;
+      ).textContent = `${button.dataset.oerTitle} - C1000 Content Review`;
 
       alignmentDialogBody.innerHTML =
         '<p class="alignment-loading">Loading alignment details…</p>';
@@ -2120,7 +2130,6 @@
           <p><strong>Review confidence:</strong> ${escapeHtml(details.confidence || "Not recorded")}</p>
           ${details.review_scope ? `<p><strong>Scope reviewed:</strong> ${escapeHtml(details.review_scope)}</p>` : ""}
           <p>${escapeHtml(details.method_note || "Ratings reflect explicit instructional coverage rather than topic presence alone.")}</p>
-          <p class="small">This editorial content review is separate from faculty experience.</p>
         </div>
         ${sections}
         <div class="alignment-review-meta">
@@ -2150,6 +2159,8 @@
       document.getElementById("review-dialog");
 
     function openReviewDialog(button) {
+
+      lastReviewTrigger = button;
 
       if (!currentUser) {
 
@@ -2189,6 +2200,12 @@
         "click",
         () => reviewDialog.close()
       );
+
+    reviewDialog.addEventListener("close", () => {
+      if (lastReviewTrigger) {
+        lastReviewTrigger.focus();
+      }
+    });
 
     document
       .getElementById("review-form")

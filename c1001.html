@@ -770,7 +770,6 @@
       The dots are <strong>Content Alignment</strong> ratings, not overall quality scores.
       I review each resource against eight C1001 content areas and look for explicit
       instruction, not simply a topic, reading, assignment, or opportunity to practice.
-      Faculty recommendations and teaching notes are separate and do not affect my ratings.
     </div>
 
     <section class="method-panel" aria-labelledby="rubric-link-heading">
@@ -802,7 +801,7 @@
         </button>
 
         <button class="filter-button" data-filter="logic" type="button">
-          Logic &amp; reasoning
+          Logic, Reasoning &amp; Bias Awareness
         </button>
 
         <button class="filter-button" data-filter="argument" type="button">
@@ -851,6 +850,11 @@
             aria-live="polite"
           ></div>
         </form>
+
+        <p class="small">
+          After you click the link in your email, return to this tab (refreshing if needed) —
+          the link may open in a new tab or window.
+        </p>
       </div>
 
       <div id="signed-in-area" hidden>
@@ -954,7 +958,8 @@
 
           <div class="field">
             <label for="suggest-course">Best course</label>
-            <select id="suggest-course">
+            <select id="suggest-course" required>
+              <option value="" selected disabled>Select a course</option>
               <option value="ENGL C1000">ENGL C1000</option>
               <option value="ENGL C1001">ENGL C1001</option>
               <option value="ENGL C1002">ENGL C1002</option>
@@ -1047,8 +1052,9 @@
           <label for="review-recommend">Would you recommend this for ENGL C1001?</label>
 
           <select id="review-recommend" required>
-            <option value="true">Yes  -  recommend</option>
-            <option value="false">No  -  would not recommend</option>
+            <option value="" selected disabled>Select one</option>
+            <option value="true">Yes - recommend</option>
+            <option value="false">No - would not recommend</option>
           </select>
         </div>
 
@@ -1056,6 +1062,7 @@
           <label for="review-use-type">How have you used it?</label>
 
           <select id="review-use-type" required>
+            <option value="" selected disabled>Select one</option>
             <option value="primary_text">Primary / whole text</option>
             <option value="selected_chapters">Selected chapters</option>
             <option value="supplement">Supplement</option>
@@ -1151,6 +1158,7 @@
     let c1001CourseId = null;
     let allResources = [];
     let approvedReviews = [];
+    let reviewsFailedToLoad = false;
 
     const grid = document.getElementById("oer-grid");
     const loading = document.getElementById("loading");
@@ -1165,7 +1173,7 @@
     }
 
     function scoreDots(score) {
-      const number = Number(score || 0);
+      const number = Math.max(0, Math.min(3, Number(score || 0)));
 
       return `${"●".repeat(number)}${"○".repeat(3 - number)}`;
     }
@@ -1203,7 +1211,9 @@
       const reviews = reviewsFor(oerId);
 
       if (!reviews.length) {
-        return "No approved faculty reviews yet.";
+        return reviewsFailedToLoad
+          ? "Faculty reviews couldn't be loaded right now."
+          : "No approved faculty reviews yet.";
       }
 
       const recommendCount =
@@ -1351,7 +1361,7 @@
               </div>
 
               <div class="score-row">
-                <span>Diverse nonfiction</span>
+                <span>Diverse &amp; Complex Nonfiction</span>
                 <span class="dots" aria-label="${scoreLabel(item.diverse_nonfiction_alignment)} (${Number(item.diverse_nonfiction_alignment || 0)} of 3)">
                   ${scoreDots(item.diverse_nonfiction_alignment)}
                 </span>
@@ -1436,14 +1446,14 @@
       else if (filter === "logic") {
         resources = resources.filter(
           item =>
-            Number(item.critical_reasoning_alignment || 0) >= 3 ||
-            Number(item.bias_fallacies_alignment || 0) >= 3
+            Number(item.critical_reasoning_alignment || 0) >= 2 ||
+            Number(item.bias_fallacies_alignment || 0) >= 2
         );
       }
 
       else if (filter === "argument") {
         resources = resources.filter(
-          item => Number(item.rhetoric_alignment || 0) >= 3
+          item => Number(item.rhetoric_alignment || 0) >= 2
         );
       }
 
@@ -1562,6 +1572,7 @@
 
       if (reviewError) {
         console.error(reviewError);
+        reviewsFailedToLoad = true;
       }
 
       allResources = resourceData || [];
@@ -1688,6 +1699,7 @@
       document.getElementById("content-review-dialog-body");
 
     let lastContentReviewTrigger = null;
+    let lastReviewTrigger = null;
 
     const contentReviewCriteria = [
       ["critical_reading", "Critical Reading", "reading_alignment"],
@@ -1724,7 +1736,7 @@
       document.getElementById(
         "content-review-dialog-title"
       ).textContent =
-        `${button.dataset.oerTitle}  -  C1001 Content Review`;
+        `${button.dataset.oerTitle} - C1001 Content Review`;
 
       if (!item) {
         contentReviewDialogBody.innerHTML = `
@@ -1827,6 +1839,8 @@
 
     function openReviewDialog(button) {
 
+      lastReviewTrigger = button;
+
       if (!currentUser) {
 
         document
@@ -1865,6 +1879,12 @@
         "click",
         () => reviewDialog.close()
       );
+
+    reviewDialog.addEventListener("close", () => {
+      if (lastReviewTrigger) {
+        lastReviewTrigger.focus();
+      }
+    });
 
     document
       .getElementById("review-form")
